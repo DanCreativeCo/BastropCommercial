@@ -1,0 +1,152 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Cormorant+Garamond:wght@500;600&family=Space+Grotesk:wght@400;600&family=Inter:wght@400;600&family=Archivo:wght@600;800&family=Outfit:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+  .vd-wrap { --r: 14px; }
+  .vd-wrap h2 { margin-bottom:4px; }
+  .vd-grid { display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:24px; }
+  @media (max-width:900px){ .vd-grid{ grid-template-columns:1fr; } }
+  .vd-card { border-radius:var(--r); overflow:hidden; cursor:pointer; border:2px solid rgba(0,0,0,.08);
+    background:#fff; transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+    box-shadow:0 6px 22px rgba(0,0,0,.06); }
+  .vd-card:hover { transform:translateY(-4px); box-shadow:0 16px 40px rgba(0,0,0,.13); }
+  .vd-card.selected { border-color:#2f5d3a; box-shadow:0 16px 44px rgba(47,93,58,.25); }
+  .vd-hero { height:188px; padding:22px; display:flex; flex-direction:column; justify-content:space-between; position:relative; }
+  .vd-ey { font-size:11px; letter-spacing:.22em; text-transform:uppercase; opacity:.85; }
+  .vd-h { line-height:1.02; }
+  .vd-sub { font-size:12.5px; opacity:.9; max-width:90%; }
+  .vd-body { padding:16px 18px 18px; }
+  .vd-name { font:700 13px/1 'Inter',sans-serif; letter-spacing:.02em; color:#1a1a1a; display:flex; align-items:center; gap:8px; }
+  .vd-tag { font-size:11px; color:#6b6b6b; margin:7px 0 12px; line-height:1.45; }
+  .vd-swatches { display:flex; gap:6px; }
+  .vd-sw { width:26px; height:26px; border-radius:6px; box-shadow:inset 0 0 0 1px rgba(0,0,0,.08); }
+  .vd-type { font-size:10.5px; color:#8a8a8a; margin-top:10px; }
+  .vd-pill { display:inline-block; font:600 9px/1 'Inter'; letter-spacing:.12em; text-transform:uppercase; padding:3px 7px; border-radius:999px; }
+
+  /* A — Editorial Land */
+  .a-hero { background:linear-gradient(150deg,#efe7d6 0%, #e3d6bd 100%); color:#37331f; }
+  .a-hero .vd-h { font:600 33px/1 'Fraunces',serif; }
+  .a-hero .a-accent{ position:absolute; right:18px; bottom:18px; width:54px; height:54px; border-radius:50%; background:#b9622f; opacity:.9; }
+
+  /* B — Institutional Forest */
+  .b-hero { background:radial-gradient(120% 140% at 80% 0%, #1f3d2a 0%, #14271b 70%); color:#ede7d2; }
+  .b-hero .vd-h { font:800 30px/1.02 'Archivo',sans-serif; letter-spacing:-.01em; }
+  .b-hero .vd-ey{ color:#cBR; color:#c9a24a; }
+  .b-hero .b-line{ height:2px; width:46px; background:#c9a24a; margin-top:6px; }
+
+  /* C — Warm Texas */
+  .c-hero { background:linear-gradient(115deg,#f7b733 0%, #d96f37 55%, #a23e2e 100%); color:#fff5e8; }
+  .c-hero .vd-h { font:600 31px/1.04 'Outfit',sans-serif; }
+  .c-hero .c-sun{ position:absolute; right:-30px; top:-30px; width:140px; height:140px; border-radius:50%; background:radial-gradient(circle,#ffe9a8 0%, rgba(255,233,168,0) 70%); }
+
+  /* D — Architectural Minimal */
+  .d-hero { background:#f4f3f1; color:#111; border-bottom:1px solid #e2e0dc; }
+  .d-hero .vd-h { font:500 30px/1.05 'Cormorant Garamond',serif; letter-spacing:.01em; }
+  .d-hero .d-rule{ position:absolute; left:22px; right:22px; bottom:64px; height:1px; background:#d4d2cd; }
+</style>
+
+<div class="vd-wrap">
+  <h2>Four directions for "lush." Which world feels right?</h2>
+  <p class="subtitle">Each is a complete mood — palette, typography, and the emotional register of the hero. Click the one that feels like Taylor's brand. (You can note what you love/hate from each — we'll refine, not just pick.)</p>
+
+  <div class="vd-grid">
+
+    <!-- A -->
+    <div class="vd-card cards" data-choice="editorial-land" onclick="toggleSelect(this)">
+      <div class="vd-hero a-hero">
+        <div class="vd-ey">Bastrop County · Est. Land</div>
+        <div class="a-accent"></div>
+        <div>
+          <div class="vd-h">Where Texas<br>builds next.</div>
+          <div class="vd-sub" style="margin-top:8px">88 acres of industrial-zoned opportunity, minutes from Austin.</div>
+        </div>
+      </div>
+      <div class="vd-body">
+        <div class="vd-name">A · Editorial Land <span class="vd-pill" style="background:#efe7d6;color:#8a5a2b">RECOMMENDED</span></div>
+        <div class="vd-tag">Magazine-grade. Cinematic landscape photography, warm cream/olive/terracotta, elegant serif headlines. Feels premium, rooted, expensive — like a fine ranch-land brokerage.</div>
+        <div class="vd-swatches">
+          <div class="vd-sw" style="background:#efe7d6"></div>
+          <div class="vd-sw" style="background:#3a4a2c"></div>
+          <div class="vd-sw" style="background:#b9622f"></div>
+          <div class="vd-sw" style="background:#37331f"></div>
+          <div class="vd-sw" style="background:#fbf8f1"></div>
+        </div>
+        <div class="vd-type">Fraunces (display serif) · Inter (text)</div>
+      </div>
+    </div>
+
+    <!-- B -->
+    <div class="vd-card cards" data-choice="institutional-forest" onclick="toggleSelect(this)">
+      <div class="vd-hero b-hero">
+        <div class="vd-ey">Commercial Investment · TX</div>
+        <div>
+          <div class="vd-h">Serious land.<br>Serious returns.</div>
+          <div class="b-line"></div>
+          <div class="vd-sub" style="margin-top:8px">Institutional-grade acquisition advisory in Bastrop.</div>
+        </div>
+      </div>
+      <div class="vd-body">
+        <div class="vd-name">B · Institutional Forest</div>
+        <div class="vd-tag">Confident and data-forward. Deep forest green, gold accents, strong sans-serif, structured grid with cap-rate/acreage figures. Reads like a respected investment firm.</div>
+        <div class="vd-swatches">
+          <div class="vd-sw" style="background:#14271b"></div>
+          <div class="vd-sw" style="background:#1f3d2a"></div>
+          <div class="vd-sw" style="background:#c9a24a"></div>
+          <div class="vd-sw" style="background:#e0d9c4"></div>
+          <div class="vd-sw" style="background:#0c1711"></div>
+        </div>
+        <div class="vd-type">Archivo (grotesk) · Inter (text)</div>
+      </div>
+    </div>
+
+    <!-- C -->
+    <div class="vd-card cards" data-choice="warm-texas" onclick="toggleSelect(this)">
+      <div class="vd-hero c-hero">
+        <div class="c-sun"></div>
+        <div class="vd-ey">Bastrop, Texas</div>
+        <div>
+          <div class="vd-h">Your corner<br>of the boom.</div>
+          <div class="vd-sub" style="margin-top:8px">Friendly, local expertise for buyers and sellers alike.</div>
+        </div>
+      </div>
+      <div class="vd-body">
+        <div class="vd-name">C · Warm Texas</div>
+        <div class="vd-tag">Sun-drenched and human. Golden-hour gradients, approachable rounded sans, lots of warmth and texture. Inviting and local — less corporate, more neighbor.</div>
+        <div class="vd-swatches">
+          <div class="vd-sw" style="background:#f7b733"></div>
+          <div class="vd-sw" style="background:#d96f37"></div>
+          <div class="vd-sw" style="background:#a23e2e"></div>
+          <div class="vd-sw" style="background:#2e2a26"></div>
+          <div class="vd-sw" style="background:#fff5e8"></div>
+        </div>
+        <div class="vd-type">Outfit (rounded sans) · Inter (text)</div>
+      </div>
+    </div>
+
+    <!-- D -->
+    <div class="vd-card cards" data-choice="architectural-minimal" onclick="toggleSelect(this)">
+      <div class="vd-hero d-hero">
+        <div class="vd-ey">B C R E</div>
+        <div class="d-rule"></div>
+        <div>
+          <div class="vd-h">Bastrop, defined.</div>
+          <div class="vd-sub" style="margin-top:8px">Commercial real estate, considered.</div>
+        </div>
+      </div>
+      <div class="vd-body">
+        <div class="vd-name">D · Architectural Minimal</div>
+        <div class="vd-tag">Gallery-quiet luxe. Near-monochrome, enormous negative space, thin elegant type, one restrained accent. The photography does all the talking. Ultra-premium, but cooler/less Texan.</div>
+        <div class="vd-swatches">
+          <div class="vd-sw" style="background:#f4f3f1"></div>
+          <div class="vd-sw" style="background:#111111"></div>
+          <div class="vd-sw" style="background:#8a8378"></div>
+          <div class="vd-sw" style="background:#c5662f"></div>
+          <div class="vd-sw" style="background:#ffffff"></div>
+        </div>
+        <div class="vd-type">Cormorant Garamond (serif) · Inter (text)</div>
+      </div>
+    </div>
+
+  </div>
+</div>

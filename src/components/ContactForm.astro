@@ -1,0 +1,81 @@
+---
+import { site } from "../lib/site";
+/**
+ * Contact form.
+ *
+ * Static-site submission: wire `action` to your provider when hosting is chosen.
+ *   • Netlify Forms — add `data-netlify="true"` and a hidden form-name input.
+ *   • Formspree     — set action="https://formspree.io/f/XXXX".
+ * Until then it posts nowhere; the markup + validation are production-ready.
+ */
+interface Props {
+  tone?: "light" | "dark";
+}
+const { tone = "light" } = Astro.props;
+const dark = tone === "dark";
+
+const fieldBase =
+  "w-full rounded-lg border bg-transparent px-4 py-3 text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-gold-500/60";
+const fieldLight = "border-sand text-ink placeholder:text-stone/60";
+const fieldDark = "border-cream/20 text-cream placeholder:text-cream/40";
+const labelCls = dark ? "text-cream/80" : "text-forest-800";
+---
+
+<form
+  action="#"
+  method="POST"
+  class="space-y-5"
+  data-contact-form
+>
+  <div class="grid gap-5 sm:grid-cols-2">
+    <div>
+      <label class:list={["eyebrow mb-2 block", labelCls]} for="firstName">First name</label>
+      <input id="firstName" name="firstName" type="text" required autocomplete="given-name"
+        class:list={[fieldBase, dark ? fieldDark : fieldLight]} placeholder="Jane" />
+    </div>
+    <div>
+      <label class:list={["eyebrow mb-2 block", labelCls]} for="lastName">Last name</label>
+      <input id="lastName" name="lastName" type="text" required autocomplete="family-name"
+        class:list={[fieldBase, dark ? fieldDark : fieldLight]} placeholder="Doe" />
+    </div>
+  </div>
+
+  <div class="grid gap-5 sm:grid-cols-2">
+    <div>
+      <label class:list={["eyebrow mb-2 block", labelCls]} for="email">Email</label>
+      <input id="email" name="email" type="email" required autocomplete="email"
+        class:list={[fieldBase, dark ? fieldDark : fieldLight]} placeholder="jane@company.com" />
+    </div>
+    <div>
+      <label class:list={["eyebrow mb-2 block", labelCls]} for="phone">Phone</label>
+      <input id="phone" name="phone" type="tel" autocomplete="tel"
+        class:list={[fieldBase, dark ? fieldDark : fieldLight]} placeholder="(512) 555-0100" />
+    </div>
+  </div>
+
+  <div>
+    <label class:list={["eyebrow mb-2 block", labelCls]} for="interest">I'm interested in</label>
+    <select id="interest" name="interest"
+      class:list={[fieldBase, dark ? fieldDark : fieldLight, "appearance-none"]}>
+      <option>Buying / investing in Bastrop</option>
+      <option>Selling commercial property</option>
+      <option>A specific listing</option>
+      <option>Market consultation</option>
+    </select>
+  </div>
+
+  <div>
+    <label class:list={["eyebrow mb-2 block", labelCls]} for="message">Message</label>
+    <textarea id="message" name="message" rows="4" required
+      class:list={[fieldBase, dark ? fieldDark : fieldLight, "resize-y"]}
+      placeholder="Tell me a little about what you're looking for…"></textarea>
+  </div>
+
+  <button type="submit" class:list={["btn w-full justify-center", dark ? "btn-gold" : "btn-forest"]}>
+    Send message
+  </button>
+
+  <p class:list={["text-center text-xs", dark ? "text-cream/50" : "text-stone"]}>
+    Prefer to talk? Call <a href={site.agent.phoneHref} class="link-underline font-semibold">{site.agent.phone}</a>
+  </p>
+</form>

@@ -1,0 +1,49 @@
+---
+import { site } from "../lib/site";
+const year = new Date().getFullYear();
+---
+
+<footer class="relative overflow-hidden bg-forest-950 text-cream">
+  <div class="grain"></div>
+  <div class="relative mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:py-20">
+    <div class="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
+      <!-- Brand + pitch -->
+      <div>
+        <div class="flex items-center gap-2.5">
+          <span class="grid h-9 w-9 place-items-center rounded-md bg-gold-500 font-display text-lg font-semibold text-forest-950">B</span>
+          <span class="font-display text-lg font-semibold">{site.longName}</span>
+        </div>
+        <p class="mt-5 max-w-sm text-sm leading-relaxed text-cream/70">
+          {site.description}
+        </p>
+        <a href="/contact" class="btn btn-gold mt-7">Book a consultation</a>
+      </div>
+
+      <!-- Explore -->
+      <div>
+        <h3 class="eyebrow text-gold-500">Explore</h3>
+        <ul class="mt-5 space-y-3 text-sm text-cream/80">
+          {site.nav.map((item) => (
+            <li><a href={item.href} class="link-underline">{item.label}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h3 class="eyebrow text-gold-500">Contact</h3>
+        <ul class="mt-5 space-y-3 text-sm text-cream/80">
+          <li class="font-display text-lg text-cream">{site.agent.name}</li>
+          <li>{site.agent.title} · {site.agent.brokerage}</li>
+          <li><a href={site.agent.phoneHref} class="link-underline">{site.agent.phone}</a></li>
+          <li><a href={`mailto:${site.agent.email}`} class="link-underline">{site.agent.email}</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-14 flex flex-col gap-2 border-t border-cream/10 pt-7 text-xs text-cream/50 sm:flex-row sm:items-center sm:justify-between">
+      <p>© {year} {site.longName}. All rights reserved.</p>
+      <p>{site.agent.name}, {site.agent.title} with {site.agent.brokerage}. Equal Housing Opportunity.</p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,82 @@
+{
+  "$ref": "#/definitions/listings",
+  "definitions": {
+    "listings": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "price": {
+          "type": "number"
+        },
+        "priceLabel": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string",
+          "enum": [
+            "Industrial",
+            "Commercial",
+            "Development Land",
+            "Retail"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "Available",
+            "Under Contract",
+            "Sold"
+          ],
+          "default": "Available"
+        },
+        "acreage": {
+          "type": "number"
+        },
+        "address": {
+          "type": "string"
+        },
+        "zoning": {
+          "type": "string"
+        },
+        "highlights": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        },
+        "image": {
+          "type": "string"
+        },
+        "imageAlt": {
+          "type": "string",
+          "default": ""
+        },
+        "featured": {
+          "type": "boolean",
+          "default": false
+        },
+        "order": {
+          "type": "number",
+          "default": 99
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "price",
+        "priceLabel",
+        "category",
+        "acreage",
+        "address",
+        "image"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

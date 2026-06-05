@@ -1,0 +1,16 @@
+{"type":"server-started","port":54512,"host":"127.0.0.1","url_host":"localhost","url":"http://localhost:54512","screen_dir":"/Users/dan/Documents/BastropCommercial/.superpowers/brainstorm/53366-1780611349/content","state_dir":"/Users/dan/Documents/BastropCommercial/.superpowers/brainstorm/53366-1780611349/state"}
+{"type":"screen-added","file":"/Users/dan/Documents/BastropCommercial/.superpowers/brainstorm/53366-1780611349/content/welcome.html"}
+{"type":"screen-updated","file":"/Users/dan/Documents/BastropCommercial/.superpowers/brainstorm/53366-1780611349/content/welcome.html"}
+{"type":"screen-updated","file":"/Users/dan/Documents/BastropCommercial/.superpowers/brainstorm/53366-1780611349/content/welcome.html"}
+{"type":"screen-added","file":"/Users/dan/Documents/BastropCommercial/.superpowers/brainstorm/53366-1780611349/content/visual-directions.html"}
+{"type":"screen-updated","file":"/Users/dan/Documents/BastropCommercial/.superpowers/brainstorm/53366-1780611349/content/visual-directions.html"}
+{"type":"screen-updated","file":"/Users/dan/Documents/BastropCommercial/.superpowers/brainstorm/53366-1780611349/content/visual-directions.html"}
+{"type":"screen-updated","file":"/Users/dan/Documents/BastropCommercial/.superpowers/brainstorm/53366-1780611349/content/welcome.html"}
+{"type":"screen-updated","file":"/Users/dan/Documents/BastropCommercial/.superpowers/brainstorm/53366-1780611349/content/visual-directions.html"}
+{"source":"user-event","type":"click","text":"Commercial Investment · TX\n        \n          Serious land.Serious returns.\n          \n          Institutional-grade acquisition advisory in Bastrop.\n        \n      \n      \n        B · Institutional Forest\n        Confident and data-forward. Deep forest green, gold accents, strong sans-serif, structured grid with cap-rate/acreage figures. Reads like a respected investment firm.\n        \n          \n          \n          \n          \n          \n        \n        Archivo (grotesk) · Inter (text)","choice":"institutional-forest","id":null,"timestamp":1780613565145}
+{"source":"user-event","type":"click","text":"Bastrop County · Est. Land\n        \n        \n          Where Texasbuilds next.\n          88 acres of industrial-zoned opportunity, minutes from Austin.\n        \n      \n      \n        A · Editorial Land RECOMMENDED\n        Magazine-grade. Cinematic landscape photography, warm cream/olive/terracotta, elegant serif headlines. Feels premium, rooted, expensive — like a fine ranch-land brokerage.\n        \n          \n          \n          \n          \n          \n        \n        Fraunces (display serif) · Inter (text)","choice":"editorial-land","id":null,"timestamp":1780613566524}
+{"type":"screen-added","file":"/Users/dan/Documents/BastropCommercial/.superpowers/brainstorm/53366-1780611349/content/blend-direction.html"}
+{"type":"screen-updated","file":"/Users/dan/Documents/BastropCommercial/.superpowers/brainstorm/53366-1780611349/content/blend-direction.html"}
+{"type":"screen-updated","file":"/Users/dan/Documents/BastropCommercial/.superpowers/brainstorm/53366-1780611349/content/blend-direction.html"}
+{"type":"screen-updated","file":"/Users/dan/Documents/BastropCommercial/.superpowers/brainstorm/53366-1780611349/content/blend-direction.html"}
+{"type":"server-stopped","reason":"idle timeout"}

@@ -1,0 +1,142 @@
+---
+import { site } from "../lib/site";
+interface Props {
+  transparent?: boolean;
+}
+const { transparent = false } = Astro.props;
+const pathname = Astro.url.pathname;
+---
+
+<header
+  data-transparent={transparent ? "" : null}
+  class:list={[
+    "site-header fixed inset-x-0 top-0 z-40 transition-all duration-500",
+    transparent ? "is-transparent text-cream" : "is-solid",
+  ]}
+>
+  <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8">
+    <!-- Brand -->
+    <a href="/" class="group flex items-center gap-2.5">
+      <span
+        class="grid h-9 w-9 place-items-center rounded-md bg-gold-500 font-display text-lg font-semibold text-forest-950 transition-transform duration-300 group-hover:-rotate-6"
+        >B</span
+      >
+      <span class="font-display text-[1.05rem] font-semibold tracking-tight"
+        >{site.name}</span
+      >
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="hidden items-center gap-7 lg:flex" aria-label="Primary">
+      {
+        site.nav.map((item) => (
+          <a
+            href={item.href}
+            aria-current={pathname.startsWith(item.href) ? "page" : null}
+            class:list={[
+              "link-underline text-sm font-medium",
+              pathname.startsWith(item.href) && "text-gold-500",
+            ]}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+      <a href={site.agent.phoneHref} class="btn btn-gold text-sm">
+        {site.agent.phone}
+      </a>
+    </nav>
+
+    <!-- Mobile toggle -->
+    <button
+      id="menu-toggle"
+      class="lg:hidden"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round">
+        <line x1="3" y1="7" x2="21" y2="7"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="17" x2="21" y2="17"></line>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div
+    id="mobile-menu"
+    class="fixed inset-0 z-50 hidden bg-forest-900 text-cream"
+  >
+    <div class="flex items-center justify-between px-5 py-4 sm:px-8">
+      <span class="font-display text-lg font-semibold">{site.name}</span>
+      <button id="menu-close" aria-label="Close menu">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round">
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <nav class="flex flex-col gap-1 px-5 pt-6 sm:px-8" aria-label="Mobile">
+      {
+        site.nav.map((item) => (
+          <a
+            href={item.href}
+            class="border-b border-forest-700/60 py-4 font-display text-2xl"
+          >
+            {item.label}
+          </a>
+        ))
+      }
+      <a href={site.agent.phoneHref} class="btn btn-gold mt-8 justify-center text-base">
+        Call {site.agent.phone}
+      </a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header.is-transparent {
+    background: transparent;
+  }
+  .site-header.is-solid {
+    background: var(--color-forest-900);
+    color: var(--color-cream);
+    box-shadow: 0 1px 0 rgba(244, 236, 217, 0.08);
+  }
+  /* Applied via JS once the user scrolls past the hero */
+  .site-header.scrolled {
+    background: color-mix(in srgb, var(--color-forest-900) 92%, transparent);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    color: var(--color-cream);
+    box-shadow: 0 8px 30px -12px rgba(0, 0, 0, 0.5);
+  }
+</style>
+
+<script>
+  const header = document.querySelector(".site-header");
+  const onScroll = () => {
+    if (window.scrollY > 40) header?.classList.add("scrolled");
+    else header?.classList.remove("scrolled");
+  };
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+
+  const menu = document.getElementById("mobile-menu");
+  const toggle = document.getElementById("menu-toggle");
+  const close = document.getElementById("menu-close");
+  const open = () => {
+    menu?.classList.remove("hidden");
+    toggle?.setAttribute("aria-expanded", "true");
+    document.body.style.overflow = "hidden";
+  };
+  const shut = () => {
+    menu?.classList.add("hidden");
+    toggle?.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = "";
+  };
+  toggle?.addEventListener("click", open);
+  close?.addEventListener("click", shut);
+  menu?.querySelectorAll("a").forEach((a) => a.addEventListener("click", shut));
+</script>

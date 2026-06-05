@@ -1,0 +1,149 @@
+@import "tailwindcss";
+
+/* Self-hosted variable fonts — no render-blocking CDN, no layout shift */
+@import "@fontsource-variable/fraunces";
+@import "@fontsource-variable/hanken-grotesk";
+
+/* ───────────────────────────────────────────────────────────
+   "Rooted Authority" design system
+   Editorial warmth (Fraunces, cream, terracotta) on an
+   institutional forest-green spine, with gold as the
+   precious accent.
+   ─────────────────────────────────────────────────────────── */
+@theme {
+  --color-forest-950: #0c1711;
+  --color-forest-900: #0e1c13;
+  --color-forest-800: #16291c;
+  --color-forest-700: #1f3d2a;
+  --color-forest-600: #2c5238;
+  --color-forest-500: #3a6a49;
+
+  --color-cream: #f4ecd9;
+  --color-paper: #fbf7ee;
+  --color-sand: #ece4d2;
+
+  --color-terra-600: #a8542b;
+  --color-terra-500: #bd6334;
+  --color-terra-400: #cd7a4d;
+
+  --color-gold-500: #caa24a;
+  --color-gold-400: #d8b766;
+
+  --color-ink: #241f16;
+  --color-stone: #6a6256;
+
+  --font-display: "Fraunces Variable", ui-serif, Georgia, serif;
+  --font-sans: "Hanken Grotesk Variable", ui-sans-serif, system-ui, sans-serif;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-synthesis: none;
+  }
+  ::selection {
+    background: var(--color-gold-500);
+    color: var(--color-forest-900);
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+    letter-spacing: -0.01em;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-gold-500);
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  /* Eyebrow / kicker label */
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  /* Scrim — guarantees legible type over any hero photo */
+  .scrim-hero {
+    background: linear-gradient(
+      180deg,
+      rgba(12, 23, 17, 0.35) 0%,
+      rgba(12, 23, 17, 0.2) 38%,
+      rgba(12, 23, 17, 0.82) 100%
+    );
+  }
+
+  /* Subtle paper grain for atmosphere on light sections */
+  .grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.035;
+    z-index: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    letter-spacing: 0.01em;
+    padding: 0.85rem 1.4rem;
+    border-radius: 0.55rem;
+    transition: transform 0.25s var(--ease-out-expo), background-color 0.25s ease,
+      color 0.25s ease, box-shadow 0.25s ease;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-gold {
+    background: var(--color-gold-500);
+    color: var(--color-forest-950);
+    box-shadow: 0 8px 24px -8px rgba(202, 162, 74, 0.6);
+  }
+  .btn-gold:hover { background: var(--color-gold-400); }
+  .btn-ghost {
+    border: 1px solid rgba(244, 236, 217, 0.45);
+    color: var(--color-cream);
+  }
+  .btn-ghost:hover { border-color: var(--color-cream); background: rgba(244,236,217,0.06); }
+  .btn-forest {
+    background: var(--color-forest-800);
+    color: var(--color-cream);
+  }
+  .btn-forest:hover { background: var(--color-forest-700); }
+
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    transition: background-size 0.4s var(--ease-out-expo);
+  }
+  .link-underline:hover { background-size: 100% 1px; }
+}
+
+/* Staggered entrance — one orchestrated page-load reveal */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    animation: reveal 0.9s var(--ease-out-expo) forwards;
+  }
+  @keyframes reveal {
+    to { opacity: 1; transform: none; }
+  }
+}
