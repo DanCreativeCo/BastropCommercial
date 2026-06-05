@@ -1,5 +1,5 @@
 /* ───────────────────────────────────────────────────────────
-   Bastrop Commercial Real Estate — "Rooted Authority" design system.
+   Bastrop Commercial Real Estate. "Rooted Authority" design system.
    Plain CSS. No build step, no framework.
    Editorial warmth (Fraunces, cream, terracotta) on an institutional
    forest-green spine, with gold as the precious accent.
@@ -117,9 +117,25 @@ h4 {
   overflow: hidden;
   padding-block: 5rem;
 }
-.section--paper { background: var(--paper); }
-.section--cream { background: var(--cream); }
-.section--forest { background: var(--forest-900); color: var(--cream); }
+.section--paper {
+  background:
+    radial-gradient(110% 70% at 100% 0%, rgba(202, 162, 74, 0.07), transparent 58%),
+    radial-gradient(90% 60% at 0% 100%, rgba(168, 84, 43, 0.05), transparent 60%),
+    var(--paper);
+}
+.section--cream {
+  background:
+    radial-gradient(95% 65% at 0% 0%, rgba(168, 84, 43, 0.06), transparent 55%),
+    radial-gradient(80% 60% at 100% 100%, rgba(202, 162, 74, 0.07), transparent 60%),
+    var(--cream);
+}
+.section--forest {
+  background:
+    radial-gradient(120% 85% at 82% -12%, rgba(202, 162, 74, 0.16), transparent 55%),
+    radial-gradient(100% 80% at 0% 118%, rgba(58, 106, 73, 0.5), transparent 60%),
+    var(--forest-900);
+  color: var(--cream);
+}
 
 /* ── Shared type helpers ──────────────────────────────────── */
 .eyebrow {
@@ -165,13 +181,19 @@ h4 {
     color 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 .btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(0); }
 .btn--sm { padding: 0.6rem 1rem; }
 .btn--gold {
-  background: var(--gold-500);
+  background: linear-gradient(135deg, var(--gold-400) 0%, var(--gold-500) 60%, #b88e3a 100%);
   color: var(--forest-950);
-  box-shadow: 0 8px 24px -8px rgba(202, 162, 74, 0.6);
+  box-shadow: 0 10px 30px -10px rgba(202, 162, 74, 0.7),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
 }
-.btn--gold:hover { background: var(--gold-400); }
+.btn--gold:hover {
+  background: linear-gradient(135deg, #e6c982 0%, var(--gold-400) 60%, var(--gold-500) 100%);
+  box-shadow: 0 18px 44px -12px rgba(202, 162, 74, 0.85),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
 .btn--ghost {
   border: 1px solid rgba(244, 236, 217, 0.45);
   color: var(--cream);
@@ -258,11 +280,13 @@ h4 {
   height: 2.25rem;
   width: 2.25rem;
   border-radius: 0.375rem;
-  background: var(--gold-500);
+  background: linear-gradient(140deg, var(--gold-400), var(--gold-500) 55%, #b88e3a);
   color: var(--forest-950);
   font-family: var(--font-display);
   font-size: 1.125rem;
   font-weight: 600;
+  box-shadow: 0 6px 16px -8px rgba(202, 162, 74, 0.7),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
   transition: transform 0.3s ease;
 }
 .brand:hover .brand__mark { transform: rotate(-6deg); }
@@ -376,6 +400,15 @@ h4 {
   line-height: 0.98;
   letter-spacing: -0.02em;
   color: var(--cream);
+  background-image: linear-gradient(
+    180deg,
+    #fffdf6 0%,
+    var(--cream) 52%,
+    #e3d2ad 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .hero__lede {
   margin-top: 1.5rem;
@@ -392,6 +425,7 @@ h4 {
 }
 
 .stats {
+  position: relative;
   margin-top: 3.5rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -400,8 +434,22 @@ h4 {
   border-radius: 1rem;
   border: 1px solid rgba(244, 236, 217, 0.15);
   background: rgba(244, 236, 217, 0.05);
-  -webkit-backdrop-filter: blur(4px);
-  backdrop-filter: blur(4px);
+  box-shadow: 0 24px 60px -34px rgba(0, 0, 0, 0.7),
+    inset 0 1px 0 rgba(244, 236, 217, 0.12);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+.stats::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(202, 162, 74, 0.7),
+    transparent
+  );
 }
 .stat {
   background: rgba(14, 28, 19, 0.3);
@@ -502,26 +550,45 @@ h4 {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  border-radius: 1rem;
-  border: 1px solid var(--sand);
-  background: #fff;
+  border-radius: 1.1rem;
+  border: 1px solid transparent;
+  background:
+    linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(
+        160deg,
+        rgba(202, 162, 74, 0.55),
+        rgba(168, 84, 43, 0.2) 42%,
+        var(--sand) 100%
+      )
+      border-box;
   box-shadow: 0 10px 30px -18px rgba(40, 30, 10, 0.45);
   transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease);
 }
 .card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 28px 60px -28px rgba(40, 30, 10, 0.55);
+  transform: translateY(-8px);
+  box-shadow: 0 34px 70px -30px rgba(40, 30, 10, 0.6),
+    0 8px 22px -12px rgba(202, 162, 74, 0.45);
 }
 .card__media {
   position: relative;
   aspect-ratio: 4 / 3;
 }
+.card__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 52%, rgba(12, 23, 17, 0.4));
+  opacity: 0;
+  transition: opacity 0.5s var(--ease);
+}
+.card:hover .card__media::after { opacity: 1; }
 .card__media img {
   transition: transform 1.2s var(--ease);
 }
-.card:hover .card__media img { transform: scale(1.05); }
+.card:hover .card__media img { transform: scale(1.06); }
 .card__badge {
   position: absolute;
+  z-index: 2;
   left: 0.75rem;
   top: 0.75rem;
   border-radius: 0.375rem;
@@ -589,16 +656,26 @@ h4 {
 .split__card {
   position: relative;
   overflow: hidden;
-  border-radius: 1rem;
+  border-radius: 1.1rem;
   padding: 2.25rem;
+  box-shadow: 0 18px 50px -28px rgba(40, 30, 10, 0.5);
+  transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease);
+}
+.split__card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 36px 80px -34px rgba(40, 30, 10, 0.6);
 }
 .split__card--forest {
-  background: var(--forest-800);
+  background:
+    radial-gradient(120% 90% at 100% 0%, rgba(202, 162, 74, 0.18), transparent 55%),
+    var(--forest-800);
   color: var(--cream);
 }
 .split__card--white {
-  background: #fff;
-  border: 1px solid var(--sand);
+  border: 1px solid transparent;
+  background:
+    linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(160deg, rgba(202, 162, 74, 0.5), var(--sand) 60%) border-box;
 }
 .split__eyebrow { position: relative; }
 .split__eyebrow--gold { color: var(--gold-500); }
@@ -649,6 +726,8 @@ h4 {
   aspect-ratio: 4 / 5;
   width: 100%;
   border-radius: 1rem;
+  box-shadow: 0 40px 80px -36px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(202, 162, 74, 0.25);
 }
 .agent__tag {
   position: absolute;
@@ -694,11 +773,15 @@ h4 {
   color: var(--ink);
 }
 .form-card {
-  border-radius: 1rem;
-  border: 1px solid var(--sand);
-  background: #fff;
+  border-radius: 1.1rem;
+  border: 1px solid transparent;
+  background:
+    linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(160deg, rgba(202, 162, 74, 0.5), rgba(168, 84, 43, 0.18) 45%, var(--sand))
+      border-box;
   padding: 1.75rem;
-  box-shadow: 0 20px 50px -30px rgba(40, 30, 10, 0.5);
+  box-shadow: 0 24px 60px -32px rgba(40, 30, 10, 0.55),
+    0 4px 14px -10px rgba(202, 162, 74, 0.3);
 }
 .form { display: grid; gap: 1.25rem; }
 .form__row { display: grid; gap: 1.25rem; }
@@ -794,10 +877,22 @@ h4 {
       transform: none;
     }
   }
+
+  /* Scroll-into-view reveal (progressive: applied by JS, so content
+     stays visible if scripting is unavailable). */
+  .will-reveal {
+    opacity: 0;
+    transform: translateY(26px);
+    transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+  }
+  .will-reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* ─────────────────────────────────────────────────────────────
-   Responsive — sm 640px · md 768px · lg 1024px
+   Responsive · sm 640px · md 768px · lg 1024px
    ───────────────────────────────────────────────────────────── */
 @media (min-width: 640px) {
   .container { padding-inline: 2rem; }
