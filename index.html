@@ -4,487 +4,474 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-
-    <title>Bastrop Commercial Real Estate · Where Texas builds next.</title>
+    <title>Bastrop Commercial Real Estate | Commercial Property & Land in Bastrop TX</title>
     <meta
       name="description"
-      content="Investment land, development sites, and commercial property in Bastrop County, Texas, represented with institutional rigor and local conviction."
+      content="Explore Bastrop commercial real estate, commercial property, investment land, and development opportunities with Taylor Homuth, Realtor with Spyglass Realty."
     />
-
-    <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Bastrop Commercial Real Estate · Where Texas builds next." />
+    <meta property="og:title" content="Bastrop Commercial Real Estate" />
     <meta
       property="og:description"
-      content="Investment land, development sites, and commercial property in Bastrop County, Texas, represented with institutional rigor and local conviction."
+      content="Commercial listings, Bastrop investment property, development land, and local market guidance for investors, developers, business owners, and land buyers."
     />
     <meta property="og:site_name" content="Bastrop Commercial Real Estate" />
-    <meta name="theme-color" content="#16291c" />
-
-    <!-- Fonts -->
+    <meta name="theme-color" content="#171717" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Hanken+Grotesk:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-
     <link rel="stylesheet" href="styles.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "RealEstateAgent",
+        "name": "Taylor Homuth",
+        "brand": "Bastrop Commercial Real Estate",
+        "telephone": "+1-512-877-6292",
+        "email": "taylor@spyglassrealty.com",
+        "areaServed": "Bastrop County, Texas",
+        "description": "Commercial real estate broker serving Bastrop County commercial property, investment land, and development opportunities."
+      }
+    </script>
   </head>
   <body>
     <a href="#main" class="skip-link">Skip to content</a>
 
-    <!-- HEADER ─────────────────────────────────────────────── -->
     <header class="site-header" id="site-header">
-      <div class="container site-header__inner">
-        <a href="#main" class="brand">
-          <span class="brand__mark">B</span>
-          <span class="brand__name">Bastrop Commercial</span>
+      <div class="container header__inner">
+        <a class="brand" href="#main" aria-label="Bastrop Commercial Real Estate home">
+          <span class="brand__mark">BC</span>
+          <span class="brand__text">Bastrop Commercial</span>
         </a>
-
-        <nav class="nav" aria-label="Primary">
-          <a href="#about" class="link-underline nav__link">About</a>
-          <a href="#listings" class="link-underline nav__link">Listings</a>
-          <a href="#buy-sell" class="link-underline nav__link">Buy / Sell</a>
-          <a href="#styleco" class="link-underline nav__link">StyleCo</a>
-          <a href="#agent" class="link-underline nav__link">Agent</a>
-          <a href="#contact" class="link-underline nav__link">Contact</a>
-          <a href="tel:+15128776292" class="btn btn--gold btn--sm">512-877-6292</a>
+        <nav class="nav" aria-label="Primary navigation">
+          <a class="is-active" href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="buyer.html">Buyer</a>
+          <a href="seller.html">Seller</a>
+          <a href="blog.html">Blog</a>
+          <a href="contact.html">Contact</a>
         </nav>
-
-        <button
-          id="menu-toggle"
-          class="menu-toggle"
-          aria-label="Open menu"
-          aria-expanded="false"
-          aria-controls="mobile-menu"
-        >
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round">
-            <line x1="3" y1="7" x2="21" y2="7"></line>
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="17" x2="21" y2="17"></line>
-          </svg>
+        <a class="header__phone" href="tel:+15128776292">512-877-6292</a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
         </button>
       </div>
-
-      <!-- Mobile menu -->
-      <div id="mobile-menu" class="mobile-menu" hidden>
-        <div class="container mobile-menu__bar">
-          <span class="brand__name">Bastrop Commercial</span>
-          <button id="menu-close" class="menu-toggle" aria-label="Close menu">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round">
-              <line x1="6" y1="6" x2="18" y2="18"></line>
-              <line x1="18" y1="6" x2="6" y2="18"></line>
-            </svg>
-          </button>
-        </div>
-        <nav class="container mobile-menu__nav" aria-label="Mobile">
-          <a href="#about">About</a>
-          <a href="#listings">Listings</a>
-          <a href="#buy-sell">Buy / Sell</a>
-          <a href="#styleco">StyleCo</a>
-          <a href="#agent">Agent</a>
-          <a href="#contact">Contact</a>
-          <a href="tel:+15128776292" class="btn btn--gold mobile-menu__call">Call 512-877-6292</a>
-        </nav>
-      </div>
+      <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="buyer.html">Buyer</a>
+        <a href="seller.html">Seller</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </nav>
     </header>
 
     <main id="main">
-      <!-- HERO ─────────────────────────────────────────────── -->
-      <section class="hero">
-        <div class="hero__media img-fallback">
-          <img
-            src="assets/bastrop-texas-tech-growth-hero.png"
-            alt="Illustrated Bastrop, Texas growth corridor with a Texas silhouette, rocket, robot, and commercial development land"
-            loading="eager"
-            decoding="async"
-            onerror="this.style.opacity='0'"
-          />
-        </div>
+      <section class="hero" aria-labelledby="hero-title">
+        <img
+          class="hero__image"
+          src="assets/bastrop-commercial-growth-hero.png"
+          alt="Commercial development corridor in Bastrop County, Texas"
+          loading="eager"
+          decoding="async"
+        />
         <div class="hero__scrim"></div>
-        <div class="hero__glow"></div>
-
-        <div class="container hero__inner">
-          <div class="hero__copy">
-            <span class="eyebrow reveal hero__eyebrow" style="animation-delay:.05s">
-              Bastrop County · Central Texas
-            </span>
-            <h1 class="reveal hero__title" style="animation-delay:.15s">
-              Where Texas<br />builds next.
-            </h1>
-            <p class="reveal hero__lede" style="animation-delay:.28s">
-              Investment land, development sites, and commercial property in Bastrop County,
-              Texas, represented with institutional rigor and local conviction.
-            </p>
-            <div class="reveal hero__actions" style="animation-delay:.4s">
-              <a href="#listings" class="btn btn--gold">Explore Listings</a>
-              <a href="#contact" class="btn btn--ghost">Book a Consultation</a>
-            </div>
+        <div class="container hero__content">
+          <p class="eyebrow hero__eyebrow">Bastrop commercial real estate</p>
+          <h1 id="hero-title">Commercial Real Estate Opportunities in Bastrop County</h1>
+          <p class="hero__lede">
+            Helping investors, developers, business owners, and land buyers capitalize on one of
+            Texas' fastest-growing markets.
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#listings">View Commercial Listings</a>
+            <a class="btn btn--secondary" href="contact.html">Schedule a Consultation</a>
           </div>
-
-          <div class="reveal stats" style="animation-delay:.55s">
-            <div class="stat"><div class="stat__value">$25M+</div><div class="eyebrow stat__label">Active Inventory</div></div>
-            <div class="stat"><div class="stat__value">90+ ac</div><div class="eyebrow stat__label">Industrial Land</div></div>
-            <div class="stat"><div class="stat__value">Bastrop</div><div class="eyebrow stat__label">County Specialist</div></div>
-            <div class="stat"><div class="stat__value">20 min</div><div class="eyebrow stat__label">To Austin (ABIA)</div></div>
+          <div class="hero__proof" aria-label="Market proof points">
+            <div><strong>3</strong><span>Featured commercial listings</span></div>
+            <div><strong>$24.95M</strong><span>Current featured inventory</span></div>
+            <div><strong>91.74</strong><span>Acres represented on the homepage</span></div>
           </div>
         </div>
       </section>
 
-      <!-- ABOUT BASTROP COUNTY ─────────────────────────────── -->
-      <section id="about" class="section section--paper">
-        <div class="container about">
-          <div class="about__figure">
-            <div class="about__photo img-fallback">
-              <img
-                src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?w=1200&q=72&auto=format&fit=crop"
-                alt="Rolling Central Texas landscape near Bastrop"
-                loading="lazy"
-                decoding="async"
-                onerror="this.style.opacity='0'"
-              />
-            </div>
-            <div class="about__badge">
-              <div class="about__badge-num">#1</div>
-              <div class="eyebrow about__badge-text">Fastest-growing TX corridor</div>
-            </div>
-          </div>
-
-          <div>
-            <span class="eyebrow heading__eyebrow heading__eyebrow--terra">About Bastrop County</span>
-            <h2 class="heading__title heading__title--dark">A pro-growth county in Austin's path.</h2>
-            <p class="prose">
-              Bastrop County pairs a business-friendly posture with real, developable land,
-              minutes from Austin-Bergstrom, Tesla, and the eastward expansion remaking
-              Central Texas. For investors and developers, it's a rare window:
-              <strong>availability, access, and appreciation in one market.</strong>
-            </p>
-
-            <ul class="feature-grid">
-              <li class="feature"><div class="feature__title">Highway-served</div><div class="feature__text">SH-71 corridor to Austin &amp; ABIA</div></li>
-              <li class="feature"><div class="feature__title">Developable</div><div class="feature__text">Large, contiguous, properly-zoned tracts</div></li>
-              <li class="feature"><div class="feature__title">Pro-business</div><div class="feature__text">Favorable zoning &amp; incentives</div></li>
-              <li class="feature"><div class="feature__title">Appreciating</div><div class="feature__text">Multi-year absorption tailwind</div></li>
-            </ul>
-
-            <a href="#listings" class="btn btn--forest about__cta">Start your search</a>
-          </div>
-        </div>
-      </section>
-
-      <!-- FEATURED LISTINGS ────────────────────────────────── -->
-      <section id="listings" class="section section--cream">
-        <div class="container">
-          <div class="listings__head">
-            <div>
-              <span class="eyebrow heading__eyebrow heading__eyebrow--terra">Featured Listings</span>
-              <h2 class="heading__title heading__title--dark">Land worth building on.</h2>
-              <p class="section-intro">
-                A focused look at high-conviction commercial land and development opportunities.
-              </p>
-            </div>
-            <a href="#contact" class="link-underline listings__all">Inquire about availability →</a>
-          </div>
-
-          <div class="card-grid">
-            <a href="#contact" class="card">
-              <div class="card__media img-fallback">
-                <img
-                  src="https://images.unsplash.com/photo-1628744448840-55bdb3c1aad1?w=1400&q=72&auto=format&fit=crop"
-                  alt="Aerial view of expansive industrial development land along a highway corridor"
-                  loading="lazy" decoding="async" onerror="this.style.opacity='0'"
-                />
-                <span class="eyebrow card__badge">Industrial</span>
-              </div>
-              <div class="card__body">
-                <div class="card__price">$22,900,000</div>
-                <h3 class="card__title">88.8 Acres · Industrial Development Tract</h3>
-                <p class="card__address">SH-71 Corridor, Bastrop, TX 78602</p>
-                <div class="card__meta">
-                  <span><b>88.8</b> acres</span>
-                  <span><b>Industrial</b> zoning</span>
-                </div>
-                <span class="card__link">
-                  Inquire
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                </span>
-              </div>
-            </a>
-
-            <a href="#contact" class="card">
-              <div class="card__media img-fallback">
-                <img
-                  src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=1400&q=72&auto=format&fit=crop"
-                  alt="Open commercial land parcel near a Texas highway at golden hour"
-                  loading="lazy" decoding="async" onerror="this.style.opacity='0'"
-                />
-                <span class="eyebrow card__badge">Commercial</span>
-              </div>
-              <div class="card__body">
-                <div class="card__price">$1,800,000</div>
-                <h3 class="card__title">1.79 Acres · Highway Commercial Corner</h3>
-                <p class="card__address">Highway Frontage, Bastrop, TX 78602</p>
-                <div class="card__meta">
-                  <span><b>1.79</b> acres</span>
-                  <span><b>Commercial</b> zoning</span>
-                </div>
-                <span class="card__link">
-                  Inquire
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                </span>
-              </div>
-            </a>
-
-            <a href="#contact" class="card">
-              <div class="card__media img-fallback">
-                <img
-                  src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=1400&q=72&auto=format&fit=crop"
-                  alt="Gently rolling mixed-use development lot in a Texas town"
-                  loading="lazy" decoding="async" onerror="this.style.opacity='0'"
-                />
-                <span class="eyebrow card__badge">Development Land</span>
-              </div>
-              <div class="card__body">
-                <div class="card__price">$450,000</div>
-                <h3 class="card__title">1.15 Acres · P5 Mixed-Use Lot</h3>
-                <p class="card__address">Downtown-Adjacent, Bastrop, TX 78602</p>
-                <div class="card__meta">
-                  <span><b>1.15</b> acres</span>
-                  <span><b>P5 (Mixed-Use)</b> zoning</span>
-                </div>
-                <span class="card__link">
-                  Inquire
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                </span>
-              </div>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <!-- BUY / SELL SPLIT ─────────────────────────────────── -->
-      <section id="buy-sell" class="section section--paper">
+      <section id="growth" class="section section--white reveal">
         <div class="container split">
-          <a href="#contact" class="split__card split__card--forest">
-            <div class="grain"></div>
-            <span class="eyebrow split__eyebrow split__eyebrow--gold">For Buyers &amp; Investors</span>
-            <h3 class="split__title split__title--light">Buying in Bastrop</h3>
-            <p class="split__text split__text--light">
-              Retail space, industrial warehouses, and development land, sourced, vetted, and
-              underwritten so you move with confidence.
+          <div>
+            <p class="eyebrow">Bastrop growth section</p>
+            <h2>Why Investors Are Watching Bastrop</h2>
+          </div>
+          <div class="copy-stack">
+            <p>
+              Bastrop County is known for its business-friendly atmosphere, beautiful natural
+              landscapes, and strategic location near Austin. With ongoing economic growth, new
+              infrastructure projects, and increasing commercial opportunities, it is a prime
+              destination for businesses and investors.
             </p>
-            <span class="split__link split__link--gold">
-              Explore buying
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </span>
-          </a>
-
-          <a href="#contact" class="split__card split__card--white">
-            <span class="eyebrow split__eyebrow split__eyebrow--terra">For Sellers</span>
-            <h3 class="split__title split__title--dark">Selling in Bastrop</h3>
-            <p class="split__text split__text--dark">
-              Strategic marketing, professional valuation, and negotiation expertise to put
-              your commercial property in front of the right buyer.
+            <p>
+              Today, that foundation is being strengthened by a wave of Central Texas expansion:
+              proximity to Austin, SpaceX and Starlink activity in Bastrop County, The Boring
+              Company presence, X operations, Samsung's major Taylor-area investment, population
+              growth, and infrastructure demand along commercial corridors.
             </p>
-            <span class="split__link split__link--terra">
-              Explore selling
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </span>
-          </a>
+          </div>
+        </div>
+        <div class="container growth-grid">
+          <article>
+            <span>Austin access</span>
+            <p>Positioned east of Austin with access to Highway 71, SH 130, ABIA, and regional labor.</p>
+          </article>
+          <article>
+            <span>Advanced industry</span>
+            <p>SpaceX, The Boring Company, X, and Samsung reinforce Central Texas as a manufacturing and technology corridor.</p>
+          </article>
+          <article>
+            <span>Population momentum</span>
+            <p>Bastrop County's expanding population base supports retail, service, housing, and employment-driven demand.</p>
+          </article>
+          <article>
+            <span>Commercial opportunity</span>
+            <p>Land buyers are watching for corridor sites, flexible acreage, industrial use, retail pads, and mixed-use development.</p>
+          </article>
         </div>
       </section>
 
-      <!-- STYLECO AFFILIATION ──────────────────────────────── -->
-      <section id="styleco" class="section section--cream section--compact" aria-labelledby="styleco-title">
-        <div class="container affiliation">
-          <div class="affiliation__copy">
-            <span class="eyebrow heading__eyebrow heading__eyebrow--terra">Affiliated Company</span>
-            <h2 id="styleco-title" class="heading__title heading__title--dark">
-              Commercial real estate, informed by interior design.
-            </h2>
-            <p class="prose">
-              Bastrop Commercial is affiliated with <strong>StyleCo Inc.</strong>, an interior
-              design company under the same ownership. When a space needs to move from acquisition
-              to occupancy, that shared perspective helps buyers, tenants, and owners think through
-              finish-out potential, client experience, and long-term usability.
+      <section id="listings" class="section section--soft reveal">
+        <div class="container section-head">
+          <p class="eyebrow">Featured Commercial Listings</p>
+          <h2>Bastrop Commercial Listings With Real Optionality</h2>
+          <p>
+            All featured properties below are imported from the existing homepage and reframed with
+            clearer investment context for buyers reviewing Bastrop commercial land, development
+            sites, and commercial property in Bastrop TX.
+          </p>
+        </div>
+        <div class="container listing-grid">
+          <article class="listing-card">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/67882a71f7445f29810b77da/ab536bdd-cb81-4a61-8bf2-fb3c5e670335/6c3968123fd9f22c8fd0290125336d8bl-f3142653220r.jpg"
+              alt="13628 Gregg Manor Road commercial land"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="listing-card__body">
+              <p class="listing-card__price">$22,900,000</p>
+              <h3>13628 Gregg Manor Road, Manor, TX 78653</h3>
+              <dl>
+                <div><dt>Acreage</dt><dd>88.8 acres</dd></div>
+                <div><dt>Opportunity</dt><dd>Toll Road 130 corridor growth</dd></div>
+              </dl>
+              <p>
+                The vicinity along Toll Road 130 has experienced a surge of master-planned
+                communities, industrial parks, logistic centers, and large factories in recent years.
+              </p>
+              <a class="btn btn--outline" href="13628-gregg-manor-road-manor-tx.html">View Listing</a>
+            </div>
+          </article>
+
+          <article class="listing-card">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/67882a71f7445f29810b77da/057be7e1-b3c3-403e-8744-21e0f14f5ac4/1040-E-State-Highway-71-Bastrop-TX-Building-Photo-2-LargeHighDefinition.jpg"
+              alt="1040 State Highway 71 E commercial property"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="listing-card__body">
+              <p class="listing-card__price">$1,800,000</p>
+              <h3>1040 State Highway 71 E, Bastrop, TX 78602</h3>
+              <dl>
+                <div><dt>Acreage</dt><dd>1.79 acres</dd></div>
+                <div><dt>Jurisdiction</dt><dd>Bastrop County</dd></div>
+              </dl>
+              <p>
+                1040 State Highway 71 sits in Bastrop County jurisdiction, offering freedom and
+                flexibility with no zoning or ETJ restrictions.
+              </p>
+              <a class="btn btn--outline" href="1040-state-highway-71-e-bastrop-tx.html">View Listing</a>
+            </div>
+          </article>
+
+          <article class="listing-card">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/67882a71f7445f29810b77da/ed20e54e-220d-45f1-8872-e501cf6af0b9/1140248095-5-416c1da7c4da991305e5ee9366b9fe09-l.jpg"
+              alt="00 E State Highway 71 commercial lot"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="listing-card__body">
+              <p class="listing-card__price">$450,000</p>
+              <h3>00 E State Highway 71 Highway, Bastrop, TX 78602</h3>
+              <dl>
+                <div><dt>Acreage</dt><dd>1.15 acres</dd></div>
+                <div><dt>Zoning</dt><dd>P5 commercial lot</dd></div>
+              </dl>
+              <p>
+                Positioned just off the Highway 71 ramp, this P5-zoned commercial lot offers an
+                exceptional opportunity to develop in one of Central Texas's fastest-growing corridors.
+              </p>
+              <a class="btn btn--outline" href="00-e-state-highway-71-highway-bastrop-tx.html">View Listing</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="services" class="section section--charcoal reveal">
+        <div class="container section-head section-head--light">
+          <p class="eyebrow">Commercial services</p>
+          <h2>Representation for the Way Commercial Deals Actually Move</h2>
+          <p>
+            Taylor helps investors, developers, business owners, and land sellers move through
+            Bastrop commercial real estate decisions with local insight, clear communication, and a
+            practical view of value.
+          </p>
+        </div>
+        <div class="container service-grid">
+          <article>
+            <h3>Commercial Buyers</h3>
+            <p>
+              Find the right commercial property in Bastrop County, from office and retail locations
+              to industrial warehouses and flexible commercial land.
+            </p>
+          </article>
+          <article>
+            <h3>Commercial Sellers</h3>
+            <p>
+              Bring commercial property to market with strategic positioning, professional valuation,
+              negotiation support, and buyer-focused marketing.
+            </p>
+          </article>
+          <article>
+            <h3>Land Investors</h3>
+            <p>
+              Evaluate Bastrop commercial land through access, utilities, surrounding growth,
+              entitlement potential, timing, and long-term investment strategy.
+            </p>
+          </article>
+          <article>
+            <h3>Developers & Builders</h3>
+            <p>
+              Review development land, zoning context, corridor demand, site constraints, and future
+              use potential before capital is committed.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="county" class="section section--white reveal">
+        <div class="container editorial">
+          <div>
+            <p class="eyebrow">About Bastrop County</p>
+            <h2>A Strategic Commercial Market Near Austin</h2>
+            <p>
+              Bastrop County offers a rare combination for Central Texas commercial real estate:
+              access to Austin, a pro-growth business climate, expanding residential demand, and
+              meaningful land supply along transportation corridors.
             </p>
           </div>
-
-          <div class="affiliation__panel">
-            <div class="affiliation__media img-fallback">
-              <img
-                src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1200&q=72&auto=format&fit=crop"
-                alt="Interior design materials and finishes arranged for a commercial space"
-                loading="lazy"
-                decoding="async"
-                onerror="this.style.opacity='0'"
-              />
-            </div>
-            <div class="affiliation__card">
-              <span class="eyebrow affiliation__label">StyleCo Inc.</span>
-              <p>Interior design support for commercial spaces, finish selections, and owner-ready environments.</p>
-            </div>
+          <div class="editorial__panel">
+            <p>
+              For commercial buyers and developers, the county's value is not only location. It is
+              the mix of infrastructure investment, population growth, employer movement, natural
+              land character, and still-emerging development patterns. That combination creates
+              opportunity for retail growth, industrial development, commercial pads, land banking,
+              and future mixed-use projects.
+            </p>
+            <ul class="check-list">
+              <li>Business-friendly atmosphere and expanding commercial opportunities.</li>
+              <li>Highway access serving Austin, ABIA, SH 130, and eastern Central Texas.</li>
+              <li>Development potential across land, industrial, retail, and service uses.</li>
+              <li>Market demand driven by population growth and Austin overflow.</li>
+            </ul>
           </div>
         </div>
       </section>
 
-      <!-- MEET THE AGENT ───────────────────────────────────── -->
-      <section id="agent" class="section section--forest">
-        <div class="grain"></div>
+      <section id="taylor" class="section section--soft reveal">
         <div class="container agent">
-          <div class="agent__figure">
-            <div class="agent__photo img-fallback">
-              <img
-                src="https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=900&q=72&auto=format&fit=crop"
-                alt="Taylor Homuth, Realtor®"
-                loading="lazy" decoding="async" onerror="this.style.opacity='0'"
-              />
+          <div class="agent__media">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/67882a71f7445f29810b77da/ec72eafb-d4a4-458c-9c71-bf6a2dbf5877/Taylor+Homuth%2C+Austin+Realtor.48.png"
+              alt="Taylor Homuth, Realtor with Spyglass Realty"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="agent__badges">
+              <span>Realtor</span>
+              <span>Spyglass Realty</span>
+              <span>Bastrop County Focus</span>
             </div>
-            <div class="agent__tag">Taylor Homuth · Realtor®</div>
           </div>
-
-          <div>
-            <span class="eyebrow heading__eyebrow heading__eyebrow--gold">Meet Your Agent</span>
-            <h2 class="heading__title heading__title--light">Grounded expertise, end to end.</h2>
-            <p class="prose prose--light">
-              Taylor is a Bastrop County commercial specialist who pairs institutional-grade
-              diligence with genuine local conviction. Having spent the majority of her life on a
-              ranch, she brings a rare, grounded understanding of land to every transaction,
-              guiding investors, developers, and business owners through deals built on trust,
-              clarity, and follow-through.
+          <div class="agent__copy">
+            <p class="eyebrow">Why work with Taylor Homuth</p>
+            <h2>Local Commercial Guidance With a Land-First Perspective</h2>
+            <p>
+              Taylor is a local real estate expert who is committed to delivering a client-focused
+              experience built on trust, passion, communication, quality, and business forward.
+              After spending the majority of her life on a ranch, Taylor brings a uniqueness to her
+              business where she can wear many hats.
             </p>
-            <div class="agent__actions">
-              <a href="#contact" class="btn btn--gold">Work with Taylor</a>
-              <a href="tel:+15128776292" class="link-underline agent__phone">512-877-6292</a>
+            <p>
+              That background matters in Bastrop commercial real estate. Land deals, development
+              sites, and investment property require more than basic search filters. Taylor helps
+              clients understand market context, buyer fit, commercial land positioning,
+              negotiation leverage, and the practical details that shape confident decisions.
+            </p>
+            <div class="credential-grid">
+              <div><strong>Local expertise</strong><span>Bastrop County and Central Texas corridors</span></div>
+              <div><strong>Commercial knowledge</strong><span>Listings, land, development, and investment property</span></div>
+              <div><strong>Investor approach</strong><span>Value, timing, access, constraints, and upside</span></div>
+              <div><strong>Communication</strong><span>Clear next steps from search through negotiation</span></div>
+            </div>
+            <div class="agent__contact">
+            <a class="btn btn--primary" href="contact.html">Schedule a Consultation</a>
+              <a href="tel:+15128776292">512-877-6292</a>
+              <a href="mailto:taylor@spyglassrealty.com">taylor@spyglassrealty.com</a>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- CONTACT ──────────────────────────────────────────── -->
-      <section id="contact" class="section section--cream">
-        <div class="container contact">
+      <section id="capital" class="section section--white reveal">
+        <div class="container capital">
           <div>
-            <span class="eyebrow heading__eyebrow heading__eyebrow--terra">Get in Touch</span>
-            <h2 class="heading__title heading__title--dark">Let's talk about your next move.</h2>
-            <p class="prose">
-              Whether you're acquiring land, selling a commercial asset, or just want a candid
-              read on the Bastrop market, reach out and let's start the conversation.
+            <p class="eyebrow">Investor section</p>
+            <h2>Moving Capital Into Bastrop</h2>
+            <p>
+              Commercial capital is following Central Texas growth into markets where land,
+              infrastructure, population, and employer movement still have room to compound. Bastrop
+              sits directly in that conversation.
             </p>
-            <dl class="contact__list">
-              <div>
-                <dt class="eyebrow contact__term">Call</dt>
-                <dd class="contact__detail"><a href="tel:+15128776292" class="link-underline">512-877-6292</a></dd>
-              </div>
-              <div>
-                <dt class="eyebrow contact__term">Email</dt>
-                <dd class="contact__detail"><a href="mailto:taylor@spyglassrealty.com" class="link-underline">taylor@spyglassrealty.com</a></dd>
-              </div>
+          </div>
+          <div class="capital__grid">
+            <article><h3>Commercial land opportunities</h3><p>Evaluate acreage for present use, future development, land banking, and corridor positioning.</p></article>
+            <article><h3>Retail growth</h3><p>Population gains and commuter traffic support service retail, restaurants, neighborhood commercial, and pad sites.</p></article>
+            <article><h3>Industrial development</h3><p>SH 130, Highway 71, logistics demand, and regional manufacturing growth create industrial and flex-space interest.</p></article>
+            <article><h3>Austin overflow growth</h3><p>As Austin pushes east, Bastrop offers access, land, and a different cost basis for long-term investment property.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="insights" class="section section--soft reveal">
+        <div class="container section-head">
+          <p class="eyebrow">Market insights section</p>
+          <h2>Bastrop Commercial Real Estate Insights</h2>
+          <p>
+            Current blog topics from the site, reframed as a stronger market-education path for
+            investors and commercial property owners.
+          </p>
+        </div>
+        <div class="container insights-grid">
+          <article class="insight-card">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/67882a71f7445f29810b77da/1746806673609-CRL6CBGKN1YE9Q8XCRVF/Minimalist+Real+Estate+Tips+Instagram+Post.zip+-+3.png"
+              alt="Bastrop is Moving Up blog preview"
+              loading="lazy"
+              decoding="async"
+            />
+            <div>
+              <time datetime="2025-05-09">May 9, 2025</time>
+              <h3>Bastrop is Moving Up</h3>
+              <p>Court Yard Marriott Coming To Bastrop</p>
+              <a href="blog.html#bastrop-moving-up">Read More</a>
+            </div>
+          </article>
+          <article class="insight-card">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/67882a71f7445f29810b77da/1746806719769-VNRADI4Q5D78TNIC7FQO/Minimalist+Real+Estate+Tips+Instagram+Post.zip+-+1.png"
+              alt="Bastrop County Economic Update Spring 2025 blog preview"
+              loading="lazy"
+              decoding="async"
+            />
+            <div>
+              <time datetime="2025-04-29">April 29, 2025</time>
+              <h3>Bastrop County Economic Update Spring 2025</h3>
+              <p>Big Moves In Bastrop County</p>
+              <a href="blog.html#economic-update">Read More</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="faq" class="section section--white reveal">
+        <div class="container section-head">
+          <p class="eyebrow">FAQ section</p>
+          <h2>Commercial Real Estate Questions in Bastrop County</h2>
+        </div>
+        <div class="container faq-grid">
+          <details open>
+            <summary>Is Bastrop a good place to invest?</summary>
+            <p>Bastrop is attracting investor attention because of Austin proximity, population growth, highway access, and expanding commercial and industrial activity across eastern Central Texas.</p>
+          </details>
+          <details>
+            <summary>What commercial properties are available?</summary>
+            <p>The current homepage features commercial land and development opportunities ranging from 1.15 acres to 88.8 acres, including Highway 71 and Toll Road 130 corridor positions.</p>
+          </details>
+          <details>
+            <summary>How fast is Bastrop growing?</summary>
+            <p>Recent Census estimates show Bastrop County has grown materially since 2020, which supports demand for retail, services, housing-adjacent commercial uses, and investment property.</p>
+          </details>
+          <details>
+            <summary>What industries are moving to Bastrop?</summary>
+            <p>Investors are watching advanced manufacturing, logistics, technology-adjacent operations, retail, hospitality, and service businesses tied to SpaceX, The Boring Company, X, Samsung-area growth, and Austin overflow.</p>
+          </details>
+          <details>
+            <summary>How do I sell commercial land?</summary>
+            <p>Start with positioning: acreage, access, zoning or jurisdiction, utilities, surrounding growth, buyer profile, and pricing. Taylor helps sellers package that story for qualified buyers.</p>
+          </details>
+        </div>
+      </section>
+
+      <section id="contact" class="section contact-section reveal">
+        <div class="container contact">
+          <div class="contact__copy">
+            <p class="eyebrow">Get in touch</p>
+            <h2>Ready to Explore Commercial Opportunities in Bastrop?</h2>
+            <p>Schedule a conversation today.</p>
+            <p>
+              Have questions about commercial real estate in Bastrop County? Taylor is here to help
+              with expert guidance, property inquiries, and investment strategies.
+            </p>
+            <dl class="contact-list">
+              <div><dt>Cell</dt><dd><a href="tel:+15128776292">512-877-6292</a></dd></div>
+              <div><dt>Email</dt><dd><a href="mailto:taylor@spyglassrealty.com">taylor@spyglassrealty.com</a></dd></div>
             </dl>
           </div>
-
-          <div class="form-card">
-            <!--
-              Static submission: wire `action` to your provider when hosting is chosen.
-                • Netlify Forms: add `data-netlify="true"` and a hidden form-name input.
-                • Formspree:     set action="https://formspree.io/f/XXXX".
-              Until then it posts nowhere; the markup + validation are production-ready.
-            -->
-            <form action="#" method="POST" class="form">
-              <div class="form__row">
-                <div class="field">
-                  <label class="eyebrow field__label" for="firstName">First name</label>
-                  <input id="firstName" name="firstName" type="text" required autocomplete="given-name" class="field__input" placeholder="Jane" />
-                </div>
-                <div class="field">
-                  <label class="eyebrow field__label" for="lastName">Last name</label>
-                  <input id="lastName" name="lastName" type="text" required autocomplete="family-name" class="field__input" placeholder="Doe" />
-                </div>
-              </div>
-
-              <div class="form__row">
-                <div class="field">
-                  <label class="eyebrow field__label" for="email">Email</label>
-                  <input id="email" name="email" type="email" required autocomplete="email" class="field__input" placeholder="jane@company.com" />
-                </div>
-                <div class="field">
-                  <label class="eyebrow field__label" for="phone">Phone</label>
-                  <input id="phone" name="phone" type="tel" autocomplete="tel" class="field__input" placeholder="(512) 555-0100" />
-                </div>
-              </div>
-
-              <div class="field">
-                <label class="eyebrow field__label" for="interest">I'm interested in</label>
-                <select id="interest" name="interest" class="field__input field__input--select">
-                  <option>Buying / investing in Bastrop</option>
-                  <option>Selling commercial property</option>
-                  <option>A specific listing</option>
-                  <option>Interior design through StyleCo Inc.</option>
-                  <option>Market consultation</option>
-                </select>
-              </div>
-
-              <div class="field">
-                <label class="eyebrow field__label" for="message">Message</label>
-                <textarea id="message" name="message" rows="4" required class="field__input field__input--textarea" placeholder="Tell me a little about what you're looking for…"></textarea>
-              </div>
-
-              <button type="submit" class="btn btn--forest form__submit">Send message</button>
-
-              <p class="form__note">
-                Prefer to talk? Call <a href="tel:+15128776292" class="link-underline form__note-link">512-877-6292</a>
-              </p>
-            </form>
-          </div>
+          <form class="contact-form" method="POST">
+            <div class="form-row">
+              <label>First name<input name="firstName" type="text" autocomplete="given-name" required /></label>
+              <label>Last name<input name="lastName" type="text" autocomplete="family-name" required /></label>
+            </div>
+            <div class="form-row">
+              <label>Email<input name="email" type="email" autocomplete="email" required /></label>
+              <label>Phone<input name="phone" type="tel" autocomplete="tel" /></label>
+            </div>
+            <label>
+              Interest
+              <select name="interest">
+                <option>Buying commercial property in Bastrop</option>
+                <option>Selling commercial land or property</option>
+                <option>Evaluating investment property</option>
+                <option>Development or builder opportunity</option>
+                <option>Market consultation</option>
+              </select>
+            </label>
+            <label>Message<textarea name="message" rows="5" required></textarea></label>
+            <button class="btn btn--primary" type="submit">Schedule a Conversation</button>
+          </form>
         </div>
       </section>
     </main>
 
-    <!-- FOOTER ─────────────────────────────────────────────── -->
     <footer class="footer">
-      <div class="grain"></div>
       <div class="container footer__inner">
-        <div class="footer__cols">
-          <div>
-            <div class="brand">
-              <span class="brand__mark">B</span>
-              <span class="brand__name brand__name--lg">Bastrop Commercial Real Estate</span>
-            </div>
-            <p class="footer__pitch">
-              Investment land, development sites, and commercial property in Bastrop County,
-              Texas, with an affiliated interior design perspective through StyleCo Inc.
-            </p>
-            <a href="#contact" class="btn btn--gold footer__cta">Book a consultation</a>
-          </div>
-
-          <div>
-            <h3 class="eyebrow footer__heading">Explore</h3>
-            <ul class="footer__links">
-              <li><a href="#about" class="link-underline">About</a></li>
-              <li><a href="#listings" class="link-underline">Listings</a></li>
-              <li><a href="#buy-sell" class="link-underline">Buy / Sell</a></li>
-              <li><a href="#styleco" class="link-underline">StyleCo Inc.</a></li>
-              <li><a href="#agent" class="link-underline">Agent</a></li>
-              <li><a href="#contact" class="link-underline">Contact</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 class="eyebrow footer__heading">Contact</h3>
-            <ul class="footer__links">
-              <li class="footer__name">Taylor Homuth</li>
-              <li>Realtor® · Spyglass Realty</li>
-              <li><a href="tel:+15128776292" class="link-underline">512-877-6292</a></li>
-              <li><a href="mailto:taylor@spyglassrealty.com" class="link-underline">taylor@spyglassrealty.com</a></li>
-            </ul>
-          </div>
+        <div>
+          <strong>Bastrop Commercial Real Estate</strong>
+          <p>Taylor Homuth, Realtor with Spyglass Realty</p>
         </div>
-
-        <div class="footer__bottom">
-          <p>© <span id="year">2026</span> Bastrop Commercial Real Estate. All rights reserved.</p>
-          <p>Taylor Homuth, Realtor® with Spyglass Realty. Affiliated with StyleCo Inc. Equal Housing Opportunity.</p>
-        </div>
+        <p>Copyright <span class="footer-year">2025</span> Bastrop Commercial Real Estate. All Rights Reserved.</p>
       </div>
     </footer>
 
