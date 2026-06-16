@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header class="site-header" id="site-header"><div class="container header__inner"><a class="brand" href="index.html"><span class="brand__mark">BC</span><span class="brand__text">Bastrop Commercial</span></a><nav class="nav" aria-label="Primary navigation"><a href="index.html">Home</a><a href="about.html">About</a><a href="buyer.html">Buyer</a><a class="is-active" href="seller.html">Seller</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></nav><a class="header__phone" href="tel:+15128776292">512-877-6292</a><button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button></div><nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden><a href="index.html">Home</a><a href="about.html">About</a><a href="buyer.html">Buyer</a><a href="seller.html">Seller</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></nav></header>
+    <header class="site-header" id="site-header"><div class="container header__inner"><a class="brand" href="index.html"><span class="brand__mark">BC</span><span class="brand__text">Bastrop Commercial</span></a><nav class="nav" aria-label="Primary navigation"><a href="index.html">Home</a><a href="about.html">About</a><a href="buyer.html">Buy</a><a class="is-active" href="seller.html">Sell</a><a href="marketing.html">Marketing</a><a href="commercial-insights.html">Insights</a><a href="developers.html">Developers</a><a href="contact.html">Contact</a></nav><a class="header__phone" href="tel:+15128776292">512-877-6292</a><button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button></div><nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden><a href="index.html">Home</a><a href="about.html">About</a><a href="buyer.html">Buy</a><a href="seller.html">Sell</a><a href="marketing.html">Marketing</a><a href="commercial-insights.html">Insights</a><a href="developers.html">Developers</a><a href="contact.html">Contact</a></nav></header>
 
     <main>
       <section class="subpage-hero subpage-hero--dark">
@@ -33,19 +33,20 @@
             <p>From pricing strategies to targeted marketing, Taylor tailors a customized selling plan to meet your goals. She leverages professional photography, commercial listing platforms, and industry connections to increase visibility and attract the right buyers.</p>
           </article>
           <aside class="side-card">
-            <h3>Seller strategy includes</h3>
-            <ul class="check-list">
-              <li>Commercial property valuation and pricing strategy.</li>
-              <li>Buyer profile and positioning.</li>
-              <li>Professional marketing and listing exposure.</li>
-              <li>Negotiation through closing.</li>
-            </ul>
-            <a class="btn btn--primary" href="contact.html">Talk About Selling</a>
+            <h3>Tell Taylor About the Property</h3>
+            <form class="lead-form" method="POST">
+              <label>Property Address<input name="propertyAddress" type="text" autocomplete="street-address" required /></label>
+              <label>Acreage<input name="acreage" type="text" placeholder="Example: 12.5 acres" required /></label>
+              <label>Property Type<select name="propertyType" required><option value="">Select one</option><option>Commercial</option><option>Development Land</option><option>Farm / Ranch</option><option>Industrial</option><option>Retail / Office</option><option>Other</option></select></label>
+              <label>Timeline<select name="timeline" required><option value="">Select one</option><option>Immediately</option><option>0-3 months</option><option>3-6 months</option><option>6-12 months</option><option>Just exploring</option></select></label>
+              <button class="btn btn--primary" type="submit">Request Seller Strategy</button>
+            </form>
           </aside>
         </div>
       </section>
     </main>
-    <footer class="footer"><div class="container footer__inner"><div><strong>Bastrop Commercial Real Estate</strong><p>Taylor Homuth, Realtor with Spyglass Realty</p></div><p>Copyright <span class="footer-year">2025</span> Bastrop Commercial Real Estate. All Rights Reserved.</p></div></footer>
+    <footer class="footer"><div class="container footer__inner"><div><strong>Bastrop Commercial Real Estate</strong><p>Taylor Homuth, Land &amp; Commercial Advisor with Spyglass Realty</p></div><p>Copyright <span class="footer-year">2025</span> Bastrop Commercial Real Estate. All Rights Reserved.</p></div></footer>
+    <a class="sticky-cta" href="contact.html"><span class="sticky-cta__desktop">Schedule Strategy Call</span><span class="sticky-cta__mobile">Contact Taylor</span></a>
     <script src="script.js"></script>
   </body>
 </html>

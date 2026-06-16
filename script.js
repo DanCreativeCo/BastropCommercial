@@ -33,6 +33,28 @@ mobileNav?.querySelectorAll("a").forEach((link) => {
   });
 });
 
+document.querySelectorAll("[data-carousel]").forEach((carousel) => {
+  const track = carousel.querySelector("[data-carousel-track]");
+  const prev = carousel.querySelector("[data-carousel-prev]");
+  const next = carousel.querySelector("[data-carousel-next]");
+
+  if (!track || !prev || !next) return;
+
+  const scrollByCard = (direction) => {
+    const card = track.querySelector(".listing-card");
+    const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+    const distance = card ? card.getBoundingClientRect().width + gap : track.clientWidth;
+
+    track.scrollBy({
+      left: direction * distance,
+      behavior: "smooth",
+    });
+  };
+
+  prev.addEventListener("click", () => scrollByCard(-1));
+  next.addEventListener("click", () => scrollByCard(1));
+});
+
 if ("IntersectionObserver" in window) {
   const observer = new IntersectionObserver(
     (entries, obs) => {
