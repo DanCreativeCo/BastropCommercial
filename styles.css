@@ -298,7 +298,8 @@ p {
   aspect-ratio: 4 / 3;
   object-fit: cover;
   box-shadow: var(--shadow);
-  transform: translate3d(0, 0, 0);
+  --parallax-scale: 1.04;
+  transform: translate3d(0, 0, 0) scale(var(--parallax-scale, 1));
 }
 
 .subpage-hero__grid img.about-portrait {
@@ -306,6 +307,7 @@ p {
   object-fit: contain;
   background: #d6d8d8;
   object-position: center;
+  transform: none;
 }
 
 .listing-price {
@@ -325,12 +327,20 @@ p {
 
 .parallax-layer {
   will-change: transform;
-  transform: translate3d(0, var(--parallax-offset, 0px), 0);
+  transform: translate3d(0, var(--parallax-offset, 0px), 0) scale(var(--parallax-scale, 1.06));
+  transform-origin: center;
 }
 
 .hero__image {
   height: 100%;
   object-fit: cover;
+  --parallax-scale: 1.08;
+}
+
+.listing-card img,
+.agent__media img,
+.insight-card img {
+  --parallax-scale: 1.035;
 }
 
 .hero__scrim {
@@ -1481,7 +1491,7 @@ textarea:focus {
     will-change: opacity, transform;
   }
 
-  .reveal :is(img, .video-card, .listing-card, .growth-grid article, .service-grid article, .capital__grid article, .insight-card, .faq-grid details, .page-card, .goldspur-grid article, .credential-grid div, .corridor-strip article, .editorial__panel) {
+  .reveal :is(img:not(.parallax-layer), .video-card, .listing-card, .growth-grid article, .service-grid article, .capital__grid article, .insight-card, .faq-grid details, .page-card, .goldspur-grid article, .credential-grid div, .corridor-strip article, .editorial__panel) {
     opacity: 1;
     transform: none;
     transition: none;
@@ -1521,6 +1531,10 @@ textarea:focus {
 
   .listing-track {
     scroll-behavior: auto;
+  }
+
+  .parallax-layer {
+    transform: none;
   }
 
   .mobile-nav,

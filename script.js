@@ -5,13 +5,18 @@ const currentYear = String(new Date().getFullYear());
 const stickyCta = document.querySelector(".sticky-cta");
 const footer = document.querySelector(".footer");
 const parallaxLayers = Array.from(
-  document.querySelectorAll(".hero__image, .listing-hero img, .subpage-hero__grid img:not(.about-portrait)")
+  document.querySelectorAll(
+    ".hero__image, .listing-hero img, .subpage-hero__grid img:not(.about-portrait), .listing-card img, .agent__media img, .insight-card img"
+  )
 );
 const prefersReduceParallax = window.matchMedia("(prefers-reduced-motion: reduce)");
+const mobileParallaxMedia = window.matchMedia("(max-width: 639px)");
 const desktopCarouselMedia = window.matchMedia("(min-width: 900px)");
 const PARALLAX_SPEED_DEFAULT = 0.12;
-const PARALLAX_SPEED_HERO = 0.2;
-const PARALLAX_OFFSET_LIMIT = 24;
+const PARALLAX_SPEED_HERO = 0.16;
+const PARALLAX_SPEED_CONTENT = 0.06;
+const PARALLAX_OFFSET_LIMIT = 32;
+const PARALLAX_MOBILE_OFFSET_LIMIT = 12;
 
 document.querySelectorAll(".footer-year").forEach((el) => {
   el.textContent = currentYear;
@@ -29,21 +34,28 @@ if (parallaxLayers.length) {
     layer.classList.add("parallax-layer");
     return {
       node: layer,
+      isVisible: true,
       speed: layer.classList.contains("hero__image")
         ? PARALLAX_SPEED_HERO
-        : parseFloat(layer.dataset.parallaxSpeed) || PARALLAX_SPEED_DEFAULT,
+        : layer.closest(".listing-card, .agent__media, .insight-card")
+          ? PARALLAX_SPEED_CONTENT
+          : parseFloat(layer.dataset.parallaxSpeed) || PARALLAX_SPEED_DEFAULT,
     };
   });
   let parallaxFrame;
 
   const setParallaxOffsets = () => {
     if (prefersReduceParallax.matches) return;
+    const limit = mobileParallaxMedia.matches
+      ? PARALLAX_MOBILE_OFFSET_LIMIT
+      : PARALLAX_OFFSET_LIMIT;
 
     layers.forEach((entry) => {
+      if (!entry.isVisible) return;
       const top = entry.node.getBoundingClientRect().top;
       const offset = Math.max(
-        -PARALLAX_OFFSET_LIMIT,
-        Math.min(PARALLAX_OFFSET_LIMIT, -top * entry.speed)
+        -limit,
+        Math.min(limit, -top * entry.speed)
       );
       entry.node.style.setProperty("--parallax-offset", `${offset}px`);
     });
@@ -67,9 +79,26 @@ if (parallaxLayers.length) {
     requestParallaxUpdate();
   };
 
+  if ("IntersectionObserver" in window) {
+    const parallaxObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const layer = layers.find((item) => item.node === entry.target);
+          if (!layer) return;
+          layer.isVisible = entry.isIntersecting;
+          if (entry.isIntersecting) requestParallaxUpdate();
+        });
+      },
+      { rootMargin: "20% 0px" }
+    );
+
+    layers.forEach((entry) => parallaxObserver.observe(entry.node));
+  }
+
   window.addEventListener("scroll", requestParallaxUpdate, { passive: true });
   window.addEventListener("resize", requestParallaxUpdate);
   prefersReduceParallax.addEventListener("change", handleParallaxPreference);
+  mobileParallaxMedia.addEventListener("change", requestParallaxUpdate);
   handleParallaxPreference();
   requestParallaxUpdate();
 }
