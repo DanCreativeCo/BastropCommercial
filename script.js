@@ -2,6 +2,15 @@ const header = document.getElementById("site-header");
 const menuToggle = document.getElementById("menu-toggle");
 const mobileNav = document.getElementById("mobile-nav");
 const currentYear = String(new Date().getFullYear());
+const stickyCta = document.querySelector(".sticky-cta");
+const footer = document.querySelector(".footer");
+const parallaxLayers = Array.from(
+  document.querySelectorAll(".hero__image, .listing-hero img, .subpage-hero__grid img:not(.about-portrait)")
+);
+const prefersReduceParallax = window.matchMedia("(prefers-reduced-motion: reduce)");
+const PARALLAX_SPEED_DEFAULT = 0.12;
+const PARALLAX_SPEED_HERO = 0.2;
+const PARALLAX_OFFSET_LIMIT = 24;
 
 document.querySelectorAll(".footer-year").forEach((el) => {
   el.textContent = currentYear;
@@ -13,6 +22,78 @@ const syncHeader = () => {
 
 syncHeader();
 window.addEventListener("scroll", syncHeader, { passive: true });
+
+if (parallaxLayers.length) {
+  const layers = parallaxLayers.map((layer) => {
+    layer.classList.add("parallax-layer");
+    return {
+      node: layer,
+      speed: layer.classList.contains("hero__image")
+        ? PARALLAX_SPEED_HERO
+        : parseFloat(layer.dataset.parallaxSpeed) || PARALLAX_SPEED_DEFAULT,
+    };
+  });
+  let parallaxFrame;
+
+  const setParallaxOffsets = () => {
+    if (prefersReduceParallax.matches) return;
+
+    layers.forEach((entry) => {
+      const top = entry.node.getBoundingClientRect().top;
+      const offset = Math.max(
+        -PARALLAX_OFFSET_LIMIT,
+        Math.min(PARALLAX_OFFSET_LIMIT, -top * entry.speed)
+      );
+      entry.node.style.setProperty("--parallax-offset", `${offset}px`);
+    });
+  };
+
+  const requestParallaxUpdate = () => {
+    if (parallaxFrame) {
+      window.cancelAnimationFrame(parallaxFrame);
+    }
+    parallaxFrame = window.requestAnimationFrame(setParallaxOffsets);
+  };
+
+  const handleParallaxPreference = () => {
+    if (parallaxFrame) window.cancelAnimationFrame(parallaxFrame);
+    if (prefersReduceParallax.matches) {
+      layers.forEach((entry) =>
+        entry.node.style.setProperty("--parallax-offset", "0px")
+      );
+      return;
+    }
+    requestParallaxUpdate();
+  };
+
+  window.addEventListener("scroll", requestParallaxUpdate, { passive: true });
+  window.addEventListener("resize", requestParallaxUpdate);
+  prefersReduceParallax.addEventListener("change", handleParallaxPreference);
+  handleParallaxPreference();
+  requestParallaxUpdate();
+}
+
+if (stickyCta && footer) {
+  let ctaFrame;
+
+  const syncStickyCta = () => {
+    const ctaHeight = stickyCta.getBoundingClientRect().height || 52;
+    const footerTop = footer.getBoundingClientRect().top;
+    const overlapPoint = window.innerHeight - ctaHeight - 12;
+    const shouldHide = footerTop < overlapPoint;
+
+    stickyCta.classList.toggle("is-over-footer", shouldHide);
+  };
+
+  const requestStickySync = () => {
+    if (ctaFrame) window.cancelAnimationFrame(ctaFrame);
+    ctaFrame = window.requestAnimationFrame(syncStickyCta);
+  };
+
+  syncStickyCta();
+  window.addEventListener("scroll", requestStickySync, { passive: true });
+  window.addEventListener("resize", requestStickySync);
+}
 
 menuToggle?.addEventListener("click", () => {
   const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
@@ -95,7 +176,7 @@ if ("IntersectionObserver" in window) {
         obs.unobserve(entry.target);
       });
     },
-    { threshold: 0.14, rootMargin: "0px 0px -50px 0px" }
+    { threshold: 0.15, rootMargin: "0px 0px 18% 0px" }
   );
 
   document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
