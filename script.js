@@ -12,11 +12,13 @@ const parallaxLayers = Array.from(
 const prefersReduceParallax = window.matchMedia("(prefers-reduced-motion: reduce)");
 const mobileParallaxMedia = window.matchMedia("(max-width: 639px)");
 const desktopCarouselMedia = window.matchMedia("(min-width: 900px)");
-const PARALLAX_SPEED_DEFAULT = 0.16;
-const PARALLAX_SPEED_HERO = 0.2;
-const PARALLAX_SPEED_CONTENT = 0.1;
-const PARALLAX_OFFSET_LIMIT = 44;
-const PARALLAX_MOBILE_OFFSET_LIMIT = 34;
+const PARALLAX_SPEED_DEFAULT = 0.14;
+const PARALLAX_SPEED_HERO = 0.18;
+const PARALLAX_SPEED_CONTENT = 0.08;
+const PARALLAX_OFFSET_LIMIT = 38;
+const PARALLAX_MOBILE_OFFSET_LIMIT = 28;
+const PARALLAX_EASE = 0.16;
+const PARALLAX_SETTLE_THRESHOLD = 0.1;
 
 document.querySelectorAll(".footer-year").forEach((el) => {
   el.textContent = currentYear;
@@ -35,6 +37,8 @@ if (parallaxLayers.length) {
     return {
       node: layer,
       isVisible: true,
+      currentOffset: 0,
+      targetOffset: 0,
       speed: layer.classList.contains("hero__image")
         ? PARALLAX_SPEED_HERO
         : layer.closest(".listing-card, .agent__media, .insight-card")
@@ -44,36 +48,78 @@ if (parallaxLayers.length) {
   });
   let parallaxFrame;
 
-  const setParallaxOffsets = () => {
-    if (prefersReduceParallax.matches) return;
-    const limit = mobileParallaxMedia.matches
+  const getParallaxLimit = () =>
+    mobileParallaxMedia.matches
       ? PARALLAX_MOBILE_OFFSET_LIMIT
       : PARALLAX_OFFSET_LIMIT;
 
+  const getParallaxTarget = (entry) => {
+    const rect = entry.node.getBoundingClientRect();
+    const viewportCenter = window.innerHeight / 2;
+    const layerCenter = rect.top + rect.height / 2;
+    const offset = (viewportCenter - layerCenter) * entry.speed;
+    const limit = getParallaxLimit();
+
+    return Math.max(-limit, Math.min(limit, offset));
+  };
+
+  const setParallaxTargets = () => {
     layers.forEach((entry) => {
       if (!entry.isVisible) return;
-      const top = entry.node.getBoundingClientRect().top;
-      const offset = Math.max(
-        -limit,
-        Math.min(limit, -top * entry.speed)
-      );
-      entry.node.style.setProperty("--parallax-offset", `${offset}px`);
+      entry.targetOffset = getParallaxTarget(entry);
     });
   };
 
-  const requestParallaxUpdate = () => {
-    if (parallaxFrame) {
-      window.cancelAnimationFrame(parallaxFrame);
+  const renderParallaxOffsets = () => {
+    if (prefersReduceParallax.matches) {
+      parallaxFrame = undefined;
+      return;
     }
-    parallaxFrame = window.requestAnimationFrame(setParallaxOffsets);
+
+    let shouldContinue = false;
+
+    layers.forEach((entry) => {
+      if (!entry.isVisible) return;
+
+      const delta = entry.targetOffset - entry.currentOffset;
+
+      if (Math.abs(delta) < PARALLAX_SETTLE_THRESHOLD) {
+        entry.currentOffset = entry.targetOffset;
+      } else {
+        entry.currentOffset += delta * PARALLAX_EASE;
+        shouldContinue = true;
+      }
+
+      entry.node.style.setProperty(
+        "--parallax-offset",
+        `${entry.currentOffset.toFixed(2)}px`
+      );
+    });
+
+    parallaxFrame = shouldContinue
+      ? window.requestAnimationFrame(renderParallaxOffsets)
+      : undefined;
+  };
+
+  const requestParallaxUpdate = () => {
+    if (prefersReduceParallax.matches) return;
+    setParallaxTargets();
+    if (!parallaxFrame) {
+      parallaxFrame = window.requestAnimationFrame(renderParallaxOffsets);
+    }
   };
 
   const handleParallaxPreference = () => {
-    if (parallaxFrame) window.cancelAnimationFrame(parallaxFrame);
+    if (parallaxFrame) {
+      window.cancelAnimationFrame(parallaxFrame);
+      parallaxFrame = undefined;
+    }
     if (prefersReduceParallax.matches) {
-      layers.forEach((entry) =>
-        entry.node.style.setProperty("--parallax-offset", "0px")
-      );
+      layers.forEach((entry) => {
+        entry.currentOffset = 0;
+        entry.targetOffset = 0;
+        entry.node.style.setProperty("--parallax-offset", "0px");
+      });
       return;
     }
     requestParallaxUpdate();

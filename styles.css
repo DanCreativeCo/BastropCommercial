@@ -325,6 +325,7 @@ p {
 }
 
 .parallax-layer {
+  backface-visibility: hidden;
   will-change: transform;
   transform: translate3d(0, var(--parallax-offset, 0px), 0) scale(var(--parallax-scale, 1.06));
   transform-origin: center;
@@ -1206,6 +1207,7 @@ p {
 }
 
 .agent__media {
+  overflow: hidden;
   position: relative;
 }
 
@@ -1278,6 +1280,7 @@ p {
 
 .insight-card {
   display: grid;
+  overflow: hidden;
   background: #fffdfa;
   border: 1px solid var(--line);
   box-shadow: var(--shadow);
