@@ -4,21 +4,7 @@ const mobileNav = document.getElementById("mobile-nav");
 const currentYear = String(new Date().getFullYear());
 const stickyCta = document.querySelector(".sticky-cta");
 const footer = document.querySelector(".footer");
-const parallaxLayers = Array.from(
-  document.querySelectorAll(
-    ".hero__image, .listing-hero img, .subpage-hero__grid img:not(.about-portrait), .listing-card img, .agent__media img, .insight-card img"
-  )
-);
-const prefersReduceParallax = window.matchMedia("(prefers-reduced-motion: reduce)");
-const mobileParallaxMedia = window.matchMedia("(max-width: 639px)");
 const desktopCarouselMedia = window.matchMedia("(min-width: 900px)");
-const PARALLAX_SPEED_DEFAULT = 0.14;
-const PARALLAX_SPEED_HERO = 0.18;
-const PARALLAX_SPEED_CONTENT = 0.08;
-const PARALLAX_OFFSET_LIMIT = 38;
-const PARALLAX_MOBILE_OFFSET_LIMIT = 28;
-const PARALLAX_EASE = 0.16;
-const PARALLAX_SETTLE_THRESHOLD = 0.1;
 
 document.querySelectorAll(".footer-year").forEach((el) => {
   el.textContent = currentYear;
@@ -30,124 +16,6 @@ const syncHeader = () => {
 
 syncHeader();
 window.addEventListener("scroll", syncHeader, { passive: true });
-
-if (parallaxLayers.length) {
-  const layers = parallaxLayers.map((layer) => {
-    layer.classList.add("parallax-layer");
-    return {
-      node: layer,
-      isVisible: true,
-      currentOffset: 0,
-      targetOffset: 0,
-      speed: layer.classList.contains("hero__image")
-        ? PARALLAX_SPEED_HERO
-        : layer.closest(".listing-card, .agent__media, .insight-card")
-          ? PARALLAX_SPEED_CONTENT
-          : parseFloat(layer.dataset.parallaxSpeed) || PARALLAX_SPEED_DEFAULT,
-    };
-  });
-  let parallaxFrame;
-
-  const getParallaxLimit = () =>
-    mobileParallaxMedia.matches
-      ? PARALLAX_MOBILE_OFFSET_LIMIT
-      : PARALLAX_OFFSET_LIMIT;
-
-  const getParallaxTarget = (entry) => {
-    const rect = entry.node.getBoundingClientRect();
-    const viewportCenter = window.innerHeight / 2;
-    const layerCenter = rect.top + rect.height / 2;
-    const offset = (viewportCenter - layerCenter) * entry.speed;
-    const limit = getParallaxLimit();
-
-    return Math.max(-limit, Math.min(limit, offset));
-  };
-
-  const setParallaxTargets = () => {
-    layers.forEach((entry) => {
-      if (!entry.isVisible) return;
-      entry.targetOffset = getParallaxTarget(entry);
-    });
-  };
-
-  const renderParallaxOffsets = () => {
-    if (prefersReduceParallax.matches) {
-      parallaxFrame = undefined;
-      return;
-    }
-
-    let shouldContinue = false;
-
-    layers.forEach((entry) => {
-      if (!entry.isVisible) return;
-
-      const delta = entry.targetOffset - entry.currentOffset;
-
-      if (Math.abs(delta) < PARALLAX_SETTLE_THRESHOLD) {
-        entry.currentOffset = entry.targetOffset;
-      } else {
-        entry.currentOffset += delta * PARALLAX_EASE;
-        shouldContinue = true;
-      }
-
-      entry.node.style.setProperty(
-        "--parallax-offset",
-        `${entry.currentOffset.toFixed(2)}px`
-      );
-    });
-
-    parallaxFrame = shouldContinue
-      ? window.requestAnimationFrame(renderParallaxOffsets)
-      : undefined;
-  };
-
-  const requestParallaxUpdate = () => {
-    if (prefersReduceParallax.matches) return;
-    setParallaxTargets();
-    if (!parallaxFrame) {
-      parallaxFrame = window.requestAnimationFrame(renderParallaxOffsets);
-    }
-  };
-
-  const handleParallaxPreference = () => {
-    if (parallaxFrame) {
-      window.cancelAnimationFrame(parallaxFrame);
-      parallaxFrame = undefined;
-    }
-    if (prefersReduceParallax.matches) {
-      layers.forEach((entry) => {
-        entry.currentOffset = 0;
-        entry.targetOffset = 0;
-        entry.node.style.setProperty("--parallax-offset", "0px");
-      });
-      return;
-    }
-    requestParallaxUpdate();
-  };
-
-  if ("IntersectionObserver" in window) {
-    const parallaxObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const layer = layers.find((item) => item.node === entry.target);
-          if (!layer) return;
-          layer.isVisible = entry.isIntersecting;
-          if (entry.isIntersecting) requestParallaxUpdate();
-        });
-      },
-      { rootMargin: "20% 0px" }
-    );
-
-    layers.forEach((entry) => parallaxObserver.observe(entry.node));
-  }
-
-  window.addEventListener("scroll", requestParallaxUpdate, { passive: true });
-  window.addEventListener("resize", requestParallaxUpdate);
-  prefersReduceParallax.addEventListener("change", handleParallaxPreference);
-  mobileParallaxMedia.addEventListener("change", requestParallaxUpdate);
-  handleParallaxPreference();
-  requestParallaxUpdate();
-}
 
 if (stickyCta && footer) {
   let ctaFrame;
