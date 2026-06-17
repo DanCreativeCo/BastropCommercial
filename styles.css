@@ -997,7 +997,7 @@ p {
   scroll-padding-inline: 1rem;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
-  touch-action: pan-x;
+  touch-action: auto;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -1928,29 +1928,41 @@ textarea:focus {
 }
 
 @media (max-width: 899px) {
-  .hero {
-    --hero-exit: 0 !important;
-  }
-
-  .hero__image,
-  .hero__content,
-  .listing-card,
-  .corridor-strip article {
-    transition: none;
-    will-change: auto;
-  }
-
   .hero__image,
   .hero__content {
-    opacity: 1;
-    filter: none;
-    transform: none;
+    will-change: transform, opacity;
   }
 
-  .listing-card,
+  .hero__image {
+    opacity: calc(1 - (var(--hero-exit) * 0.18));
+    filter:
+      saturate(calc(1.03 - (var(--hero-exit) * 0.08)))
+      contrast(calc(1.01 - (var(--hero-exit) * 0.03)));
+    transform:
+      translate3d(0, calc(var(--hero-exit) * 18px), 0)
+      scale(calc(1.02 + (var(--hero-exit) * 0.025)));
+  }
+
+  .hero__content {
+    opacity: calc(1 - (var(--hero-exit) * 0.42));
+    transform: translate3d(0, calc(var(--hero-exit) * -12px), 0);
+  }
+
+  .listing-card {
+    transition:
+      opacity 320ms ease,
+      border-color 240ms ease,
+      box-shadow 260ms var(--ease);
+  }
+
   .corridor-strip article {
-    opacity: 1;
-    transform: none;
+    --corridor-shift: 1.25rem;
+    transform: translate3d(var(--corridor-shift), 0.35rem, 0) scale(0.99);
+    transition:
+      opacity 360ms ease,
+      transform 420ms var(--ease),
+      border-color 220ms ease,
+      box-shadow 260ms var(--ease);
   }
 }
 
