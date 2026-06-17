@@ -1112,7 +1112,6 @@ p {
 }
 
 .listing-card {
-  --card-shift: min(18rem, 54vw);
   display: flex;
   flex-direction: column;
   min-height: 100%;
@@ -1124,19 +1123,15 @@ p {
   scroll-snap-align: start;
   scroll-snap-stop: always;
   opacity: 0;
-  transform: translate3d(var(--card-shift), 2.25rem, 0) scale(0.88) rotateY(-7deg);
   transition:
-    opacity 680ms var(--ease),
-    transform 820ms var(--ease),
+    opacity 360ms ease,
     border-color 320ms ease,
     box-shadow 420ms var(--ease);
   transition-delay: calc(var(--card-index, 0) * 90ms);
-  will-change: transform, opacity;
 }
 
 .listing-card.is-scroll-revealed {
   opacity: 1;
-  transform: translate3d(0, 0, 0) scale(1) rotateY(0);
   border-color: rgba(168, 115, 63, 0.24);
 }
 
