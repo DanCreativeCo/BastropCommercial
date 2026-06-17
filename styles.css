@@ -1628,7 +1628,8 @@ textarea:focus {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .reveal {
+  .reveal,
+  .section-transition {
     opacity: 0;
     transform: translateY(10px);
     transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
@@ -1641,7 +1642,8 @@ textarea:focus {
     transition: none;
   }
 
-  .reveal.is-visible {
+  .reveal.is-visible,
+  .section-transition.is-visible {
     opacity: 1;
     transform: none;
   }

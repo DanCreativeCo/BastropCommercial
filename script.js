@@ -127,6 +127,10 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
   next.addEventListener("click", () => scrollByCard(1));
 });
 
+document.querySelectorAll("main > section:not(.hero)").forEach((section) => {
+  section.classList.add("section-transition");
+});
+
 if ("IntersectionObserver" in window) {
   const observer = new IntersectionObserver(
     (entries, obs) => {
@@ -139,5 +143,11 @@ if ("IntersectionObserver" in window) {
     { threshold: 0.15, rootMargin: "0px 0px 18% 0px" }
   );
 
-  document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+  document
+    .querySelectorAll(".reveal, .section-transition")
+    .forEach((el) => observer.observe(el));
+} else {
+  document
+    .querySelectorAll(".reveal, .section-transition")
+    .forEach((el) => el.classList.add("is-visible"));
 }
