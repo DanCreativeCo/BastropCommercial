@@ -12,11 +12,11 @@ const parallaxLayers = Array.from(
 const prefersReduceParallax = window.matchMedia("(prefers-reduced-motion: reduce)");
 const mobileParallaxMedia = window.matchMedia("(max-width: 639px)");
 const desktopCarouselMedia = window.matchMedia("(min-width: 900px)");
-const PARALLAX_SPEED_DEFAULT = 0.12;
-const PARALLAX_SPEED_HERO = 0.16;
-const PARALLAX_SPEED_CONTENT = 0.06;
-const PARALLAX_OFFSET_LIMIT = 32;
-const PARALLAX_MOBILE_OFFSET_LIMIT = 22;
+const PARALLAX_SPEED_DEFAULT = 0.16;
+const PARALLAX_SPEED_HERO = 0.2;
+const PARALLAX_SPEED_CONTENT = 0.1;
+const PARALLAX_OFFSET_LIMIT = 44;
+const PARALLAX_MOBILE_OFFSET_LIMIT = 34;
 
 document.querySelectorAll(".footer-year").forEach((el) => {
   el.textContent = currentYear;

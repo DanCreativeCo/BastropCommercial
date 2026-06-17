@@ -39,7 +39,6 @@ body {
   font-family: var(--font-sans);
   line-height: 1.5;
   overflow-x: hidden;
-  padding-bottom: 4.75rem;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -1415,10 +1414,10 @@ textarea:focus {
 }
 
 .sticky-cta {
+  display: none;
   position: fixed;
   bottom: 0.75rem;
   z-index: 70;
-  display: grid;
   grid-template-columns: 1fr 0.9fr;
   align-items: center;
   left: 1rem;
