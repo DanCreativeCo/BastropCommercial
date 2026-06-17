@@ -40,6 +40,34 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
 
   if (!track || !prev || !next) return;
 
+  const cards = Array.from(track.querySelectorAll(".listing-card"));
+
+  const setActiveCard = () => {
+    if (!cards.length) return;
+
+    const trackCenter = track.scrollLeft + track.clientWidth / 2;
+    let active = cards[0];
+    let closestDistance = Infinity;
+
+    cards.forEach((card) => {
+      const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+      const distance = Math.abs(trackCenter - cardCenter);
+
+      if (distance < closestDistance) {
+        active = card;
+        closestDistance = distance;
+      }
+    });
+
+    cards.forEach((card) => card.classList.toggle("is-active", card === active));
+  };
+
+  let scrollFrame;
+  const requestActiveCardUpdate = () => {
+    window.cancelAnimationFrame(scrollFrame);
+    scrollFrame = window.requestAnimationFrame(setActiveCard);
+  };
+
   const scrollByCard = (direction) => {
     const card = track.querySelector(".listing-card");
     const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
@@ -51,6 +79,9 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
     });
   };
 
+  setActiveCard();
+  track.addEventListener("scroll", requestActiveCardUpdate, { passive: true });
+  window.addEventListener("resize", requestActiveCardUpdate);
   prev.addEventListener("click", () => scrollByCard(-1));
   next.addEventListener("click", () => scrollByCard(1));
 });
