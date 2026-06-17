@@ -5,6 +5,7 @@ const currentYear = String(new Date().getFullYear());
 const stickyCta = document.querySelector(".sticky-cta");
 const footer = document.querySelector(".footer");
 const desktopCarouselMedia = window.matchMedia("(min-width: 900px)");
+const desktopMotionMedia = window.matchMedia("(min-width: 900px)");
 const customSelectMedia = window.matchMedia("(max-width: 639px)");
 const reducedMotionMedia = window.matchMedia("(prefers-reduced-motion: reduce)");
 
@@ -27,7 +28,7 @@ document.querySelectorAll("[data-hero-exit]").forEach((hero) => {
   const syncHeroExit = () => {
     heroFrame = undefined;
 
-    if (reducedMotionMedia.matches) {
+    if (reducedMotionMedia.matches || !desktopMotionMedia.matches) {
       hero.style.setProperty("--hero-exit", "0");
       return;
     }
@@ -46,6 +47,7 @@ document.querySelectorAll("[data-hero-exit]").forEach((hero) => {
   syncHeroExit();
   window.addEventListener("scroll", requestHeroExitSync, { passive: true });
   window.addEventListener("resize", requestHeroExitSync);
+  desktopMotionMedia.addEventListener("change", requestHeroExitSync);
   reducedMotionMedia.addEventListener("change", requestHeroExitSync);
 });
 
@@ -60,7 +62,7 @@ document.querySelectorAll("[data-listing-reveal]").forEach((section) => {
   const syncListingReveal = () => {
     listingFrame = undefined;
 
-    if (reducedMotionMedia.matches) {
+    if (reducedMotionMedia.matches || !desktopMotionMedia.matches) {
       cards.forEach((card) => card.classList.add("is-scroll-revealed"));
       return;
     }
@@ -82,6 +84,7 @@ document.querySelectorAll("[data-listing-reveal]").forEach((section) => {
   syncListingReveal();
   window.addEventListener("scroll", requestListingRevealSync, { passive: true });
   window.addEventListener("resize", requestListingRevealSync);
+  desktopMotionMedia.addEventListener("change", requestListingRevealSync);
   reducedMotionMedia.addEventListener("change", requestListingRevealSync);
 });
 
@@ -96,7 +99,7 @@ document.querySelectorAll("[data-corridor-reveal]").forEach((section) => {
   const syncCorridorReveal = () => {
     corridorFrame = undefined;
 
-    if (reducedMotionMedia.matches) {
+    if (reducedMotionMedia.matches || !desktopMotionMedia.matches) {
       boxes.forEach((box) => box.classList.add("is-scroll-revealed"));
       return;
     }
@@ -118,6 +121,7 @@ document.querySelectorAll("[data-corridor-reveal]").forEach((section) => {
   syncCorridorReveal();
   window.addEventListener("scroll", requestCorridorRevealSync, { passive: true });
   window.addEventListener("resize", requestCorridorRevealSync);
+  desktopMotionMedia.addEventListener("change", requestCorridorRevealSync);
   reducedMotionMedia.addEventListener("change", requestCorridorRevealSync);
 });
 
