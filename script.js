@@ -16,7 +16,7 @@ const PARALLAX_SPEED_DEFAULT = 0.12;
 const PARALLAX_SPEED_HERO = 0.16;
 const PARALLAX_SPEED_CONTENT = 0.06;
 const PARALLAX_OFFSET_LIMIT = 32;
-const PARALLAX_MOBILE_OFFSET_LIMIT = 12;
+const PARALLAX_MOBILE_OFFSET_LIMIT = 22;
 
 document.querySelectorAll(".footer-year").forEach((el) => {
   el.textContent = currentYear;

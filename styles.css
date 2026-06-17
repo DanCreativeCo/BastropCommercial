@@ -853,7 +853,26 @@ p {
 
 @media (max-width: 639px) {
   .mobile-secondary {
-    display: none;
+    display: block;
+  }
+
+  .mobile-secondary.section {
+    padding-block: 3.5rem;
+  }
+
+  .mobile-secondary .section-head,
+  .mobile-secondary .split,
+  .mobile-secondary .editorial,
+  .mobile-secondary .capital,
+  .mobile-secondary .content-grid {
+    gap: 1.35rem;
+  }
+
+  .mobile-secondary .section-head h2,
+  .mobile-secondary .editorial h2,
+  .mobile-secondary .capital h2,
+  .mobile-secondary .rich-copy h2 {
+    font-size: clamp(2rem, 12vw, 3rem);
   }
 
   .carousel-controls {
