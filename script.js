@@ -6,6 +6,7 @@ const stickyCta = document.querySelector(".sticky-cta");
 const footer = document.querySelector(".footer");
 const desktopCarouselMedia = window.matchMedia("(min-width: 900px)");
 const customSelectMedia = window.matchMedia("(max-width: 639px)");
+const reducedMotionMedia = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 document.querySelectorAll(".footer-year").forEach((el) => {
   el.textContent = currentYear;
@@ -17,6 +18,108 @@ const syncHeader = () => {
 
 syncHeader();
 window.addEventListener("scroll", syncHeader, { passive: true });
+
+const clamp = (value, min = 0, max = 1) => Math.min(Math.max(value, min), max);
+
+document.querySelectorAll("[data-hero-exit]").forEach((hero) => {
+  let heroFrame;
+
+  const syncHeroExit = () => {
+    heroFrame = undefined;
+
+    if (reducedMotionMedia.matches) {
+      hero.style.setProperty("--hero-exit", "0");
+      return;
+    }
+
+    const rect = hero.getBoundingClientRect();
+    const progress = clamp(-rect.top / Math.max(rect.height * 0.72, 1));
+
+    hero.style.setProperty("--hero-exit", progress.toFixed(3));
+  };
+
+  const requestHeroExitSync = () => {
+    if (heroFrame) return;
+    heroFrame = window.requestAnimationFrame(syncHeroExit);
+  };
+
+  syncHeroExit();
+  window.addEventListener("scroll", requestHeroExitSync, { passive: true });
+  window.addEventListener("resize", requestHeroExitSync);
+  reducedMotionMedia.addEventListener("change", requestHeroExitSync);
+});
+
+document.querySelectorAll("[data-listing-reveal]").forEach((section) => {
+  const cards = Array.from(section.querySelectorAll(".listing-card"));
+  let listingFrame;
+
+  cards.forEach((card, index) => {
+    card.style.setProperty("--card-index", String(index));
+  });
+
+  const syncListingReveal = () => {
+    listingFrame = undefined;
+
+    if (reducedMotionMedia.matches) {
+      cards.forEach((card) => card.classList.add("is-scroll-revealed"));
+      return;
+    }
+
+    const rect = section.getBoundingClientRect();
+    const progress = clamp((window.innerHeight * 0.58 - rect.top) / Math.max(window.innerHeight * 0.72, 1));
+    const visibleCount = Math.floor(progress * (cards.length + 1));
+
+    cards.forEach((card, index) => {
+      card.classList.toggle("is-scroll-revealed", index < visibleCount);
+    });
+  };
+
+  const requestListingRevealSync = () => {
+    if (listingFrame) return;
+    listingFrame = window.requestAnimationFrame(syncListingReveal);
+  };
+
+  syncListingReveal();
+  window.addEventListener("scroll", requestListingRevealSync, { passive: true });
+  window.addEventListener("resize", requestListingRevealSync);
+  reducedMotionMedia.addEventListener("change", requestListingRevealSync);
+});
+
+document.querySelectorAll("[data-corridor-reveal]").forEach((section) => {
+  const boxes = Array.from(section.querySelectorAll(".corridor-strip article"));
+  let corridorFrame;
+
+  boxes.forEach((box, index) => {
+    box.style.setProperty("--corridor-index", String(index));
+  });
+
+  const syncCorridorReveal = () => {
+    corridorFrame = undefined;
+
+    if (reducedMotionMedia.matches) {
+      boxes.forEach((box) => box.classList.add("is-scroll-revealed"));
+      return;
+    }
+
+    const rect = section.getBoundingClientRect();
+    const progress = clamp((window.innerHeight * 0.82 - rect.top) / Math.max(window.innerHeight * 0.58, 1));
+    const visibleCount = Math.floor(progress * (boxes.length + 1));
+
+    boxes.forEach((box, index) => {
+      box.classList.toggle("is-scroll-revealed", index < visibleCount);
+    });
+  };
+
+  const requestCorridorRevealSync = () => {
+    if (corridorFrame) return;
+    corridorFrame = window.requestAnimationFrame(syncCorridorReveal);
+  };
+
+  syncCorridorReveal();
+  window.addEventListener("scroll", requestCorridorRevealSync, { passive: true });
+  window.addEventListener("resize", requestCorridorRevealSync);
+  reducedMotionMedia.addEventListener("change", requestCorridorRevealSync);
+});
 
 if (stickyCta && footer) {
   let ctaFrame;
