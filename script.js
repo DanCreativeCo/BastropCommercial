@@ -8,6 +8,7 @@ const parallaxLayers = Array.from(
   document.querySelectorAll(".hero__image, .listing-hero img, .subpage-hero__grid img:not(.about-portrait)")
 );
 const prefersReduceParallax = window.matchMedia("(prefers-reduced-motion: reduce)");
+const desktopCarouselMedia = window.matchMedia("(min-width: 900px)");
 const PARALLAX_SPEED_DEFAULT = 0.12;
 const PARALLAX_SPEED_HERO = 0.2;
 const PARALLAX_OFFSET_LIMIT = 24;
@@ -100,9 +101,15 @@ menuToggle?.addEventListener("click", () => {
   menuToggle.setAttribute("aria-expanded", String(!isOpen));
   header?.classList.toggle("menu-open", !isOpen);
   if (isOpen) {
-    mobileNav?.setAttribute("hidden", "");
+    mobileNav?.classList.remove("is-open");
+    window.setTimeout(() => {
+      if (menuToggle.getAttribute("aria-expanded") === "false") {
+        mobileNav?.setAttribute("hidden", "");
+      }
+    }, 260);
   } else {
     mobileNav?.removeAttribute("hidden");
+    window.requestAnimationFrame(() => mobileNav?.classList.add("is-open"));
   }
 });
 
@@ -110,7 +117,12 @@ mobileNav?.querySelectorAll("a").forEach((link) => {
   link.addEventListener("click", () => {
     menuToggle?.setAttribute("aria-expanded", "false");
     header?.classList.remove("menu-open");
-    mobileNav?.setAttribute("hidden", "");
+    mobileNav?.classList.remove("is-open");
+    window.setTimeout(() => {
+      if (menuToggle?.getAttribute("aria-expanded") === "false") {
+        mobileNav?.setAttribute("hidden", "");
+      }
+    }, 260);
   });
 });
 
@@ -125,6 +137,10 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
 
   const setActiveCard = () => {
     if (!cards.length) return;
+    if (!desktopCarouselMedia.matches) {
+      cards.forEach((card) => card.classList.remove("is-active"));
+      return;
+    }
 
     const trackCenter = track.scrollLeft + track.clientWidth / 2;
     let active = cards[0];
@@ -163,6 +179,7 @@ document.querySelectorAll("[data-carousel]").forEach((carousel) => {
   setActiveCard();
   track.addEventListener("scroll", requestActiveCardUpdate, { passive: true });
   window.addEventListener("resize", requestActiveCardUpdate);
+  desktopCarouselMedia.addEventListener("change", requestActiveCardUpdate);
   prev.addEventListener("click", () => scrollByCard(-1));
   next.addEventListener("click", () => scrollByCard(1));
 });
