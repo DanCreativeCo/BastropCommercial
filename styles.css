@@ -1934,30 +1934,36 @@ textarea:focus {
   }
 
   .hero__image {
-    opacity: calc(1 - (var(--hero-exit) * 0.18));
+    opacity: calc(1 - (var(--hero-exit) * 0.28));
     filter:
-      saturate(calc(1.03 - (var(--hero-exit) * 0.08)))
-      contrast(calc(1.01 - (var(--hero-exit) * 0.03)));
+      saturate(calc(1.04 - (var(--hero-exit) * 0.12)))
+      contrast(calc(1.02 - (var(--hero-exit) * 0.04)));
     transform:
-      translate3d(0, calc(var(--hero-exit) * 18px), 0)
-      scale(calc(1.02 + (var(--hero-exit) * 0.025)));
+      translate3d(0, calc(var(--hero-exit) * 34px), 0)
+      scale(calc(1.02 + (var(--hero-exit) * 0.045)));
   }
 
   .hero__content {
-    opacity: calc(1 - (var(--hero-exit) * 0.42));
-    transform: translate3d(0, calc(var(--hero-exit) * -12px), 0);
+    opacity: calc(1 - (var(--hero-exit) * 0.68));
+    transform: translate3d(0, calc(var(--hero-exit) * -22px), 0);
   }
 
   .listing-card {
+    transform: translate3d(0, 1rem, 0) scale(0.985);
     transition:
       opacity 320ms ease,
+      transform 380ms var(--ease),
       border-color 240ms ease,
       box-shadow 260ms var(--ease);
   }
 
+  .listing-card.is-scroll-revealed {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
   .corridor-strip article {
-    --corridor-shift: 1.25rem;
-    transform: translate3d(var(--corridor-shift), 0.35rem, 0) scale(0.99);
+    --corridor-shift: 2rem;
+    transform: translate3d(var(--corridor-shift), 0.55rem, 0) scale(0.98);
     transition:
       opacity 360ms ease,
       transform 420ms var(--ease),
