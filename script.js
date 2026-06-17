@@ -5,6 +5,7 @@ const currentYear = String(new Date().getFullYear());
 const stickyCta = document.querySelector(".sticky-cta");
 const footer = document.querySelector(".footer");
 const desktopCarouselMedia = window.matchMedia("(min-width: 900px)");
+const customSelectMedia = window.matchMedia("(max-width: 639px)");
 
 document.querySelectorAll(".footer-year").forEach((el) => {
   el.textContent = currentYear;
@@ -67,6 +68,103 @@ mobileNav?.querySelectorAll("a").forEach((link) => {
       }
     }, 260);
   });
+});
+
+document.querySelectorAll('select[name="interest"]').forEach((select, selectIndex) => {
+  const trigger = document.createElement("button");
+  const triggerText = document.createElement("span");
+  const modal = document.createElement("div");
+  const panel = document.createElement("div");
+  const title = document.createElement("strong");
+  const close = document.createElement("button");
+  const list = document.createElement("div");
+
+  trigger.type = "button";
+  trigger.className = "custom-select-trigger";
+  trigger.setAttribute("aria-haspopup", "dialog");
+  trigger.setAttribute("aria-expanded", "false");
+  triggerText.textContent = select.options[select.selectedIndex]?.textContent || "Select interest";
+  trigger.append(triggerText);
+
+  modal.className = "select-modal";
+  modal.setAttribute("role", "dialog");
+  modal.setAttribute("aria-modal", "true");
+  modal.setAttribute("aria-labelledby", `interest-modal-title-${selectIndex}`);
+  modal.hidden = true;
+
+  panel.className = "select-modal__panel";
+  title.className = "select-modal__title";
+  title.id = `interest-modal-title-${selectIndex}`;
+  title.textContent = "Select interest";
+
+  close.type = "button";
+  close.className = "select-modal__close";
+  close.setAttribute("aria-label", "Close interest picker");
+  close.textContent = "Close";
+
+  list.className = "select-modal__list";
+
+  Array.from(select.options).forEach((option, optionIndex) => {
+    const item = document.createElement("button");
+    item.type = "button";
+    item.className = "select-modal__option";
+    item.textContent = option.textContent;
+    item.addEventListener("click", () => {
+      select.selectedIndex = optionIndex;
+      triggerText.textContent = option.textContent;
+      select.dispatchEvent(new Event("change", { bubbles: true }));
+      closeModal();
+    });
+    list.append(item);
+  });
+
+  const syncSelected = () => {
+    Array.from(list.children).forEach((item, optionIndex) => {
+      item.classList.toggle("is-selected", optionIndex === select.selectedIndex);
+      item.setAttribute("aria-pressed", String(optionIndex === select.selectedIndex));
+    });
+  };
+
+  const openModal = () => {
+    if (!customSelectMedia.matches) {
+      select.focus();
+      return;
+    }
+
+    syncSelected();
+    modal.hidden = false;
+    document.body.classList.add("select-modal-open");
+    trigger.setAttribute("aria-expanded", "true");
+    window.requestAnimationFrame(() => modal.classList.add("is-open"));
+    list.children[select.selectedIndex]?.focus();
+  };
+
+  function closeModal() {
+    modal.classList.remove("is-open");
+    document.body.classList.remove("select-modal-open");
+    trigger.setAttribute("aria-expanded", "false");
+    window.setTimeout(() => {
+      if (!modal.classList.contains("is-open")) modal.hidden = true;
+    }, 220);
+    trigger.focus();
+  }
+
+  close.addEventListener("click", closeModal);
+  trigger.addEventListener("click", openModal);
+  modal.addEventListener("click", (event) => {
+    if (event.target === modal) closeModal();
+  });
+  modal.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeModal();
+  });
+  select.addEventListener("change", () => {
+    triggerText.textContent = select.options[select.selectedIndex]?.textContent || "Select interest";
+  });
+
+  panel.append(title, close, list);
+  modal.append(panel);
+  select.after(trigger);
+  document.body.append(modal);
 });
 
 document.querySelectorAll("[data-carousel]").forEach((carousel) => {
