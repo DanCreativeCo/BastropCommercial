@@ -2044,6 +2044,46 @@ textarea:focus {
   }
 }
 
+@media (max-width: 639px) {
+  .hero,
+  .hero__content {
+    min-height: 92svh;
+  }
+
+  .hero__image {
+    top: 0;
+    height: 108%;
+    opacity: calc(1 - (var(--hero-exit) * 0.2));
+    filter:
+      saturate(calc(1.04 - (var(--hero-exit) * 0.08)))
+      contrast(calc(1.02 - (var(--hero-exit) * 0.03)));
+    transform:
+      translate3d(0, calc(var(--hero-exit) * 22px), 0)
+      scale(calc(1.02 + (var(--hero-exit) * 0.025)));
+  }
+
+  .hero__content {
+    justify-content: flex-end;
+    padding-block: 6.75rem 4.5rem;
+    opacity: calc(1 - (var(--hero-exit) * 0.5));
+    transform: translate3d(0, calc(var(--hero-exit) * -16px), 0);
+  }
+
+  .hero__scroll-sheen,
+  .hero__scroll-cue {
+    display: none;
+  }
+
+  .listing-card {
+    opacity: 1;
+    filter: none;
+    transition:
+      border-color 220ms ease,
+      box-shadow 260ms var(--ease);
+    will-change: auto;
+  }
+}
+
 @media (min-width: 640px) {
   .container {
     width: min(calc(100% - 3rem), 76rem);
