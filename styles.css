@@ -260,7 +260,7 @@ p {
 .hero {
   --hero-exit: 0;
   position: relative;
-  min-height: 82svh;
+  min-height: 88svh;
   isolation: isolate;
   overflow: hidden;
   background: var(--charcoal);
@@ -348,7 +348,8 @@ p {
 }
 
 .hero__image,
-.hero__scrim {
+.hero__scrim,
+.hero__scroll-sheen {
   position: absolute;
   inset: 0;
   z-index: -1;
@@ -361,35 +362,47 @@ p {
   left: 0;
   height: 120%;
   object-fit: cover;
-  opacity: calc(1 - (var(--hero-exit) * 0.42));
+  opacity: calc(1 - (var(--hero-exit) * 0.62));
   filter:
-    saturate(calc(1.04 - (var(--hero-exit) * 0.2)))
-    contrast(calc(1.02 - (var(--hero-exit) * 0.06)))
-    blur(calc(var(--hero-exit) * 3px));
+    saturate(calc(1.08 - (var(--hero-exit) * 0.3)))
+    contrast(calc(1.04 - (var(--hero-exit) * 0.1)))
+    blur(calc(var(--hero-exit) * 7px));
   transform:
-    translate3d(0, calc(var(--hero-exit) * 90px), 0)
-    scale(calc(1.04 + (var(--hero-exit) * 0.1)));
+    translate3d(0, calc(var(--hero-exit) * 126px), 0)
+    scale(calc(1.04 + (var(--hero-exit) * 0.18)));
   transform-origin: center;
   will-change: transform, opacity, filter;
 }
 
 .hero__scrim {
-  opacity: calc(1 - (var(--hero-exit) * 0.22));
+  opacity: calc(1 - (var(--hero-exit) * 0.08));
   background:
     linear-gradient(90deg, rgba(15, 22, 28, 0.86) 0%, rgba(23, 54, 82, 0.58) 48%, rgba(23, 25, 27, 0.06) 100%),
     linear-gradient(180deg, rgba(23, 25, 27, 0.08), rgba(23, 25, 27, 0.88));
 }
 
+.hero__scroll-sheen {
+  top: auto;
+  height: min(42svh, 24rem);
+  opacity: calc(var(--hero-exit) * 0.94);
+  background:
+    linear-gradient(180deg, rgba(255, 253, 248, 0), rgba(255, 253, 248, 0.94) 84%),
+    linear-gradient(110deg, transparent 0 18%, rgba(196, 154, 88, 0.28) 18% 19%, transparent 19% 100%);
+  transform: translate3d(0, calc((1 - var(--hero-exit)) * 64%), 0);
+  transform-origin: bottom center;
+  will-change: transform, opacity;
+}
+
 .hero__content {
-  min-height: 82svh;
+  min-height: 88svh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding-block: 6.75rem 2rem;
-  opacity: calc(1 - (var(--hero-exit) * 1.12));
+  opacity: calc(1 - (var(--hero-exit) * 1.4));
   transform:
-    translate3d(0, calc(var(--hero-exit) * -48px), 0)
-    scale(calc(1 - (var(--hero-exit) * 0.025)));
+    translate3d(0, calc(var(--hero-exit) * -78px), 0)
+    scale(calc(1 - (var(--hero-exit) * 0.05)));
   transform-origin: left center;
   will-change: transform, opacity;
 }
@@ -580,6 +593,54 @@ p {
   margin-top: 0.45rem;
   color: rgba(255, 253, 248, 0.72);
   font-size: 0.92rem;
+}
+
+.hero__scroll-cue {
+  position: absolute;
+  left: 50%;
+  bottom: 1.35rem;
+  width: 2.6rem;
+  height: 4.7rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 253, 248, 0.3);
+  border-radius: 999px;
+  background: rgba(15, 37, 57, 0.28);
+  opacity: calc(1 - (var(--hero-exit) * 1.75));
+  transform: translate3d(-50%, calc(var(--hero-exit) * 1.8rem), 0);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.hero__scroll-cue span {
+  position: relative;
+  width: 2px;
+  height: 2.2rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 253, 248, 0.26);
+}
+
+.hero__scroll-cue span::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(180deg, transparent, var(--gold), transparent);
+  animation: scroll-cue-drop 1.65s var(--ease) infinite;
+}
+
+@keyframes scroll-cue-drop {
+  0% {
+    transform: translateY(-105%);
+  }
+
+  62%,
+  100% {
+    transform: translateY(105%);
+  }
 }
 
 .section {
@@ -1123,8 +1184,10 @@ p {
   scroll-snap-align: start;
   scroll-snap-stop: always;
   opacity: 0;
+  transform: translate3d(0, 1.8rem, 0) scale(0.965);
   transition:
     opacity 360ms ease,
+    transform 460ms var(--ease),
     border-color 320ms ease,
     box-shadow 420ms var(--ease);
   transition-delay: calc(var(--card-index, 0) * 90ms);
@@ -1132,6 +1195,7 @@ p {
 
 .listing-card.is-scroll-revealed {
   opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
   border-color: rgba(168, 115, 63, 0.24);
 }
 
@@ -1908,12 +1972,19 @@ textarea:focus {
   .corridor-strip article,
   .listing-card .btn,
   .sticky-cta,
-  .hero__image {
+  .hero__image,
+  .hero__scroll-cue span::after {
     transition: none;
+    animation: none;
   }
 
   .hero {
     --hero-exit: 0 !important;
+  }
+
+  .hero__scroll-sheen,
+  .hero__scroll-cue {
+    display: none;
   }
 
   .listing-card {
@@ -1934,18 +2005,19 @@ textarea:focus {
   }
 
   .hero__image {
-    opacity: calc(1 - (var(--hero-exit) * 0.28));
+    opacity: calc(1 - (var(--hero-exit) * 0.42));
     filter:
-      saturate(calc(1.04 - (var(--hero-exit) * 0.12)))
-      contrast(calc(1.02 - (var(--hero-exit) * 0.04)));
+      saturate(calc(1.06 - (var(--hero-exit) * 0.18)))
+      contrast(calc(1.03 - (var(--hero-exit) * 0.06)))
+      blur(calc(var(--hero-exit) * 3px));
     transform:
-      translate3d(0, calc(var(--hero-exit) * 34px), 0)
-      scale(calc(1.02 + (var(--hero-exit) * 0.045)));
+      translate3d(0, calc(var(--hero-exit) * 58px), 0)
+      scale(calc(1.02 + (var(--hero-exit) * 0.08)));
   }
 
   .hero__content {
-    opacity: calc(1 - (var(--hero-exit) * 0.68));
-    transform: translate3d(0, calc(var(--hero-exit) * -22px), 0);
+    opacity: calc(1 - (var(--hero-exit) * 0.94));
+    transform: translate3d(0, calc(var(--hero-exit) * -38px), 0);
   }
 
   .listing-card {

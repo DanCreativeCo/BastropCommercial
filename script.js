@@ -33,7 +33,7 @@ document.querySelectorAll("[data-hero-exit]").forEach((hero) => {
     }
 
     const rect = hero.getBoundingClientRect();
-    const progress = clamp(-rect.top / Math.max(rect.height * 0.72, 1));
+    const progress = clamp(-rect.top / Math.max(rect.height * 0.58, 1));
 
     hero.style.setProperty("--hero-exit", progress.toFixed(3));
   };
