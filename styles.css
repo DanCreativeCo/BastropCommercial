@@ -385,9 +385,7 @@ p {
   top: auto;
   height: min(42svh, 24rem);
   opacity: calc(var(--hero-exit) * 0.94);
-  background:
-    linear-gradient(180deg, rgba(255, 253, 248, 0), rgba(255, 253, 248, 0.94) 84%),
-    linear-gradient(110deg, transparent 0 18%, rgba(196, 154, 88, 0.28) 18% 19%, transparent 19% 100%);
+  background: linear-gradient(180deg, rgba(255, 253, 248, 0), rgba(255, 253, 248, 0.94) 84%);
   transform: translate3d(0, calc((1 - var(--hero-exit)) * 64%), 0);
   transform-origin: bottom center;
   will-change: transform, opacity;
@@ -1184,18 +1182,19 @@ p {
   scroll-snap-align: start;
   scroll-snap-stop: always;
   opacity: 0;
-  transform: translate3d(0, 1.8rem, 0) scale(0.965);
+  filter: blur(5px);
   transition:
-    opacity 360ms ease,
-    transform 460ms var(--ease),
+    opacity 520ms ease,
+    filter 520ms var(--ease),
     border-color 320ms ease,
     box-shadow 420ms var(--ease);
-  transition-delay: calc(var(--card-index, 0) * 90ms);
+  transition-delay: calc(var(--card-index, 0) * 60ms);
+  will-change: opacity, filter;
 }
 
 .listing-card.is-scroll-revealed {
   opacity: 1;
-  transform: translate3d(0, 0, 0) scale(1);
+  filter: blur(0);
   border-color: rgba(168, 115, 63, 0.24);
 }
 
@@ -1989,6 +1988,7 @@ textarea:focus {
 
   .listing-card {
     opacity: 1;
+    filter: none;
     transform: none;
   }
 
@@ -2021,16 +2021,16 @@ textarea:focus {
   }
 
   .listing-card {
-    transform: translate3d(0, 1rem, 0) scale(0.985);
+    transform: none;
     transition:
       opacity 320ms ease,
-      transform 380ms var(--ease),
+      filter 360ms var(--ease),
       border-color 240ms ease,
       box-shadow 260ms var(--ease);
   }
 
   .listing-card.is-scroll-revealed {
-    transform: translate3d(0, 0, 0) scale(1);
+    transform: none;
   }
 
   .corridor-strip article {
