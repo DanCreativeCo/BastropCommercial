@@ -97,27 +97,51 @@
 }
 
 @media (max-width: 639px) and (prefers-reduced-motion: no-preference) {
-  [data-hero-exit] .hero__stage {
-    min-height: 100svh;
+  [data-hero-exit].hero {
+    height: auto;
+    min-height: auto;
+    overflow: hidden;
   }
 
-  [data-hero-exit] .hero__image {
-    transform:
-      translate3d(0, calc(var(--hero-exit, 0) * 22px), 0)
-      scale(calc(1.025 + (var(--hero-exit, 0) * 0.035)));
+  [data-hero-exit].hero .hero__stage,
+  [data-hero-exit].hero.is-hero-pinned .hero__stage,
+  [data-hero-exit].hero.is-hero-released .hero__stage {
+    position: relative;
+    inset: auto;
+    z-index: auto;
+    min-height: 92svh;
+    height: auto;
   }
 
   [data-hero-exit] .hero__content {
-    opacity: calc(1 - (var(--hero-exit, 0) * 1.08));
-    transform: translate3d(0, calc(var(--hero-exit, 0) * -18px), 0);
+    min-height: 92svh;
+    opacity: 1;
+    transform: none;
+  }
+
+  [data-hero-exit] .hero__image {
+    transform: scale(1.025);
+    filter: saturate(1.02) contrast(1.02);
+  }
+
+  [data-hero-exit] .hero__scrim {
+    opacity: 1;
+  }
+
+  [data-hero-exit] .hero__signal-strip {
+    opacity: 0.48;
+    transform: none;
   }
 
   .listing-card img,
   [data-parallax] {
-    transform: translate3d(0, calc(var(--lush-parallax, 0) * 0.45px), 0) scale(1.035);
+    transform: none;
+    will-change: auto;
   }
 
   [data-corridor-reveal] .corridor-strip {
     transform: none;
+    transition: none;
+    will-change: auto;
   }
 }

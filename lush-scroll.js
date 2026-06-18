@@ -1,5 +1,7 @@
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+const mobileScroll = window.matchMedia("(pointer: coarse), (max-width: 639px)");
 const clamp = (value, min = 0, max = 1) => Math.min(Math.max(value, min), max);
+const shouldUseLushMotion = () => !reducedMotion.matches && !mobileScroll.matches;
 
 const initSmoothAnchors = () => {
   document.addEventListener("click", (event) => {
@@ -24,7 +26,7 @@ const initSmoothAnchors = () => {
 };
 
 const initLenis = async () => {
-  if (reducedMotion.matches) return;
+  if (!shouldUseLushMotion()) return;
 
   try {
     const { default: Lenis } = await import("https://cdn.jsdelivr.net/npm/lenis@1.3.4/+esm");
@@ -41,7 +43,9 @@ const initLenis = async () => {
     };
 
     window.requestAnimationFrame(raf);
-    reducedMotion.addEventListener("change", () => lenis.destroy(), { once: true });
+    const destroyOnMotionChange = () => lenis.destroy();
+    reducedMotion.addEventListener("change", destroyOnMotionChange, { once: true });
+    mobileScroll.addEventListener("change", destroyOnMotionChange, { once: true });
   } catch {
     document.documentElement.style.scrollBehavior = reducedMotion.matches ? "auto" : "smooth";
   }
@@ -85,8 +89,11 @@ const initScrollEffects = () => {
   const sync = () => {
     frame = 0;
 
-    if (reducedMotion.matches) {
-      heroSections.forEach((section) => section.style.setProperty("--hero-exit", "0"));
+    if (!shouldUseLushMotion()) {
+      heroSections.forEach((section) => {
+        section.style.setProperty("--hero-exit", "0");
+        section.classList.remove("is-hero-pinned", "is-hero-released");
+      });
       parallaxItems.forEach((item) => item.style.setProperty("--lush-parallax", "0"));
       corridorSections.forEach((section) => {
         section.querySelector(".corridor-strip")?.style.setProperty("--corridor-shift-x", "0");
@@ -132,6 +139,7 @@ const initScrollEffects = () => {
   window.addEventListener("scroll", requestSync, { passive: true });
   window.addEventListener("resize", requestSync);
   reducedMotion.addEventListener("change", requestSync);
+  mobileScroll.addEventListener("change", requestSync);
 };
 
 initSmoothAnchors();
