@@ -29,13 +29,20 @@ document.querySelectorAll("[data-hero-exit]").forEach((hero) => {
 
     if (reducedMotionMedia.matches) {
       hero.style.setProperty("--hero-exit", "0");
+      hero.classList.remove("is-hero-pinned", "is-hero-released");
       return;
     }
 
     const rect = hero.getBoundingClientRect();
-    const progress = clamp(-rect.top / Math.max(rect.height * 0.58, 1));
+    const pinDistance = Math.max(hero.offsetHeight - window.innerHeight, 1);
+    const pinnedScroll = clamp(-rect.top, 0, pinDistance);
+    const progress = clamp(pinnedScroll / Math.max(window.innerHeight * 0.72, 1));
+    const isPinned = rect.top <= 0 && rect.bottom > window.innerHeight;
+    const isReleased = rect.bottom <= window.innerHeight;
 
     hero.style.setProperty("--hero-exit", progress.toFixed(3));
+    hero.classList.toggle("is-hero-pinned", isPinned);
+    hero.classList.toggle("is-hero-released", isReleased);
   };
 
   const requestHeroExitSync = () => {
