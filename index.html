@@ -1,72 +1,421 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Bastrop Commercial helps buyers, sellers, developers, and investors evaluate commercial real estate and development land in Bastrop County."
-    />
-    <meta name="theme-color" content="#181818" />
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-    <link rel="stylesheet" href="styles.css" />
-    <title>Bastrop Commercial | Bastrop County Commercial Real Estate</title>
-  </head>
-  <body>
-    <header class="site-header">
-      <a class="brand" href="index.html" aria-label="Bastrop Commercial home">
-        <span class="brand__mark">BC</span>
-        <span>Bastrop Commercial</span>
-      </a>
-      <a class="header-link" href="tel:+15128776292">512-877-6292</a>
-    </header>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Commercial sites and development land across Bastrop County, Texas — read by someone who can walk the dirt and sit at the table. Tracking Highway 71, SH 130, and Austin's eastward growth.">
+  <meta name="theme-color" content="#1a1a17">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <title>Bastrop Commercial | Commercial &amp; Development Land in Bastrop County, TX</title>
+</head>
+<body>
 
-    <main>
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero__media" aria-hidden="true">
-          <img
-            src="https://images.squarespace-cdn.com/content/v1/67882a71f7445f29810b77da/ab536bdd-cb81-4a61-8bf2-fb3c5e670335/6c3968123fd9f22c8fd0290125336d8bl-f3142653220r.jpg"
-            alt=""
-            loading="eager"
-            decoding="async"
-          />
-        </div>
-        <div class="page-shell hero__content">
-          <p class="eyebrow">Bastrop County commercial real estate</p>
-          <h1 id="hero-title">Find the right commercial site before the market gets louder.</h1>
-          <p>
-            Practical guidance for buyers, developers, investors, and landowners tracking Bastrop
-            County growth along Highway 71, SH 130, and Austin's eastward expansion.
-          </p>
-          <div class="actions" aria-label="Primary contact actions">
-            <a class="button" href="tel:+15128776292">Call Taylor</a>
-            <a class="button button--secondary" href="mailto:taylor@spyglassrealty.com">Email criteria</a>
-          </div>
-          <dl class="proof-grid" aria-label="Current market focus">
-            <div>
-              <dt data-count-to="414" data-count-suffix="+">414+</dt>
-              <dd>Acres tracked</dd>
-            </div>
-            <div>
-              <dt data-count-to="27" data-count-prefix="$" data-count-suffix="M+">$27M+</dt>
-              <dd>Inventory reviewed</dd>
-            </div>
-            <div>
-              <dt><span data-count-to="71">71</span> / <span data-count-to="130">130</span></dt>
-              <dd>Corridor focus</dd>
-            </div>
-          </dl>
-        </div>
-      </section>
+<div data-progress style="position:fixed;top:0;left:0;height:3px;width:100%;transform:scaleX(0);transform-origin:0 50%;background:linear-gradient(90deg,#a8652d,#d8aa63);z-index:60;will-change:transform;"></div>
 
-    </main>
+<header style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.85rem clamp(1rem,4vw,2.5rem);border-bottom:1px solid rgba(221,213,199,.8);background:rgba(247,244,237,.86);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);">
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:.7rem;min-width:0;">
+    <span style="width:2.5rem;height:2.5rem;flex:0 0 auto;display:grid;place-items:center;border-radius:7px;background:#1a1a17;color:#d8aa63;font-family:'Spectral',serif;font-weight:700;font-size:1.05rem;letter-spacing:.02em;">G</span>
+    <span style="display:flex;flex-direction:column;line-height:1.05;">
+      <span style="font-weight:800;font-size:1.02rem;letter-spacing:-.01em;">Bastrop Commercial</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:#a8652d;">By Goldspur Enterprises</span>
+    </span>
+  </a>
+  <nav class="nav-links" style="align-items:center;gap:1.6rem;font-size:.86rem;font-weight:600;letter-spacing:-.01em;">
+    <a href="#properties" style="color:#3a3a34;">Properties</a>
+    <a href="#approach" style="color:#3a3a34;">Approach</a>
+    <a href="#market" style="color:#3a3a34;">Market</a>
+    <a href="marketing.html" style="color:#3a3a34;">Marketing</a>
+    <a href="insights.html" style="color:#3a3a34;">Insights</a>
+  </nav>
+  <a href="#connect" style="flex:0 0 auto;min-height:2.7rem;display:inline-flex;align-items:center;gap:.5rem;border:1px solid #1a1a17;border-radius:7px;background:#1a1a17;color:#fffdfa;padding:0 1.05rem;font-size:.84rem;font-weight:700;white-space:nowrap;">Request sites</a>
+</header>
 
-    <footer class="site-footer">
-      <div class="page-shell">
-        <p>Copyright <span data-year></span> Bastrop Commercial. Made with a little help from <a href="https://bastropcode.com">BastropCode.com</a>.</p>
+<main>
+  <!-- HERO -->
+  <section style="position:relative;min-height:calc(100svh - 4.3rem);display:grid;align-items:end;overflow:hidden;background:#1a1a17;color:#fffdfa;">
+    <div aria-hidden="true" style="position:absolute;inset:0;">
+      <img src="https://images.squarespace-cdn.com/content/v1/67882a71f7445f29810b77da/ab536bdd-cb81-4a61-8bf2-fb3c5e670335/6c3968123fd9f22c8fd0290125336d8bl-f3142653220r.jpg" alt="" loading="eager" decoding="async" data-parallax style="width:100%;height:115%;object-fit:cover;will-change:transform;" />
+      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,26,23,.25),rgba(26,26,23,.55) 55%,rgba(26,26,23,.94)),linear-gradient(90deg,rgba(26,26,23,.5),transparent 60%);"></div>
+    </div>
+    <div style="position:relative;width:min(calc(100% - 2rem),74rem);margin-inline:auto;padding-block:4.5rem 2.4rem;">
+      <p style="animation:heroIn .8s both;font-family:'IBM Plex Mono',monospace;font-size:.72rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:#d8aa63;">Goldspur Enterprises · Bastrop County, TX</p>
+      <h1 style="animation:heroIn .9s .06s both;font-family:'Spectral',Georgia,serif;font-weight:600;line-height:.98;letter-spacing:-.015em;max-width:15ch;margin-top:1rem;font-size:clamp(2.7rem,8.5vw,5.3rem);">Ground worth holding, in the path of growth.</h1>
+      <p style="animation:heroIn .9s .14s both;max-width:42rem;margin-top:1.3rem;color:rgba(255,253,250,.82);font-size:clamp(1.02rem,2vw,1.22rem);">Commercial sites and development land across Bastrop County — read by someone who can walk the dirt and sit at the table. Tracking Highway 71, SH 130, and Austin's eastward push.</p>
+      <div style="animation:heroIn .9s .22s both;display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.8rem;">
+        <a href="#connect" style="min-height:3.3rem;display:inline-flex;align-items:center;justify-content:center;border-radius:7px;background:#fffdfa;color:#1a1a17;padding:0 1.4rem;font-weight:700;font-size:.95rem;">Request available sites</a>
+        <a href="#connect" style="min-height:3.3rem;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,253,250,.5);border-radius:7px;background:rgba(255,253,250,.07);color:#fffdfa;padding:0 1.4rem;font-weight:700;font-size:.95rem;">Schedule a land strategy call</a>
       </div>
-    </footer>
+      <dl style="display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;margin-top:2.2rem;max-width:36rem;">
+        <div style="border:1px solid rgba(255,253,250,.18);border-radius:8px;background:rgba(255,253,250,.07);padding:.85rem .9rem;">
+          <dt style="font-family:'Spectral',serif;font-weight:600;font-variant-numeric:tabular-nums;line-height:1;font-size:clamp(1.5rem,4vw,2rem);"><span data-count-to="414" data-count-suffix="+">414+</span></dt>
+          <dd style="margin-top:.35rem;color:rgba(255,253,250,.7);font-size:.72rem;font-family:'IBM Plex Mono',monospace;letter-spacing:.04em;">Acres tracked</dd>
+        </div>
+        <div style="border:1px solid rgba(255,253,250,.18);border-radius:8px;background:rgba(255,253,250,.07);padding:.85rem .9rem;">
+          <dt style="font-family:'Spectral',serif;font-weight:600;font-variant-numeric:tabular-nums;line-height:1;font-size:clamp(1.5rem,4vw,2rem);"><span data-count-to="27" data-count-prefix="$" data-count-suffix="M+">$27M+</span></dt>
+          <dd style="margin-top:.35rem;color:rgba(255,253,250,.7);font-size:.72rem;font-family:'IBM Plex Mono',monospace;letter-spacing:.04em;">Inventory reviewed</dd>
+        </div>
+        <div style="border:1px solid rgba(255,253,250,.18);border-radius:8px;background:rgba(255,253,250,.07);padding:.85rem .9rem;">
+          <dt style="font-family:'Spectral',serif;font-weight:600;font-variant-numeric:tabular-nums;line-height:1;font-size:clamp(1.5rem,4vw,2rem);"><span data-count-to="71">71</span> / <span data-count-to="130">130</span></dt>
+          <dd style="margin-top:.35rem;color:rgba(255,253,250,.7);font-size:.72rem;font-family:'IBM Plex Mono',monospace;letter-spacing:.04em;">Corridor focus</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
 
-    <script src="script.js?v=cinematic-count"></script>
-  </body>
+  <!-- DUAL IDENTITY -->
+  <section id="approach" style="background:#f7f4ed;padding-block:clamp(4rem,9vw,7rem);">
+    <div style="width:min(calc(100% - 2rem),74rem);margin-inline:auto;">
+      <div class="reveal" style="max-width:46rem;">
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:.72rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#a8652d;">The approach</p>
+        <h2 style="font-family:'Spectral',serif;font-weight:600;line-height:1.02;letter-spacing:-.015em;margin-top:.9rem;font-size:clamp(2rem,5vw,3.1rem);">Boots on the dirt. A seat at the table.</h2>
+        <p style="margin-top:1.1rem;color:#4a4a42;font-size:1.08rem;max-width:40rem;">Most deals fall apart in the gap between what the land actually is and what the spreadsheet assumes. I work both sides of that gap.</p>
+      </div>
+      <div class="reveal g-2" style="gap:1.2rem;margin-top:2.4rem;">
+        <div style="position:relative;border:1px solid #ddd5c7;border-radius:12px;background:#fffdfa;padding:1.8rem;overflow:hidden;">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:#34402f;">01 / Raw land</span>
+          <h3 style="font-family:'Spectral',serif;font-weight:600;font-size:1.5rem;margin-top:.7rem;">I can walk it.</h3>
+          <p style="margin-top:.7rem;color:#4a4a42;font-size:.98rem;">Drainage, access, frontage, utilities, soil, floodplain, what the survey doesn't say. Ranch-raised and rooted in Central Texas — I read ground the way it actually behaves, not just how it lists.</p>
+          <ul style="list-style:none;display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.1rem;">
+            <li style="font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.04em;border:1px solid #ddd5c7;border-radius:99px;padding:.3rem .7rem;color:#6f3f19;">Frontage</li>
+            <li style="font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.04em;border:1px solid #ddd5c7;border-radius:99px;padding:.3rem .7rem;color:#6f3f19;">Utilities</li>
+            <li style="font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.04em;border:1px solid #ddd5c7;border-radius:99px;padding:.3rem .7rem;color:#6f3f19;">Access &amp; drainage</li>
+          </ul>
+        </div>
+        <div style="position:relative;border:1px solid #1a1a17;border-radius:12px;background:#1a1a17;color:#fffdfa;padding:1.8rem;overflow:hidden;">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:#d8aa63;">02 / The deal</span>
+          <h3 style="font-family:'Spectral',serif;font-weight:600;font-size:1.5rem;margin-top:.7rem;">I can close it.</h3>
+          <p style="margin-top:.7rem;color:rgba(255,253,250,.78);font-size:.98rem;">Entitlements, zoning, pro formas, corridor timing, the network of developers and investors already moving here. I translate ground into terms a corporate table can act on.</p>
+          <ul style="list-style:none;display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.1rem;">
+            <li style="font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.04em;border:1px solid rgba(255,253,250,.25);border-radius:99px;padding:.3rem .7rem;color:#d8aa63;">Entitlements</li>
+            <li style="font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.04em;border:1px solid rgba(255,253,250,.25);border-radius:99px;padding:.3rem .7rem;color:#d8aa63;">Zoning</li>
+            <li style="font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.04em;border:1px solid rgba(255,253,250,.25);border-radius:99px;padding:.3rem .7rem;color:#d8aa63;">Investor network</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROPERTIES CAROUSEL -->
+  <section id="properties" style="background:#efeadd;padding-block:clamp(4rem,9vw,7rem);border-block:1px solid #ddd5c7;">
+    <div style="width:min(calc(100% - 2rem),74rem);margin-inline:auto;">
+      <div class="reveal" style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1rem;">
+        <div style="max-width:40rem;">
+          <p style="font-family:'IBM Plex Mono',monospace;font-size:.72rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#a8652d;">On the market</p>
+          <h2 style="font-family:'Spectral',serif;font-weight:600;line-height:1.02;letter-spacing:-.015em;margin-top:.9rem;font-size:clamp(2rem,5vw,3.1rem);">Featured commercial &amp; development land</h2>
+          <p style="margin-top:1rem;color:#4a4a42;font-size:1.05rem;">Commercial and development tracts first. Swipe, scroll, or drag through current inventory.</p>
+        </div>
+        <div style="display:flex;gap:.6rem;">
+          <button type="button" data-prev aria-label="Previous properties" style="width:3rem;height:3rem;display:grid;place-items:center;border:1px solid #1a1a17;border-radius:99px;background:#fffdfa;cursor:pointer;font-size:1.1rem;">&#8592;</button>
+          <button type="button" data-next aria-label="Next properties" style="width:3rem;height:3rem;display:grid;place-items:center;border:1px solid #1a1a17;border-radius:99px;background:#1a1a17;color:#fffdfa;cursor:pointer;font-size:1.1rem;">&#8594;</button>
+        </div>
+      </div>
+
+      <div class="hscroll" data-carousel style="display:flex;gap:1.1rem;margin-top:2rem;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding-bottom:1.2rem;cursor:grab;-webkit-overflow-scrolling:touch;">
+        <!-- Property cards -->
+        <article class="reveal" style="flex:0 0 auto;width:min(86vw,21rem);scroll-snap-align:start;display:flex;flex-direction:column;border:1px solid #ddd5c7;border-radius:14px;background:#fffdfa;overflow:hidden;">
+          <div style="position:relative;aspect-ratio:4/3;background-color:#e6e0d2;background-image:repeating-linear-gradient(135deg,rgba(111,63,25,.07) 0 14px,rgba(111,63,25,0) 14px 28px),linear-gradient(160deg,#e9e2d3,#d9d0bd);display:grid;place-items:center;">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:#8a7f6a;">Aerial — Hwy 71 pad</span>
+            <span style="position:absolute;top:.8rem;left:.8rem;font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;background:#1a1a17;color:#d8aa63;padding:.32rem .55rem;border-radius:99px;">Commercial</span>
+            <span style="position:absolute;top:.8rem;right:.8rem;font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;background:rgba(52,64,47,.92);color:#eef0e8;padding:.32rem .55rem;border-radius:99px;">Available</span>
+          </div>
+          <div style="padding:1.2rem;display:flex;flex-direction:column;flex:1;">
+            <h3 style="font-family:'Spectral',serif;font-weight:600;font-size:1.3rem;line-height:1.1;">Highway 71 Commercial Pad</h3>
+            <p style="margin-top:.4rem;color:#6f6a5c;font-size:.82rem;font-family:'IBM Plex Mono',monospace;letter-spacing:.02em;">Hwy 71 · Bastrop, TX</p>
+            <div style="display:flex;gap:1.2rem;margin-top:1rem;padding-top:1rem;border-top:1px solid #ece6d9;">
+              <div><div style="font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:#9a8f78;">Acreage</div><div style="font-weight:700;margin-top:.15rem;">4.2 ac</div></div>
+              <div><div style="font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:#9a8f78;">Use / Zoning</div><div style="font-weight:700;margin-top:.15rem;">Commercial</div></div>
+            </div>
+            <div style="margin-top:auto;padding-top:1.2rem;display:flex;align-items:center;justify-content:space-between;gap:.6rem;">
+              <span style="font-family:'Spectral',serif;font-weight:700;font-size:1.35rem;color:#6f3f19;">$1.95M</span>
+              <a href="#connect" style="font-size:.84rem;font-weight:700;color:#a8652d;border-bottom:1px solid #d8aa63;padding-bottom:1px;">Inquire &#8594;</a>
+            </div>
+          </div>
+        </article>
+        <article class="reveal" style="flex:0 0 auto;width:min(86vw,21rem);scroll-snap-align:start;display:flex;flex-direction:column;border:1px solid #ddd5c7;border-radius:14px;background:#fffdfa;overflow:hidden;">
+          <div style="position:relative;aspect-ratio:4/3;background-color:#e6e0d2;background-image:repeating-linear-gradient(135deg,rgba(111,63,25,.07) 0 14px,rgba(111,63,25,0) 14px 28px),linear-gradient(160deg,#e9e2d3,#d9d0bd);display:grid;place-items:center;">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:#8a7f6a;">Aerial — SH 130 tract</span>
+            <span style="position:absolute;top:.8rem;left:.8rem;font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;background:#1a1a17;color:#d8aa63;padding:.32rem .55rem;border-radius:99px;">Development</span>
+            <span style="position:absolute;top:.8rem;right:.8rem;font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;background:rgba(52,64,47,.92);color:#eef0e8;padding:.32rem .55rem;border-radius:99px;">Available</span>
+          </div>
+          <div style="padding:1.2rem;display:flex;flex-direction:column;flex:1;">
+            <h3 style="font-family:'Spectral',serif;font-weight:600;font-size:1.3rem;line-height:1.1;">SH 130 Logistics Tract</h3>
+            <p style="margin-top:.4rem;color:#6f6a5c;font-size:.82rem;font-family:'IBM Plex Mono',monospace;letter-spacing:.02em;">SH 130 · Cedar Creek</p>
+            <div style="display:flex;gap:1.2rem;margin-top:1rem;padding-top:1rem;border-top:1px solid #ece6d9;">
+              <div><div style="font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:#9a8f78;">Acreage</div><div style="font-weight:700;margin-top:.15rem;">38 ac</div></div>
+              <div><div style="font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:#9a8f78;">Use / Zoning</div><div style="font-weight:700;margin-top:.15rem;">Light industrial</div></div>
+            </div>
+            <div style="margin-top:auto;padding-top:1.2rem;display:flex;align-items:center;justify-content:space-between;gap:.6rem;">
+              <span style="font-family:'Spectral',serif;font-weight:700;font-size:1.35rem;color:#6f3f19;">$6.4M</span>
+              <a href="#connect" style="font-size:.84rem;font-weight:700;color:#a8652d;border-bottom:1px solid #d8aa63;padding-bottom:1px;">Inquire &#8594;</a>
+            </div>
+          </div>
+        </article>
+        <article class="reveal" style="flex:0 0 auto;width:min(86vw,21rem);scroll-snap-align:start;display:flex;flex-direction:column;border:1px solid #ddd5c7;border-radius:14px;background:#fffdfa;overflow:hidden;">
+          <div style="position:relative;aspect-ratio:4/3;background-color:#e6e0d2;background-image:repeating-linear-gradient(135deg,rgba(111,63,25,.07) 0 14px,rgba(111,63,25,0) 14px 28px),linear-gradient(160deg,#e9e2d3,#d9d0bd);display:grid;place-items:center;">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:#8a7f6a;">Aerial — gateway retail</span>
+            <span style="position:absolute;top:.8rem;left:.8rem;font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;background:#1a1a17;color:#d8aa63;padding:.32rem .55rem;border-radius:99px;">Commercial</span>
+            <span style="position:absolute;top:.8rem;right:.8rem;font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;background:rgba(52,64,47,.92);color:#eef0e8;padding:.32rem .55rem;border-radius:99px;">Available</span>
+          </div>
+          <div style="padding:1.2rem;display:flex;flex-direction:column;flex:1;">
+            <h3 style="font-family:'Spectral',serif;font-weight:600;font-size:1.3rem;line-height:1.1;">Bastrop Gateway Retail</h3>
+            <p style="margin-top:.4rem;color:#6f6a5c;font-size:.82rem;font-family:'IBM Plex Mono',monospace;letter-spacing:.02em;">Hwy 71 / Loop 150</p>
+            <div style="display:flex;gap:1.2rem;margin-top:1rem;padding-top:1rem;border-top:1px solid #ece6d9;">
+              <div><div style="font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:#9a8f78;">Acreage</div><div style="font-weight:700;margin-top:.15rem;">2.6 ac</div></div>
+              <div><div style="font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:#9a8f78;">Use / Zoning</div><div style="font-weight:700;margin-top:.15rem;">Retail / mixed</div></div>
+            </div>
+            <div style="margin-top:auto;padding-top:1.2rem;display:flex;align-items:center;justify-content:space-between;gap:.6rem;">
+              <span style="font-family:'Spectral',serif;font-weight:700;font-size:1.35rem;color:#6f3f19;">$1.2M</span>
+              <a href="#connect" style="font-size:.84rem;font-weight:700;color:#a8652d;border-bottom:1px solid #d8aa63;padding-bottom:1px;">Inquire &#8594;</a>
+            </div>
+          </div>
+        </article>
+        <article class="reveal" style="flex:0 0 auto;width:min(86vw,21rem);scroll-snap-align:start;display:flex;flex-direction:column;border:1px solid #ddd5c7;border-radius:14px;background:#fffdfa;overflow:hidden;">
+          <div style="position:relative;aspect-ratio:4/3;background-color:#e6e0d2;background-image:repeating-linear-gradient(135deg,rgba(111,63,25,.07) 0 14px,rgba(111,63,25,0) 14px 28px),linear-gradient(160deg,#e9e2d3,#d9d0bd);display:grid;place-items:center;">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:#8a7f6a;">Aerial — mixed-use</span>
+            <span style="position:absolute;top:.8rem;left:.8rem;font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;background:#1a1a17;color:#d8aa63;padding:.32rem .55rem;border-radius:99px;">Development</span>
+            <span style="position:absolute;top:.8rem;right:.8rem;font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;background:rgba(52,64,47,.92);color:#eef0e8;padding:.32rem .55rem;border-radius:99px;">Off-market</span>
+          </div>
+          <div style="padding:1.2rem;display:flex;flex-direction:column;flex:1;">
+            <h3 style="font-family:'Spectral',serif;font-weight:600;font-size:1.3rem;line-height:1.1;">Cedar Creek Mixed-Use</h3>
+            <p style="margin-top:.4rem;color:#6f6a5c;font-size:.82rem;font-family:'IBM Plex Mono',monospace;letter-spacing:.02em;">FM 535 · Cedar Creek</p>
+            <div style="display:flex;gap:1.2rem;margin-top:1rem;padding-top:1rem;border-top:1px solid #ece6d9;">
+              <div><div style="font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:#9a8f78;">Acreage</div><div style="font-weight:700;margin-top:.15rem;">61 ac</div></div>
+              <div><div style="font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:#9a8f78;">Use / Zoning</div><div style="font-weight:700;margin-top:.15rem;">PUD potential</div></div>
+            </div>
+            <div style="margin-top:auto;padding-top:1.2rem;display:flex;align-items:center;justify-content:space-between;gap:.6rem;">
+              <span style="font-family:'Spectral',serif;font-weight:700;font-size:1.35rem;color:#6f3f19;">Call for price</span>
+              <a href="#connect" style="font-size:.84rem;font-weight:700;color:#a8652d;border-bottom:1px solid #d8aa63;padding-bottom:1px;">Inquire &#8594;</a>
+            </div>
+          </div>
+        </article>
+        <article class="reveal" style="flex:0 0 auto;width:min(86vw,21rem);scroll-snap-align:start;display:flex;flex-direction:column;border:1px solid #ddd5c7;border-radius:14px;background:#fffdfa;overflow:hidden;">
+          <div style="position:relative;aspect-ratio:4/3;background-color:#e6e0d2;background-image:repeating-linear-gradient(135deg,rgba(111,63,25,.07) 0 14px,rgba(111,63,25,0) 14px 28px),linear-gradient(160deg,#e9e2d3,#d9d0bd);display:grid;place-items:center;">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:#8a7f6a;">Aerial — frontage ranch</span>
+            <span style="position:absolute;top:.8rem;left:.8rem;font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;background:#1a1a17;color:#d8aa63;padding:.32rem .55rem;border-radius:99px;">Land / Ranch</span>
+            <span style="position:absolute;top:.8rem;right:.8rem;font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;background:rgba(52,64,47,.92);color:#eef0e8;padding:.32rem .55rem;border-radius:99px;">Available</span>
+          </div>
+          <div style="padding:1.2rem;display:flex;flex-direction:column;flex:1;">
+            <h3 style="font-family:'Spectral',serif;font-weight:600;font-size:1.3rem;line-height:1.1;">Highway Frontage Ranch</h3>
+            <p style="margin-top:.4rem;color:#6f6a5c;font-size:.82rem;font-family:'IBM Plex Mono',monospace;letter-spacing:.02em;">Hwy 71 frontage</p>
+            <div style="display:flex;gap:1.2rem;margin-top:1rem;padding-top:1rem;border-top:1px solid #ece6d9;">
+              <div><div style="font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:#9a8f78;">Acreage</div><div style="font-weight:700;margin-top:.15rem;">142 ac</div></div>
+              <div><div style="font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:#9a8f78;">Use / Zoning</div><div style="font-weight:700;margin-top:.15rem;">Ag / transitional</div></div>
+            </div>
+            <div style="margin-top:auto;padding-top:1.2rem;display:flex;align-items:center;justify-content:space-between;gap:.6rem;">
+              <span style="font-family:'Spectral',serif;font-weight:700;font-size:1.35rem;color:#6f3f19;">$3.8M</span>
+              <a href="#connect" style="font-size:.84rem;font-weight:700;color:#a8652d;border-bottom:1px solid #d8aa63;padding-bottom:1px;">Inquire &#8594;</a>
+            </div>
+          </div>
+        </article>
+        <article class="reveal" style="flex:0 0 auto;width:min(86vw,21rem);scroll-snap-align:start;display:flex;flex-direction:column;border:1px solid #ddd5c7;border-radius:14px;background:#fffdfa;overflow:hidden;">
+          <div style="position:relative;aspect-ratio:4/3;background-color:#e6e0d2;background-image:repeating-linear-gradient(135deg,rgba(111,63,25,.07) 0 14px,rgba(111,63,25,0) 14px 28px),linear-gradient(160deg,#e9e2d3,#d9d0bd);display:grid;place-items:center;">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:#8a7f6a;">Aerial — downtown infill</span>
+            <span style="position:absolute;top:.8rem;left:.8rem;font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;background:#1a1a17;color:#d8aa63;padding:.32rem .55rem;border-radius:99px;">Commercial</span>
+            <span style="position:absolute;top:.8rem;right:.8rem;font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;background:rgba(52,64,47,.92);color:#eef0e8;padding:.32rem .55rem;border-radius:99px;">Available</span>
+          </div>
+          <div style="padding:1.2rem;display:flex;flex-direction:column;flex:1;">
+            <h3 style="font-family:'Spectral',serif;font-weight:600;font-size:1.3rem;line-height:1.1;">Downtown Bastrop Infill</h3>
+            <p style="margin-top:.4rem;color:#6f6a5c;font-size:.82rem;font-family:'IBM Plex Mono',monospace;letter-spacing:.02em;">Main St · Bastrop</p>
+            <div style="display:flex;gap:1.2rem;margin-top:1rem;padding-top:1rem;border-top:1px solid #ece6d9;">
+              <div><div style="font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:#9a8f78;">Acreage</div><div style="font-weight:700;margin-top:.15rem;">0.8 ac</div></div>
+              <div><div style="font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:#9a8f78;">Use / Zoning</div><div style="font-weight:700;margin-top:.15rem;">Downtown core</div></div>
+            </div>
+            <div style="margin-top:auto;padding-top:1.2rem;display:flex;align-items:center;justify-content:space-between;gap:.6rem;">
+              <span style="font-family:'Spectral',serif;font-weight:700;font-size:1.35rem;color:#6f3f19;">$740K</span>
+              <a href="#connect" style="font-size:.84rem;font-weight:700;color:#a8652d;border-bottom:1px solid #d8aa63;padding-bottom:1px;">Inquire &#8594;</a>
+            </div>
+          </div>
+        </article>
+      </div>
+      <p style="margin-top:.4rem;font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.06em;color:#9a8f78;">Drag to explore &middot; commercial &amp; development shown first</p>
+    </div>
+  </section>
+
+  <!-- AUDIENCES -->
+  <section style="background:#f7f4ed;padding-block:clamp(4rem,9vw,7rem);">
+    <div style="width:min(calc(100% - 2rem),74rem);margin-inline:auto;">
+      <div class="reveal" style="max-width:44rem;">
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:.72rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#a8652d;">Who I work with</p>
+        <h2 style="font-family:'Spectral',serif;font-weight:600;line-height:1.02;letter-spacing:-.015em;margin-top:.9rem;font-size:clamp(2rem,5vw,3.1rem);">Clear lanes for every side of the table.</h2>
+      </div>
+      <div class="reveal g-3" style="gap:1.1rem;margin-top:2.4rem;">
+        <div style="display:flex;flex-direction:column;border:1px solid #ddd5c7;border-radius:12px;background:#fffdfa;padding:1.7rem;">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:#a8652d;">Buyers &amp; Investors</span>
+          <h3 style="font-family:'Spectral',serif;font-weight:600;font-size:1.45rem;margin-top:.6rem;">Buyers &amp; Investors</h3>
+          <p style="margin-top:.7rem;color:#4a4a42;font-size:.96rem;flex:1;">Bring me your thesis and your numbers. I source on- and off-market sites that fit the use, the corridor, and the return — then read the ground before you commit.</p>
+          <a href="#connect" style="margin-top:1.3rem;min-height:2.9rem;display:inline-flex;align-items:center;justify-content:center;border:1px solid #1a1a17;border-radius:7px;background:#1a1a17;color:#fffdfa;padding:0 1rem;font-weight:700;font-size:.86rem;text-align:center;">Send me your site criteria</a>
+        </div>
+        <div style="display:flex;flex-direction:column;border:1px solid #ddd5c7;border-radius:12px;background:#fffdfa;padding:1.7rem;">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:#a8652d;">Landowners &amp; Sellers</span>
+          <h3 style="font-family:'Spectral',serif;font-weight:600;font-size:1.45rem;margin-top:.6rem;">Landowners &amp; Sellers</h3>
+          <p style="margin-top:.7rem;color:#4a4a42;font-size:.96rem;flex:1;">Sitting on ground in a growth path? I position commercial and development land to the right buyers, with a clear-eyed valuation and a plan for timing the market.</p>
+          <a href="#connect" style="margin-top:1.3rem;min-height:2.9rem;display:inline-flex;align-items:center;justify-content:center;border:1px solid #1a1a17;border-radius:7px;background:#1a1a17;color:#fffdfa;padding:0 1rem;font-weight:700;font-size:.86rem;text-align:center;">Request a commercial valuation</a>
+        </div>
+        <div style="display:flex;flex-direction:column;border:1px solid #ddd5c7;border-radius:12px;background:#fffdfa;padding:1.7rem;">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:#a8652d;">Developers</span>
+          <h3 style="font-family:'Spectral',serif;font-weight:600;font-size:1.45rem;margin-top:.6rem;">Developers</h3>
+          <p style="margin-top:.7rem;color:#4a4a42;font-size:.96rem;flex:1;">Entitlements, zoning, frontage, utilities, corridor timing — I speak the language and know who is moving here. Let&rsquo;s pressure-test a site before it costs you.</p>
+          <a href="#connect" style="margin-top:1.3rem;min-height:2.9rem;display:inline-flex;align-items:center;justify-content:center;border:1px solid #1a1a17;border-radius:7px;background:#1a1a17;color:#fffdfa;padding:0 1rem;font-weight:700;font-size:.86rem;text-align:center;">Schedule a land strategy call</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARKET / GROWTH -->
+  <section id="market" style="background:#1a1a17;color:#fffdfa;padding-block:clamp(4rem,9vw,7rem);overflow:hidden;">
+    <div style="width:min(calc(100% - 2rem),74rem);margin-inline:auto;">
+      <div class="reveal g-market" style="gap:2.4rem;">
+        <div>
+          <p style="font-family:'IBM Plex Mono',monospace;font-size:.72rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#d8aa63;">Bastrop County growth</p>
+          <h2 style="font-family:'Spectral',serif;font-weight:600;line-height:1.02;letter-spacing:-.015em;margin-top:.9rem;font-size:clamp(2rem,5vw,3.1rem);">The corridor is catching up to the land.</h2>
+          <p style="margin-top:1.1rem;color:rgba(255,253,250,.78);font-size:1.05rem;max-width:34rem;">Austin's overflow is moving east along Highway 71 and SH 130. Infrastructure, rooftops, and employers are following. The window to position ground ahead of it is open now.</p>
+          <a href="insights.html" style="margin-top:1.6rem;min-height:3rem;display:inline-flex;align-items:center;gap:.5rem;border:1px solid rgba(255,253,250,.5);border-radius:7px;background:rgba(255,253,250,.07);color:#fffdfa;padding:0 1.2rem;font-weight:700;font-size:.92rem;">Explore Commercial Insights &#8594;</a>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem;align-content:start;">
+          <div style="border:1px solid rgba(255,253,250,.16);border-radius:10px;background:rgba(255,253,250,.05);padding:1.2rem;">
+            <div style="font-family:'Spectral',serif;font-weight:600;font-size:clamp(1.7rem,4vw,2.4rem);"><span data-count-to="71">71</span></div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.06em;color:rgba(255,253,250,.66);margin-top:.3rem;">Hwy 71 frontage corridor</div>
+          </div>
+          <div style="border:1px solid rgba(255,253,250,.16);border-radius:10px;background:rgba(255,253,250,.05);padding:1.2rem;">
+            <div style="font-family:'Spectral',serif;font-weight:600;font-size:clamp(1.7rem,4vw,2.4rem);"><span data-count-to="130">130</span></div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.06em;color:rgba(255,253,250,.66);margin-top:.3rem;">SH 130 logistics spine</div>
+          </div>
+          <div style="border:1px solid rgba(255,253,250,.16);border-radius:10px;background:rgba(255,253,250,.05);padding:1.2rem;">
+            <div style="font-family:'Spectral',serif;font-weight:600;font-size:clamp(1.7rem,4vw,2.4rem);"><span data-count-to="38" data-count-suffix="%">38%</span></div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.06em;color:rgba(255,253,250,.66);margin-top:.3rem;">County pop. growth, 2010&ndash;'24</div>
+          </div>
+          <div style="border:1px solid rgba(255,253,250,.16);border-radius:10px;background:rgba(255,253,250,.05);padding:1.2rem;">
+            <div style="font-family:'Spectral',serif;font-weight:600;font-size:clamp(1.7rem,4vw,2.4rem);"><span data-count-to="25" data-count-prefix="$" data-count-suffix="B">$25B</span></div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.06em;color:rgba(255,253,250,.66);margin-top:.3rem;">Regional capital in motion</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONNECT / FORMS -->
+  <section id="connect" style="background:#f7f4ed;padding-block:clamp(4rem,9vw,7rem);">
+    <div style="width:min(calc(100% - 2rem),60rem);margin-inline:auto;">
+      <div class="reveal" style="text-align:center;max-width:40rem;margin-inline:auto;">
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:.72rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#a8652d;">Let's talk ground</p>
+        <h2 style="font-family:'Spectral',serif;font-weight:600;line-height:1.02;letter-spacing:-.015em;margin-top:.9rem;font-size:clamp(2rem,5vw,3.1rem);">Start the conversation.</h2>
+      </div>
+
+      <div class="reveal" style="margin-top:2rem;border:1px solid #ddd5c7;border-radius:16px;background:#fffdfa;overflow:hidden;">
+        <div style="display:flex;border-bottom:1px solid #ece6d9;">
+          <button type="button" class="tab is-active" data-tab="buyer">Buyers &amp; Developers</button>
+          <button type="button" class="tab" data-tab="seller">Landowners &amp; Sellers</button>
+        </div>
+
+        <div style="padding:clamp(1.4rem,4vw,2.2rem);">
+          <!-- BUYER PANEL -->
+          <div data-panel="buyer">
+            <form data-success="buyer-sent">
+              <p style="font-family:'Spectral',serif;font-size:1.3rem;font-weight:600;">Send me your site criteria</p>
+              <p style="color:#6f6a5c;font-size:.92rem;margin-top:.4rem;">Tell me what you're hunting and I'll match it against current and off-market inventory.</p>
+              <div class="g-form" style="gap:.9rem;margin-top:1.4rem;">
+                <label style="display:flex;flex-direction:column;gap:.35rem;font-family:'IBM Plex Mono',monospace;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:#8a7f6a;">Name<input required type="text" style="font-family:'Archivo',sans-serif;font-size:.95rem;letter-spacing:0;text-transform:none;border:1px solid #ddd5c7;border-radius:7px;background:#fbf9f3;padding:.7rem .8rem;" /></label>
+                <label style="display:flex;flex-direction:column;gap:.35rem;font-family:'IBM Plex Mono',monospace;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:#8a7f6a;">Email<input required type="email" style="font-family:'Archivo',sans-serif;font-size:.95rem;letter-spacing:0;text-transform:none;border:1px solid #ddd5c7;border-radius:7px;background:#fbf9f3;padding:.7rem .8rem;" /></label>
+                <label style="display:flex;flex-direction:column;gap:.35rem;font-family:'IBM Plex Mono',monospace;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:#8a7f6a;">I am a<select style="font-family:'Archivo',sans-serif;font-size:.95rem;letter-spacing:0;text-transform:none;border:1px solid #ddd5c7;border-radius:7px;background:#fbf9f3;padding:.7rem .8rem;"><option>Investor</option><option>Developer</option><option>Business owner</option><option>Broker / rep</option></select></label>
+                <label style="display:flex;flex-direction:column;gap:.35rem;font-family:'IBM Plex Mono',monospace;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:#8a7f6a;">Target corridor<select style="font-family:'Archivo',sans-serif;font-size:.95rem;letter-spacing:0;text-transform:none;border:1px solid #ddd5c7;border-radius:7px;background:#fbf9f3;padding:.7rem .8rem;"><option>Highway 71</option><option>SH 130</option><option>Bastrop / downtown</option><option>Cedar Creek</option><option>Open / flexible</option></select></label>
+                <label style="display:flex;flex-direction:column;gap:.35rem;font-family:'IBM Plex Mono',monospace;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:#8a7f6a;">Acreage range<input type="text" placeholder="e.g. 5–40 ac" style="font-family:'Archivo',sans-serif;font-size:.95rem;letter-spacing:0;text-transform:none;border:1px solid #ddd5c7;border-radius:7px;background:#fbf9f3;padding:.7rem .8rem;" /></label>
+                <label style="display:flex;flex-direction:column;gap:.35rem;font-family:'IBM Plex Mono',monospace;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:#8a7f6a;">Intended use<input type="text" placeholder="e.g. retail pad, logistics" style="font-family:'Archivo',sans-serif;font-size:.95rem;letter-spacing:0;text-transform:none;border:1px solid #ddd5c7;border-radius:7px;background:#fbf9f3;padding:.7rem .8rem;" /></label>
+              </div>
+              <label style="display:flex;flex-direction:column;gap:.35rem;font-family:'IBM Plex Mono',monospace;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:#8a7f6a;margin-top:.9rem;">Notes<textarea rows="3" style="font-family:'Archivo',sans-serif;font-size:.95rem;letter-spacing:0;text-transform:none;border:1px solid #ddd5c7;border-radius:7px;background:#fbf9f3;padding:.7rem .8rem;resize:vertical;"></textarea></label>
+              <button type="submit" style="margin-top:1.3rem;width:100%;min-height:3.2rem;border:none;border-radius:8px;background:#a8652d;color:#fffdfa;font-weight:700;font-size:.98rem;cursor:pointer;">Send my criteria</button>
+            </form>
+            <div id="buyer-sent" hidden style="text-align:center;padding:1.4rem 0;">
+              <div style="width:3.2rem;height:3.2rem;margin-inline:auto;display:grid;place-items:center;border-radius:99px;background:#34402f;color:#eef0e8;font-size:1.4rem;">&#10003;</div>
+              <p style="font-family:'Spectral',serif;font-size:1.5rem;font-weight:600;margin-top:1rem;">Criteria received.</p>
+              <p style="color:#6f6a5c;margin-top:.5rem;">I'll be in touch within one business day with matching sites. For anything time-sensitive, call <a href="tel:+15128776292" style="color:#a8652d;font-weight:700;">512-877-6292</a>.</p>
+            </div>
+          </div>
+
+          <!-- SELLER PANEL -->
+          <div data-panel="seller" hidden>
+            <form data-success="seller-sent">
+              <p style="font-family:'Spectral',serif;font-size:1.3rem;font-weight:600;">Request a commercial valuation</p>
+              <p style="color:#6f6a5c;font-size:.92rem;margin-top:.4rem;">Own ground along a growth corridor? I'll tell you what it's worth in today's market — and what it could be.</p>
+              <div class="g-form" style="gap:.9rem;margin-top:1.4rem;">
+                <label style="display:flex;flex-direction:column;gap:.35rem;font-family:'IBM Plex Mono',monospace;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:#8a7f6a;">Name<input required type="text" style="font-family:'Archivo',sans-serif;font-size:.95rem;letter-spacing:0;text-transform:none;border:1px solid #ddd5c7;border-radius:7px;background:#fbf9f3;padding:.7rem .8rem;" /></label>
+                <label style="display:flex;flex-direction:column;gap:.35rem;font-family:'IBM Plex Mono',monospace;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:#8a7f6a;">Phone or email<input required type="text" style="font-family:'Archivo',sans-serif;font-size:.95rem;letter-spacing:0;text-transform:none;border:1px solid #ddd5c7;border-radius:7px;background:#fbf9f3;padding:.7rem .8rem;" /></label>
+                <label style="display:flex;flex-direction:column;gap:.35rem;font-family:'IBM Plex Mono',monospace;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:#8a7f6a;">Property location / APN<input type="text" style="font-family:'Archivo',sans-serif;font-size:.95rem;letter-spacing:0;text-transform:none;border:1px solid #ddd5c7;border-radius:7px;background:#fbf9f3;padding:.7rem .8rem;" /></label>
+                <label style="display:flex;flex-direction:column;gap:.35rem;font-family:'IBM Plex Mono',monospace;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:#8a7f6a;">Approx. acreage<input type="text" style="font-family:'Archivo',sans-serif;font-size:.95rem;letter-spacing:0;text-transform:none;border:1px solid #ddd5c7;border-radius:7px;background:#fbf9f3;padding:.7rem .8rem;" /></label>
+                <label style="display:flex;flex-direction:column;gap:.35rem;font-family:'IBM Plex Mono',monospace;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:#8a7f6a;">Current use<input type="text" placeholder="e.g. ranch, ag, vacant" style="font-family:'Archivo',sans-serif;font-size:.95rem;letter-spacing:0;text-transform:none;border:1px solid #ddd5c7;border-radius:7px;background:#fbf9f3;padding:.7rem .8rem;" /></label>
+                <label style="display:flex;flex-direction:column;gap:.35rem;font-family:'IBM Plex Mono',monospace;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:#8a7f6a;">Frontage corridor<input type="text" placeholder="e.g. Hwy 71" style="font-family:'Archivo',sans-serif;font-size:.95rem;letter-spacing:0;text-transform:none;border:1px solid #ddd5c7;border-radius:7px;background:#fbf9f3;padding:.7rem .8rem;" /></label>
+              </div>
+              <label style="display:flex;flex-direction:column;gap:.35rem;font-family:'IBM Plex Mono',monospace;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:#8a7f6a;margin-top:.9rem;">Notes<textarea rows="3" style="font-family:'Archivo',sans-serif;font-size:.95rem;letter-spacing:0;text-transform:none;border:1px solid #ddd5c7;border-radius:7px;background:#fbf9f3;padding:.7rem .8rem;resize:vertical;"></textarea></label>
+              <button type="submit" style="margin-top:1.3rem;width:100%;min-height:3.2rem;border:none;border-radius:8px;background:#34402f;color:#fffdfa;font-weight:700;font-size:.98rem;cursor:pointer;">Request my valuation</button>
+            </form>
+            <div id="seller-sent" hidden style="text-align:center;padding:1.4rem 0;">
+              <div style="width:3.2rem;height:3.2rem;margin-inline:auto;display:grid;place-items:center;border-radius:99px;background:#34402f;color:#eef0e8;font-size:1.4rem;">&#10003;</div>
+              <p style="font-family:'Spectral',serif;font-size:1.5rem;font-weight:600;margin-top:1rem;">Request received.</p>
+              <p style="color:#6f6a5c;margin-top:.5rem;">I'll prepare a valuation read and reach out personally. Prefer to talk now? Call <a href="tel:+15128776292" style="color:#a8652d;font-weight:700;">512-877-6292</a>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section style="background:#efeadd;padding-block:clamp(4rem,9vw,7rem);border-top:1px solid #ddd5c7;">
+    <div style="width:min(calc(100% - 2rem),74rem);margin-inline:auto;">
+      <div class="reveal g-about" style="gap:2.4rem;align-items:center;">
+        <div style="aspect-ratio:4/5;border-radius:14px;border:1px solid #ddd5c7;background-color:#e6e0d2;background-image:repeating-linear-gradient(135deg,rgba(111,63,25,.07) 0 16px,rgba(111,63,25,0) 16px 32px),linear-gradient(160deg,#ece5d6,#d6cdb9);display:grid;place-items:center;max-width:24rem;">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:#8a7f6a;">Portrait — Taylor</span>
+        </div>
+        <div>
+          <p style="font-family:'IBM Plex Mono',monospace;font-size:.72rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#a8652d;">The agent</p>
+          <h2 style="font-family:'Spectral',serif;font-weight:600;line-height:1.02;letter-spacing:-.015em;margin-top:.9rem;font-size:clamp(1.9rem,4.5vw,2.8rem);">Rooted in the land. Fluent at the table.</h2>
+          <p style="margin-top:1.1rem;color:#4a4a42;font-size:1.05rem;">I grew up reading Central Texas ground — fence lines, drainage, what a tract can really carry. Today I bring that same instinct to commercial real estate across Bastrop County, working with the investors, developers, and landowners shaping its next chapter.</p>
+          <p style="margin-top:.9rem;color:#4a4a42;font-size:1.05rem;">It's a rare combination: someone who can walk raw land at sunrise and present a clear-eyed pro forma by afternoon. That's the value I bring to every deal.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.6rem;">
+            <a href="tel:+15128776292" style="min-height:3rem;display:inline-flex;align-items:center;border:1px solid #1a1a17;border-radius:7px;background:#1a1a17;color:#fffdfa;padding:0 1.2rem;font-weight:700;font-size:.92rem;">Call 512-877-6292</a>
+            <a href="mailto:taylor@spyglassrealty.com" style="min-height:3rem;display:inline-flex;align-items:center;border:1px solid #ddd5c7;border-radius:7px;background:#fffdfa;padding:0 1.2rem;font-weight:700;font-size:.92rem;color:#6f3f19;">Email Taylor</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer style="background:#1a1a17;color:rgba(255,253,250,.7);padding-block:clamp(2.6rem,6vw,4rem);">
+  <div class="g-foot" style="width:min(calc(100% - 2rem),74rem);margin-inline:auto;gap:2rem;">
+    <div>
+      <div style="display:inline-flex;align-items:center;gap:.7rem;">
+        <span style="width:2.5rem;height:2.5rem;display:grid;place-items:center;border-radius:7px;background:#fffdfa;color:#1a1a17;font-family:'Spectral',serif;font-weight:700;font-size:1.05rem;">G</span>
+        <span style="color:#fffdfa;font-weight:800;font-size:1.05rem;">Bastrop Commercial</span>
+      </div>
+      <p style="margin-top:1rem;max-width:26rem;font-size:.92rem;">Commercial &amp; development land across Bastrop County, Texas. A Goldspur Enterprises company, in partnership with Spyglass Realty.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem;">
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:#d8aa63;">Explore</div>
+        <ul style="list-style:none;margin-top:.8rem;display:grid;gap:.5rem;font-size:.92rem;">
+          <li><a href="#properties">Properties</a></li>
+          <li><a href="marketing.html">Marketing</a></li>
+          <li><a href="insights.html">Commercial Insights</a></li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:#d8aa63;">Contact</div>
+        <ul style="list-style:none;margin-top:.8rem;display:grid;gap:.5rem;font-size:.92rem;">
+          <li><a href="tel:+15128776292">512-877-6292</a></li>
+          <li><a href="mailto:taylor@spyglassrealty.com">taylor@spyglassrealty.com</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div style="width:min(calc(100% - 2rem),74rem);margin-inline:auto;margin-top:2.4rem;padding-top:1.4rem;border-top:1px solid rgba(255,253,250,.14);font-size:.82rem;">
+    Copyright <span data-year>2026</span> Bastrop Commercial. Made with a little help from <a href="https://bastropcode.com" style="color:#d8aa63;font-weight:700;">BastropCode.com</a>.
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
 </html>

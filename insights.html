@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Commercial Insights — growth, corridors, infrastructure, zoning, and development trends across Bastrop County, written for buyers, developers, investors, and landowners.">
+  <meta name="theme-color" content="#1a1a17">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <title>Commercial Insights | Bastrop Commercial</title>
+</head>
+<body>
+
+<div data-progress style="position:fixed;top:0;left:0;height:3px;width:100%;transform:scaleX(0);transform-origin:0 50%;background:linear-gradient(90deg,#a8652d,#d8aa63);z-index:60;will-change:transform;"></div>
+
+<header style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.85rem clamp(1rem,4vw,2.5rem);border-bottom:1px solid rgba(221,213,199,.8);background:rgba(247,244,237,.86);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);">
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:.7rem;min-width:0;">
+    <span style="width:2.5rem;height:2.5rem;flex:0 0 auto;display:grid;place-items:center;border-radius:7px;background:#1a1a17;color:#d8aa63;font-family:'Spectral',serif;font-weight:700;font-size:1.05rem;letter-spacing:.02em;">G</span>
+    <span style="display:flex;flex-direction:column;line-height:1.05;">
+      <span style="font-weight:800;font-size:1.02rem;letter-spacing:-.01em;">Bastrop Commercial</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:#a8652d;">By Goldspur Enterprises</span>
+    </span>
+  </a>
+  <nav class="nav-links" style="align-items:center;gap:1.6rem;font-size:.86rem;font-weight:600;letter-spacing:-.01em;">
+    <a href="index.html#properties" style="color:#3a3a34;">Properties</a>
+    <a href="index.html#approach" style="color:#3a3a34;">Approach</a>
+    <a href="index.html#market" style="color:#3a3a34;">Market</a>
+    <a href="marketing.html" style="color:#3a3a34;">Marketing</a>
+    <a href="insights.html" style="color:#a8652d;border-bottom:2px solid #a8652d;padding-bottom:2px;">Insights</a>
+  </nav>
+  <a href="index.html#connect" style="flex:0 0 auto;min-height:2.7rem;display:inline-flex;align-items:center;gap:.5rem;border:1px solid #1a1a17;border-radius:7px;background:#1a1a17;color:#fffdfa;padding:0 1.05rem;font-size:.84rem;font-weight:700;white-space:nowrap;">Request sites</a>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section style="background:#f7f4ed;padding-block:clamp(3.4rem,8vw,5.5rem) clamp(2rem,5vw,3rem);">
+    <div style="width:min(calc(100% - 2rem),74rem);margin-inline:auto;">
+      <p style="animation:heroIn .8s both;font-family:'IBM Plex Mono',monospace;font-size:.72rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#a8652d;">Commercial Insights · Bastrop County resource hub</p>
+      <h1 style="animation:heroIn .9s .06s both;font-family:'Spectral',Georgia,serif;font-weight:600;line-height:1;letter-spacing:-.015em;max-width:18ch;margin-top:1rem;font-size:clamp(2.4rem,7vw,4.4rem);">Read the market before you move on it.</h1>
+      <p style="animation:heroIn .9s .14s both;max-width:44rem;margin-top:1.2rem;color:#4a4a42;font-size:clamp(1rem,2vw,1.18rem);">Growth, corridors, infrastructure, zoning, and development trends across Bastrop County — written for buyers, developers, investors, and landowners who need the real picture, not the headline.</p>
+    </div>
+  </section>
+
+  <!-- TOPIC FILTERS -->
+  <section style="background:#f7f4ed;padding-bottom:1.6rem;">
+    <div style="width:min(calc(100% - 2rem),74rem);margin-inline:auto;">
+      <div class="hscroll hscroll--thin" data-filters="#articles-grid" style="display:flex;gap:.55rem;overflow-x:auto;padding-bottom:.4rem;">
+        <button type="button" class="chip is-active" data-filter="All">All</button>
+        <button type="button" class="chip" data-filter="Bastrop Growth">Bastrop Growth</button>
+        <button type="button" class="chip" data-filter="Corridors">Corridors</button>
+        <button type="button" class="chip" data-filter="Infrastructure">Infrastructure</button>
+        <button type="button" class="chip" data-filter="Land Use &amp; Zoning">Land Use &amp; Zoning</button>
+        <button type="button" class="chip" data-filter="Development Trends">Development Trends</button>
+        <button type="button" class="chip" data-filter="Investor Updates">Investor Updates</button>
+        <button type="button" class="chip" data-filter="Education">Education</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED -->
+  <section data-featured style="background:#f7f4ed;padding-bottom:clamp(2.4rem,5vw,3.4rem);">
+    <div style="width:min(calc(100% - 2rem),74rem);margin-inline:auto;">
+      <a href="index.html#connect" class="reveal g-feature" style="border:1px solid #ddd5c7;border-radius:16px;overflow:hidden;background:#1a1a17;color:#fffdfa;">
+        <div style="position:relative;min-height:16rem;background-color:#26261f;background-image:repeating-linear-gradient(135deg,rgba(216,170,99,.1) 0 16px,rgba(216,170,99,0) 16px 32px),linear-gradient(160deg,#2a2a22,#1a1a17);display:grid;place-items:center;">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:#8c8470;">Map — Bastrop growth corridors</span>
+        </div>
+        <div style="padding:clamp(1.6rem,4vw,2.6rem);display:flex;flex-direction:column;justify-content:center;">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:#d8aa63;">Bastrop Growth · Featured</span>
+          <h2 style="font-family:'Spectral',serif;font-weight:600;line-height:1.05;letter-spacing:-.01em;margin-top:.8rem;font-size:clamp(1.7rem,4vw,2.6rem);">Where Austin&rsquo;s overflow is landing next</h2>
+          <p style="margin-top:1rem;color:rgba(255,253,250,.78);font-size:1.04rem;max-width:38rem;">Highway 71 and SH 130 are no longer the edge of the metro — they&rsquo;re the path. A corridor-by-corridor look at where rooftops, employers, and retail are heading, and what it means for land basis today.</p>
+          <div style="display:flex;gap:1.2rem;margin-top:1.4rem;font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.06em;color:rgba(255,253,250,.6);">
+            <span>JUN 2026</span><span>8 min read</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ARTICLE GRID -->
+  <section style="background:#f7f4ed;padding-bottom:clamp(4rem,9vw,6rem);">
+    <div style="width:min(calc(100% - 2rem),74rem);margin-inline:auto;">
+      <div id="articles-grid" class="g-articles" style="gap:1.1rem;">
+        <a href="index.html#connect" class="reveal" data-cat="Corridors" style="display:flex;flex-direction:column;border:1px solid #ddd5c7;border-radius:14px;background:#fffdfa;overflow:hidden;">
+          <div style="position:relative;aspect-ratio:16/10;background-color:#e6e0d2;background-image:repeating-linear-gradient(135deg,rgba(111,63,25,.07) 0 14px,rgba(111,63,25,0) 14px 28px),linear-gradient(160deg,#e9e2d3,#d6cdb9);display:grid;place-items:center;">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:#8a7f6a;text-align:center;padding:0 1rem;">Map — Hwy 71 frontage</span>
+            <span style="position:absolute;top:.7rem;left:.7rem;font-family:'IBM Plex Mono',monospace;font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;background:#fffdfa;color:#6f3f19;padding:.3rem .5rem;border-radius:99px;border:1px solid #ddd5c7;">Corridors</span>
+          </div>
+          <div style="padding:1.2rem;display:flex;flex-direction:column;flex:1;">
+            <h3 style="font-family:'Spectral',serif;font-weight:600;font-size:1.28rem;line-height:1.15;">Highway 71: the retail frontage play</h3>
+            <p style="margin-top:.6rem;color:#4a4a42;font-size:.95rem;flex:1;">Why pad sites along 71 are pricing ahead of the rooftops, and how to read a frontage parcel before you bid.</p>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:1.1rem;font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.04em;color:#9a8f78;">
+              <span>JUN 2026</span><span>6 min</span>
+            </div>
+          </div>
+        </a>
+        <a href="index.html#connect" class="reveal" data-cat="Infrastructure" style="display:flex;flex-direction:column;border:1px solid #ddd5c7;border-radius:14px;background:#fffdfa;overflow:hidden;">
+          <div style="position:relative;aspect-ratio:16/10;background-color:#e6e0d2;background-image:repeating-linear-gradient(135deg,rgba(111,63,25,.07) 0 14px,rgba(111,63,25,0) 14px 28px),linear-gradient(160deg,#e9e2d3,#d6cdb9);display:grid;place-items:center;">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:#8a7f6a;text-align:center;padding:0 1rem;">Diagram — SH 130 logistics</span>
+            <span style="position:absolute;top:.7rem;left:.7rem;font-family:'IBM Plex Mono',monospace;font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;background:#fffdfa;color:#6f3f19;padding:.3rem .5rem;border-radius:99px;border:1px solid #ddd5c7;">Infrastructure</span>
+          </div>
+          <div style="padding:1.2rem;display:flex;flex-direction:column;flex:1;">
+            <h3 style="font-family:'Spectral',serif;font-weight:600;font-size:1.28rem;line-height:1.15;">SH 130 and the logistics thesis</h3>
+            <p style="margin-top:.6rem;color:#4a4a42;font-size:.95rem;flex:1;">Toll-road access, rail proximity, and why distribution users keep circling Cedar Creek.</p>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:1.1rem;font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.04em;color:#9a8f78;">
+              <span>MAY 2026</span><span>5 min</span>
+            </div>
+          </div>
+        </a>
+        <a href="index.html#connect" class="reveal" data-cat="Land Use &amp; Zoning" style="display:flex;flex-direction:column;border:1px solid #ddd5c7;border-radius:14px;background:#fffdfa;overflow:hidden;">
+          <div style="position:relative;aspect-ratio:16/10;background-color:#e6e0d2;background-image:repeating-linear-gradient(135deg,rgba(111,63,25,.07) 0 14px,rgba(111,63,25,0) 14px 28px),linear-gradient(160deg,#e9e2d3,#d6cdb9);display:grid;place-items:center;">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:#8a7f6a;text-align:center;padding:0 1rem;">Overlay — zoning districts</span>
+            <span style="position:absolute;top:.7rem;left:.7rem;font-family:'IBM Plex Mono',monospace;font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;background:#fffdfa;color:#6f3f19;padding:.3rem .5rem;border-radius:99px;border:1px solid #ddd5c7;">Land Use &amp; Zoning</span>
+          </div>
+          <div style="padding:1.2rem;display:flex;flex-direction:column;flex:1;">
+            <h3 style="font-family:'Spectral',serif;font-weight:600;font-size:1.28rem;line-height:1.15;">Reading Bastrop County zoning</h3>
+            <p style="margin-top:.6rem;color:#4a4a42;font-size:.95rem;flex:1;">ETJ, county vs. city authority, and the entitlement questions that decide whether a tract pencils.</p>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:1.1rem;font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.04em;color:#9a8f78;">
+              <span>MAY 2026</span><span>7 min</span>
+            </div>
+          </div>
+        </a>
+        <a href="index.html#connect" class="reveal" data-cat="Development Trends" style="display:flex;flex-direction:column;border:1px solid #ddd5c7;border-radius:14px;background:#fffdfa;overflow:hidden;">
+          <div style="position:relative;aspect-ratio:16/10;background-color:#e6e0d2;background-image:repeating-linear-gradient(135deg,rgba(111,63,25,.07) 0 14px,rgba(111,63,25,0) 14px 28px),linear-gradient(160deg,#e9e2d3,#d6cdb9);display:grid;place-items:center;">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:#8a7f6a;text-align:center;padding:0 1rem;">Chart — absorption</span>
+            <span style="position:absolute;top:.7rem;left:.7rem;font-family:'IBM Plex Mono',monospace;font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;background:#fffdfa;color:#6f3f19;padding:.3rem .5rem;border-radius:99px;border:1px solid #ddd5c7;">Development Trends</span>
+          </div>
+          <div style="padding:1.2rem;display:flex;flex-direction:column;flex:1;">
+            <h3 style="font-family:'Spectral',serif;font-weight:600;font-size:1.28rem;line-height:1.15;">What developers are actually building</h3>
+            <p style="margin-top:.6rem;color:#4a4a42;font-size:.95rem;flex:1;">Mixed-use, light industrial, and the formats absorbing fastest in the eastern corridor.</p>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:1.1rem;font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.04em;color:#9a8f78;">
+              <span>APR 2026</span><span>6 min</span>
+            </div>
+          </div>
+        </a>
+        <a href="index.html#connect" class="reveal" data-cat="Investor Updates" style="display:flex;flex-direction:column;border:1px solid #ddd5c7;border-radius:14px;background:#fffdfa;overflow:hidden;">
+          <div style="position:relative;aspect-ratio:16/10;background-color:#e6e0d2;background-image:repeating-linear-gradient(135deg,rgba(111,63,25,.07) 0 14px,rgba(111,63,25,0) 14px 28px),linear-gradient(160deg,#e9e2d3,#d6cdb9);display:grid;place-items:center;">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:#8a7f6a;text-align:center;padding:0 1rem;">Table — Q2 activity</span>
+            <span style="position:absolute;top:.7rem;left:.7rem;font-family:'IBM Plex Mono',monospace;font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;background:#fffdfa;color:#6f3f19;padding:.3rem .5rem;border-radius:99px;border:1px solid #ddd5c7;">Investor Updates</span>
+          </div>
+          <div style="padding:1.2rem;display:flex;flex-direction:column;flex:1;">
+            <h3 style="font-family:'Spectral',serif;font-weight:600;font-size:1.28rem;line-height:1.15;">Q2 land transactions, decoded</h3>
+            <p style="margin-top:.6rem;color:#4a4a42;font-size:.95rem;flex:1;">Where capital moved last quarter, at what basis, and what the comps signal for the back half of the year.</p>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:1.1rem;font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.04em;color:#9a8f78;">
+              <span>APR 2026</span><span>4 min</span>
+            </div>
+          </div>
+        </a>
+        <a href="index.html#connect" class="reveal" data-cat="Education" style="display:flex;flex-direction:column;border:1px solid #ddd5c7;border-radius:14px;background:#fffdfa;overflow:hidden;">
+          <div style="position:relative;aspect-ratio:16/10;background-color:#e6e0d2;background-image:repeating-linear-gradient(135deg,rgba(111,63,25,.07) 0 14px,rgba(111,63,25,0) 14px 28px),linear-gradient(160deg,#e9e2d3,#d6cdb9);display:grid;place-items:center;">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:#8a7f6a;text-align:center;padding:0 1rem;">Guide — due diligence</span>
+            <span style="position:absolute;top:.7rem;left:.7rem;font-family:'IBM Plex Mono',monospace;font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;background:#fffdfa;color:#6f3f19;padding:.3rem .5rem;border-radius:99px;border:1px solid #ddd5c7;">Education</span>
+          </div>
+          <div style="padding:1.2rem;display:flex;flex-direction:column;flex:1;">
+            <h3 style="font-family:'Spectral',serif;font-weight:600;font-size:1.28rem;line-height:1.15;">Due diligence on raw land, step by step</h3>
+            <p style="margin-top:.6rem;color:#4a4a42;font-size:.95rem;flex:1;">Survey, access, utilities, floodplain, and the field checks that protect a commercial buyer.</p>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:1.1rem;font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.04em;color:#9a8f78;">
+              <span>MAR 2026</span><span>9 min</span>
+            </div>
+          </div>
+        </a>
+        <a href="index.html#connect" class="reveal" data-cat="Bastrop Growth" style="display:flex;flex-direction:column;border:1px solid #ddd5c7;border-radius:14px;background:#fffdfa;overflow:hidden;">
+          <div style="position:relative;aspect-ratio:16/10;background-color:#e6e0d2;background-image:repeating-linear-gradient(135deg,rgba(111,63,25,.07) 0 14px,rgba(111,63,25,0) 14px 28px),linear-gradient(160deg,#e9e2d3,#d6cdb9);display:grid;place-items:center;">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:#8a7f6a;text-align:center;padding:0 1rem;">Data — population</span>
+            <span style="position:absolute;top:.7rem;left:.7rem;font-family:'IBM Plex Mono',monospace;font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;background:#fffdfa;color:#6f3f19;padding:.3rem .5rem;border-radius:99px;border:1px solid #ddd5c7;">Bastrop Growth</span>
+          </div>
+          <div style="padding:1.2rem;display:flex;flex-direction:column;flex:1;">
+            <h3 style="font-family:'Spectral',serif;font-weight:600;font-size:1.28rem;line-height:1.15;">The 38% decade and what comes next</h3>
+            <p style="margin-top:.6rem;color:#4a4a42;font-size:.95rem;flex:1;">A decade of growth reshaped demand. Here&rsquo;s the demographic case for the next one.</p>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:1.1rem;font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.04em;color:#9a8f78;">
+              <span>MAR 2026</span><span>5 min</span>
+            </div>
+          </div>
+        </a>
+        <a href="index.html#connect" class="reveal" data-cat="Infrastructure" style="display:flex;flex-direction:column;border:1px solid #ddd5c7;border-radius:14px;background:#fffdfa;overflow:hidden;">
+          <div style="position:relative;aspect-ratio:16/10;background-color:#e6e0d2;background-image:repeating-linear-gradient(135deg,rgba(111,63,25,.07) 0 14px,rgba(111,63,25,0) 14px 28px),linear-gradient(160deg,#e9e2d3,#d6cdb9);display:grid;place-items:center;">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:#8a7f6a;text-align:center;padding:0 1rem;">Map — utility expansion</span>
+            <span style="position:absolute;top:.7rem;left:.7rem;font-family:'IBM Plex Mono',monospace;font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;background:#fffdfa;color:#6f3f19;padding:.3rem .5rem;border-radius:99px;border:1px solid #ddd5c7;">Infrastructure</span>
+          </div>
+          <div style="padding:1.2rem;display:flex;flex-direction:column;flex:1;">
+            <h3 style="font-family:'Spectral',serif;font-weight:600;font-size:1.28rem;line-height:1.15;">Following the water and power lines</h3>
+            <p style="margin-top:.6rem;color:#4a4a42;font-size:.95rem;flex:1;">Utility extension is the quiet signal of where development goes next. How to track it.</p>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:1.1rem;font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.04em;color:#9a8f78;">
+              <span>FEB 2026</span><span>6 min</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BY THE NUMBERS -->
+  <section style="background:#1a1a17;color:#fffdfa;padding-block:clamp(3.4rem,8vw,5rem);">
+    <div class="reveal" style="width:min(calc(100% - 2rem),74rem);margin-inline:auto;">
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:.72rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#d8aa63;">By the numbers</p>
+      <h2 style="font-family:'Spectral',serif;font-weight:600;line-height:1.02;margin-top:.8rem;font-size:clamp(1.7rem,4vw,2.6rem);max-width:24ch;">The data behind the Bastrop County thesis.</h2>
+      <div class="g-stats" style="gap:.8rem;margin-top:2rem;">
+        <div style="border:1px solid rgba(255,253,250,.16);border-radius:10px;background:rgba(255,253,250,.05);padding:1.3rem;">
+          <div style="font-family:'Spectral',serif;font-weight:600;font-size:clamp(1.8rem,4vw,2.6rem);">38%</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:.64rem;letter-spacing:.06em;color:rgba(255,253,250,.66);margin-top:.3rem;">Population growth, 2010&ndash;'24</div>
+        </div>
+        <div style="border:1px solid rgba(255,253,250,.16);border-radius:10px;background:rgba(255,253,250,.05);padding:1.3rem;">
+          <div style="font-family:'Spectral',serif;font-weight:600;font-size:clamp(1.8rem,4vw,2.6rem);">2</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:.64rem;letter-spacing:.06em;color:rgba(255,253,250,.66);margin-top:.3rem;">Major corridors: Hwy 71 &amp; SH 130</div>
+        </div>
+        <div style="border:1px solid rgba(255,253,250,.16);border-radius:10px;background:rgba(255,253,250,.05);padding:1.3rem;">
+          <div style="font-family:'Spectral',serif;font-weight:600;font-size:clamp(1.8rem,4vw,2.6rem);">30 min</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:.64rem;letter-spacing:.06em;color:rgba(255,253,250,.66);margin-top:.3rem;">To Austin-Bergstrom airport</div>
+        </div>
+        <div style="border:1px solid rgba(255,253,250,.16);border-radius:10px;background:rgba(255,253,250,.05);padding:1.3rem;">
+          <div style="font-family:'Spectral',serif;font-weight:600;font-size:clamp(1.8rem,4vw,2.6rem);">$25B</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:.64rem;letter-spacing:.06em;color:rgba(255,253,250,.66);margin-top:.3rem;">Regional capital projects in motion</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUBSCRIBE -->
+  <section style="background:#efeadd;padding-block:clamp(3.4rem,8vw,5.5rem);border-top:1px solid #ddd5c7;">
+    <div class="reveal" style="width:min(calc(100% - 2rem),46rem);margin-inline:auto;text-align:center;">
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:.72rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#a8652d;">Investor updates</p>
+      <h2 style="font-family:'Spectral',serif;font-weight:600;line-height:1.02;margin-top:.8rem;font-size:clamp(1.8rem,5vw,2.8rem);">Get the Bastrop brief.</h2>
+      <p style="margin-top:1rem;color:#4a4a42;font-size:1.05rem;max-width:34rem;margin-inline:auto;">A monthly read on corridors, deals, and development trends — written for serious buyers and investors. No fluff.</p>
+      <form data-success="subscribed" style="display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center;margin-top:1.6rem;">
+        <input required type="email" placeholder="you@company.com" style="flex:1 1 16rem;max-width:22rem;border:1px solid #ddd5c7;border-radius:7px;background:#fffdfa;padding:.85rem 1rem;font-size:.98rem;" />
+        <button type="submit" style="min-height:3.1rem;border:none;border-radius:7px;background:#1a1a17;color:#fffdfa;padding:0 1.4rem;font-weight:700;font-size:.95rem;cursor:pointer;">Subscribe</button>
+      </form>
+      <p id="subscribed" hidden style="margin-top:1.6rem;display:inline-flex;align-items:center;gap:.6rem;font-family:'Spectral',serif;font-size:1.2rem;font-weight:600;color:#34402f;"><span style="width:1.8rem;height:1.8rem;display:grid;place-items:center;border-radius:99px;background:#34402f;color:#eef0e8;font-size:.9rem;">&#10003;</span> You're on the list.</p>
+    </div>
+  </section>
+</main>
+
+<footer style="background:#1a1a17;color:rgba(255,253,250,.7);padding-block:clamp(2.6rem,6vw,4rem);">
+  <div class="g-foot" style="width:min(calc(100% - 2rem),74rem);margin-inline:auto;gap:2rem;">
+    <div>
+      <div style="display:inline-flex;align-items:center;gap:.7rem;">
+        <span style="width:2.5rem;height:2.5rem;display:grid;place-items:center;border-radius:7px;background:#fffdfa;color:#1a1a17;font-family:'Spectral',serif;font-weight:700;font-size:1.05rem;">G</span>
+        <span style="color:#fffdfa;font-weight:800;font-size:1.05rem;">Bastrop Commercial</span>
+      </div>
+      <p style="margin-top:1rem;max-width:26rem;font-size:.92rem;">Commercial &amp; development land across Bastrop County, Texas. A Goldspur Enterprises company, in partnership with Spyglass Realty.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem;">
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:#d8aa63;">Explore</div>
+        <ul style="list-style:none;margin-top:.8rem;display:grid;gap:.5rem;font-size:.92rem;">
+          <li><a href="index.html#properties">Properties</a></li>
+          <li><a href="marketing.html">Marketing</a></li>
+          <li><a href="insights.html">Commercial Insights</a></li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:#d8aa63;">Contact</div>
+        <ul style="list-style:none;margin-top:.8rem;display:grid;gap:.5rem;font-size:.92rem;">
+          <li><a href="tel:+15128776292">512-877-6292</a></li>
+          <li><a href="mailto:taylor@spyglassrealty.com">taylor@spyglassrealty.com</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div style="width:min(calc(100% - 2rem),74rem);margin-inline:auto;margin-top:2.4rem;padding-top:1.4rem;border-top:1px solid rgba(255,253,250,.14);font-size:.82rem;">
+    Copyright <span data-year>2026</span> Bastrop Commercial. Made with a little help from <a href="https://bastropcode.com" style="color:#d8aa63;font-weight:700;">BastropCode.com</a>.
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
