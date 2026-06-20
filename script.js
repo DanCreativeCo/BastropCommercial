@@ -1,4 +1,4 @@
-/* Bastrop Commercial — shared interactions
+/* Bastrop Commercial, shared interactions
    Vanilla-JS port of the Claude Design DCLogic components. Every feature is
    guarded by element presence, so this one file serves all pages. */
 (function () {
