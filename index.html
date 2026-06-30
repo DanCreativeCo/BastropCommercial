@@ -28,6 +28,7 @@
     <a href="#properties" style="color:#3a3a34;">Properties</a>
     <a href="#services" style="color:#3a3a34;">Services</a>
     <a href="#market" style="color:#3a3a34;">Market</a>
+    <a href="#thoughts" style="color:#3a3a34;">Thoughts</a>
     <a href="marketing.html" style="color:#3a3a34;">Marketing</a>
     <a href="insights.html" style="color:#3a3a34;">Insights</a>
   </nav>
@@ -273,6 +274,27 @@
     </div>
   </section>
 
+  <!-- THOUGHTS (Facebook feed) -->
+  <!-- Cards are rendered by script.js from thoughts.json. To add a post, append
+       an object { "text", "date" (YYYY-MM-DD), "tag" (optional), "url" } to that
+       file. If the feed is empty or fails to load, this whole section hides itself. -->
+  <section id="thoughts" style="background:#efeadd;padding-block:clamp(4rem,9vw,7rem);border-block:1px solid #ddd5c7;">
+    <div style="width:min(calc(100% - 2rem),74rem);margin-inline:auto;">
+      <div class="reveal" style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1rem;">
+        <div style="max-width:44rem;">
+          <p style="font-family:'IBM Plex Mono',monospace;font-size:.72rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#a8652d;">Thoughts · from the field</p>
+          <h2 style="font-family:'Spectral',serif;font-weight:600;line-height:1.02;letter-spacing:-.015em;margin-top:.9rem;font-size:clamp(2rem,5vw,3.1rem);">Short takes between the deals.</h2>
+          <p style="margin-top:1rem;color:#4a4a42;font-size:1.05rem;max-width:40rem;">Quick reads from the ground, the corridors, and the Facebook feed, shared as they happen. The long-form thinking lives in <a href="insights.html" style="color:#a8652d;font-weight:700;border-bottom:1px solid #d8aa63;">Commercial Insights</a>.</p>
+        </div>
+        <a href="https://www.facebook.com/BastropCommercial" target="_blank" rel="noopener" style="flex:0 0 auto;min-height:2.9rem;display:inline-flex;align-items:center;gap:.5rem;border:1px solid #14263f;border-radius:7px;background:#fffdfa;color:#14263f;padding:0 1.1rem;font-weight:700;font-size:.9rem;">Follow on Facebook &#8594;</a>
+      </div>
+
+      <div id="thoughts-grid" class="reveal g-3" data-thoughts data-src="thoughts.json" style="gap:1.1rem;margin-top:2.4rem;">
+        <!-- Thought cards injected here by script.js -->
+      </div>
+    </div>
+  </section>
+
   <!-- CONNECT / FORMS -->
   <section id="connect" style="background:#f7f4ed;padding-block:clamp(4rem,9vw,7rem);">
     <div style="width:min(calc(100% - 2rem),60rem);margin-inline:auto;">
@@ -376,6 +398,7 @@
         <div style="font-family:'IBM Plex Mono',monospace;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:#d8aa63;">Explore</div>
         <ul style="list-style:none;margin-top:.8rem;display:grid;gap:.5rem;font-size:.92rem;">
           <li><a href="#properties">Properties</a></li>
+          <li><a href="#thoughts">Thoughts</a></li>
           <li><a href="marketing.html">Marketing</a></li>
           <li><a href="insights.html">Commercial Insights</a></li>
         </ul>

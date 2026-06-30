@@ -125,6 +125,76 @@
     });
   });
 
+  /* ---- Thoughts feed (home): render short Facebook posts from JSON ---- */
+  var thoughtsHost = document.querySelector('[data-thoughts]');
+  if (thoughtsHost) {
+    var thoughtsSrc = thoughtsHost.getAttribute('data-src') || 'thoughts.json';
+    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    var fmtThoughtDate = function (iso) {
+      var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(String(iso || ''));
+      return m ? months[Number(m[2]) - 1] + ' ' + Number(m[3]) + ', ' + m[1] : '';
+    };
+    var hideThoughts = function () {
+      var sec = thoughtsHost.closest('section');
+      if (sec) sec.hidden = true;
+    };
+    var buildThought = function (p) {
+      var hasLink = !!p.url;
+      var card = document.createElement(hasLink ? 'a' : 'article');
+      if (hasLink) {
+        card.href = p.url;
+        card.target = '_blank';
+        card.rel = 'noopener';
+      }
+      card.style.cssText = 'display:flex;flex-direction:column;border:1px solid #ddd5c7;border-radius:14px;background:#fffdfa;overflow:hidden;padding:1.5rem;';
+
+      var head = document.createElement('div');
+      head.style.cssText = 'display:flex;align-items:center;gap:.6rem;';
+      var glyph = document.createElement('span');
+      glyph.setAttribute('aria-hidden', 'true');
+      glyph.style.cssText = 'width:1.9rem;height:1.9rem;flex:0 0 auto;display:grid;place-items:center;border-radius:6px;background:#14263f;color:#d8aa63;font-family:\'Spectral\',serif;font-weight:700;font-size:.95rem;';
+      glyph.textContent = 'f';
+      var meta = document.createElement('div');
+      meta.style.cssText = 'display:flex;flex-direction:column;line-height:1.15;';
+      var label = document.createElement('span');
+      label.style.cssText = 'font-family:\'IBM Plex Mono\',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:#a8652d;';
+      label.textContent = p.tag || 'Thought';
+      var date = document.createElement('span');
+      date.style.cssText = 'font-family:\'IBM Plex Mono\',monospace;font-size:.6rem;letter-spacing:.04em;color:#9a8f78;margin-top:.15rem;';
+      date.textContent = fmtThoughtDate(p.date);
+      meta.appendChild(label);
+      if (date.textContent) meta.appendChild(date);
+      head.appendChild(glyph);
+      head.appendChild(meta);
+
+      var body = document.createElement('p');
+      body.style.cssText = 'font-family:\'Spectral\',serif;font-size:1.12rem;line-height:1.45;color:#3a3a34;margin-top:1rem;flex:1;';
+      body.textContent = p.text;
+
+      card.appendChild(head);
+      card.appendChild(body);
+
+      if (hasLink) {
+        var cta = document.createElement('span');
+        cta.style.cssText = 'margin-top:1.2rem;font-family:\'IBM Plex Mono\',monospace;font-size:.66rem;letter-spacing:.04em;font-weight:600;color:#a8652d;';
+        cta.textContent = 'View on Facebook →';
+        card.appendChild(cta);
+      }
+      return card;
+    };
+
+    fetch(thoughtsSrc, { cache: 'no-cache' })
+      .then(function (r) { if (!r.ok) throw new Error('thoughts ' + r.status); return r.json(); })
+      .then(function (data) {
+        var posts = Array.isArray(data) ? data : (data && data.posts) || [];
+        var frag = document.createDocumentFragment();
+        posts.forEach(function (p) { if (p && p.text) frag.appendChild(buildThought(p)); });
+        if (!frag.childNodes.length) { hideThoughts(); return; }
+        thoughtsHost.appendChild(frag);
+      })
+      .catch(function () { hideThoughts(); });
+  }
+
   /* ---- Filter chips (insights / marketing) ---- */
   document.querySelectorAll('[data-filters]').forEach(function (group) {
     var chips = group.querySelectorAll('[data-filter]');
